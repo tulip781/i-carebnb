@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  # skip_before_action :authenticate_user!, only: [:index, :show]
+
   def new
   end
 
@@ -6,6 +8,12 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @room = Room.find(params[:id])
+    if @room.public_visible
+      # do something
+    else
+      redirect_to home_path
+    end
   end
 
   def create

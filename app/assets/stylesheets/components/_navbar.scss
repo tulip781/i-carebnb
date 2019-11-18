@@ -14,4 +14,10 @@
 .nav-link {
   margin: 0 10px;
   color: white !important;
+  font-family: "Alata", "Helvetica", "sans-serif";
+  letter-spacing: 0.03em;
+}
+
+.nav-link:hover {
+  color: #e5e5e5 !important;
 }

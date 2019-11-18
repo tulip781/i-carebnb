@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+    before_action_skip :authenticate_user! only:
+
   def new
   end
 

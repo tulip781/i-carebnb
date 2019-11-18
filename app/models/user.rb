@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   validates :first_name, presence: true
   validates :surname, presence: true
-  validates :email_address, presence: true
+  validates :email_address, uniqueness: true, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

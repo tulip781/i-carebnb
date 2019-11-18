@@ -8,6 +8,7 @@ class CreateRooms < ActiveRecord::Migration[5.2]
       t.integer :beds
       t.integer :max_stay_length
       t.string :availability
+      t.references :user
 
       t.timestamps
     end

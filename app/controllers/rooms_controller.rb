@@ -15,7 +15,7 @@ class RoomsController < ApplicationController
       @room = Room.find(params[:id])
 
     else
-      redirect_to home_path
+      redirect_to landing_path
     end
   end
 

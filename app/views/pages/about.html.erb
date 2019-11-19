@@ -1,44 +1,59 @@
-
-  <div class="py-5">
-    <div class="container">
-      <h1>How can you help change a life and see it happen with your own eyes?</h1>
-      <p class="lead">icarebnb gives you direct control over the help you give someone in need.</p>
-      <p>
-  You help them to ultimately help themselves.  So how does it work?
-You control which charities you support.  This can be all of the charities registered with icarebnb or just some of them.
-You register with us.  This is the first step to changing lives.  Registration will give you access to information from the icarebnb support charities of your choice.
-If you have a spare room, you can register to become a host.
-Because charities are putting potentially vulnerable people in your home, the charities may have specific policies to safeguard them.  This can involve criminal record checks home visits and training with practical tips, advice on maintaining boundaries and how to access support.  This can differ from charity to charity but you may want to start the process for criminal record checks soon after you register.  https://dbscheckonline.org.uk/individuals.</p>
+<div class="container">
+  <h1 class="text-center m-0 p-0">Our Cause</h1>
+  <div class="pic-text d-flex justify-content-around m-0">
+    <%= image_tag "about.png", style:"height:300px", class:"align-self-center"  %>
+    <div class="text-wrap p-3">
+      <h2>How can you help change a life and see it happen with your own eyes?</h2>
+      <p class="lead">
+        <strong>icarebnb</strong> gives you direct control over the help you give someone in need.
+        You help them to ultimately help themselves.  <mark>So how does it work?</mark>
+      </p>
+      <p class="lead">You control which charities you support.
+        This can be all of the charities registered with icarebnb or just some of them.</p>
+      <p class="lead">You register with us.  This is the first step to <mark>changing lives.</mark>
+        Registration will give you access to information from the icarebnb support charities of your choice.</p>
     </div>
   </div>
 
-  <!-- Image Section - set the background image for the header in the line below -->
-  <div class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1081');">
-    <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
-    <div style="height: 200px;"></div>
+  <div class="pic-text d-flex justify-content-around">
+    <div class="text-wrap p-5">
+      <h4>If you have a spare room, you can register to become a host.</h4>
+      <p class="lead"> Because charities are putting potentially vulnerable people in your home, the charities may have specific
+      policies to safeguard them.  This can involve criminal record checks home visits and training with
+      practical tips, advice on maintaining boundaries and how to access support. This can differ from charity
+      to charity but you may want to start the process for criminal record checks soon after you register.
+      https://dbscheckonline.org.uk/individuals. </p>
+
+      <p class="lead">You can offer your spare room for as many nights as you are comfortable with.
+      You might want to start with one night initially and increase
+      it as you become more familiar with the idea.</p>
+    </div>
+    <%= image_tag "about2.png", style:"height:300px", class:"align-self-center" %>
   </div>
 
-  <!-- Content section -->
-  <div class="py-5">
-    <div class="container">
-      <h1>Our Mission</h1>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
+  <div class="pic-text d-flex justify-content-around">
+    <%= image_tag "1.png", style:"height:300px", class:"align-self-center"  %>
+    <div class="text-wrap p-5">
+      <h4>Different charities take different approaches to vetting the guests who you would host. </h5>
+      <p class="lead"><strong><mark>You are in complete control</mark></strong> - when a charity contacts you through icarebnb to see
+      if you can host a specific guest, you should ask as many questions as you need to to get
+      comfortable with hosting that guest. That is a great opportunity to see how that guest has
+      been vetted by the charity.</p>
+      <p class="lead">
+        Ideally, hosts provide an evening meal, a private room, somewhere for guests to wash and breakfast.
+        You can ultimately do as much or as little as you can or would like to.
+        This is something you can agree with the charity when they contact you to see if you are willing to host.
+      </p>
     </div>
   </div>
+  <p class="lead">
+  Different charities take different approaches to reimbursing hosts.
+  Some charities reimburse hosts for the expenses they incur, and some
+  provide hosts with toiletries to offer to any guests they introduce.
+  </p>
 
-
-  <!-- Image Section - set the background image for the header in the line below -->
-  <div class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1081');">
-    <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
-    <div style="height: 200px;"></div>
+  <div class="form-actions btn btn-secondary mt-4">
+        <%= link_to "Join as a Host", new_user_registration_path, class: "nav-link" %>
   </div>
 
-  <!-- Content section -->
-  <div class="py-5">
-    <div class="container">
-      <h1>Social Impact</h1>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
-    </div>
-  </div>
+</div>

@@ -1,20 +1,41 @@
 class BookingsController < ApplicationController
   def index
+    @booking = Booking.all
   end
 
   def show
   end
 
+  def new
+    @booking = Booking.new
+  end
+
   def create
+    @booking = Booking.new(booking_params)
+    if @booking.save
+      redirect_to bookings_show_path(@booking)
+      # check path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    @booking.update(booking_params)
+    redirect_to bookings_show_path(@booking)
   end
 
   def destroy
+    params.require(:booking).permit(:user_id, :room_id, :adults, :children, :infants, :start_date, :end_date, :submit, :confirmed)
+  end
+
+private
+
+  def booking_params
+    params.require(:booking).permit(:user_id, :room_id, :adults, :children, :infants, :start_date, :end_date, :submit, :confirmed)
   end
 end
 
@@ -26,3 +47,6 @@ end
 # can send it to the host.  one of the attributes it sends to the host is the actual host details and the appartment which
 # needs to match the host receiving the booking
 # host is in control of creation of the booking, so it triggers the create method.
+
+# pseudo code:
+#

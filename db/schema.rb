@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+controller_route_update_and_schema_user_update
 ActiveRecord::Schema.define(version: 2019_11_19_144258) do
 
   # These are extensions that must be enabled in order to support this database

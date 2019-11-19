@@ -1,0 +1,13 @@
+.box-design {
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 5px 4px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 0px 5px 4px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 5px 4px rgba(0,0,0,0.15);
+  background-color: white;
+}
+
+.background {
+  background-image: url('sleep.svg');
+  background-repeat: no-repeat;
+  background-position: 20%;
+}

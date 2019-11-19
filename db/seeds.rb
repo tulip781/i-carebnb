@@ -21,6 +21,9 @@ flats_images = ["https://raw.githubusercontent.com/lewagon/flats-boilerplate/mas
 "https://ksassets.timeincuk.net/wp/uploads/sites/56/2013/05/Blue-bedroom-ideas-1.jpg",
 "https://www.noaandnani.co.uk/images/hampshire-single-bed-frame-in-white-p919-6359_image.jpg"]
 
+
+
+
 puts "creating users ;)"
 10.times do
   user = User.create(
@@ -50,7 +53,7 @@ puts "creating rooms ;)"
     max_stay_length: rand(5),
     image_url: flats_images[rand(8)],
     availability: [true, false].sample,
-    user: User.all.sample
+    user: User.all.sample,
    )
  room.save!
 end

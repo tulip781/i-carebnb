@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def search
+  @rooms = Room.all.sample(3)
   end
 end

@@ -21,6 +21,13 @@ flats_images = ["https://raw.githubusercontent.com/lewagon/flats-boilerplate/mas
 "https://ksassets.timeincuk.net/wp/uploads/sites/56/2013/05/Blue-bedroom-ideas-1.jpg",
 "https://www.noaandnani.co.uk/images/hampshire-single-bed-frame-in-white-p919-6359_image.jpg"]
 
+title_array = ["Single Room in Hoxton", "Single Room in Haggerston", "Single Room in Bank",
+"Single Room in Balham", "Single Room in Kings Cross", "Single Room in Hackney", "Single Room in Peckham"
+,"Single Room in Stepney", "Double Room in Mile End", "Double Room in Bethnal Green"
+,"Double Room in Stratford" ]
+
+
+
 puts "creating users ;)"
 10.times do
   user = User.create(
@@ -33,6 +40,7 @@ puts "creating users ;)"
     date_of_birth: Faker::Date.backward(days: 400),
     gender: ["Male", "Female"].sample ,
     host: [true, false].sample,
+    password: "123456"
     )
 end
 puts "creating rooms ;)"
@@ -50,6 +58,7 @@ puts "creating rooms ;)"
     image_url: flats_images[rand(8)],
     availability: [true, false].sample,
     user: User.all.sample
+    title: title_array[rand(10)],
    )
  room.save!
 end

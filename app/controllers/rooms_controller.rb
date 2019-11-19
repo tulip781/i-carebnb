@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_room, only: [:edit, :update, :destroy]
+  before_action :set_room, only: [:edit, :show, :update, :destroy]
 
   def new
     @room = Room.new
@@ -11,12 +11,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    if @room.public_visible
-      @room = Room.find(params[:id])
 
-    else
-      redirect_to landing_path
-    end
   end
 
   def create
@@ -34,7 +29,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:adult_space, :child_space, :infant_space, :beds, :max_stay_length, :availability, :public_visible)
+    params.require(:room).permit(:adult_space, :child_space, :infant_space, :beds, :max_stay_length, :availability)
   end
 
   def set_room

@@ -1,1 +1,15 @@
 // Specific CSS for your home-page
+.fullscreen {
+  height: 85vh;
+  min-height: 300px;
+  background-image: url("home.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-size: 4em;
+  color: #3F3D56;
+  margin-bottom: 30px;
+}

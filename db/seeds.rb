@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require 'pry'
 
 Room.destroy_all
 
 User.destroy_all
-user1 = User.create
 
 flats_images = ["https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat1.jpg",
 "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat2.jpg",
@@ -33,6 +33,7 @@ puts "creating users ;)"
     date_of_birth: Faker::Date.backward(days: 400),
     gender: ["Male", "Female"].sample ,
     host: [true, false].sample,
+    password: "123456"
     )
 end
 puts "creating rooms ;)"

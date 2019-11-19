@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
     if @room.public_visible
       # do something
     else
-      redirect_to home_path
+      redirect_to landing_path
     end
   end
 

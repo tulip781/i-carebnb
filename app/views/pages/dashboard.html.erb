@@ -1,6 +1,36 @@
+<div class="container">
 <h2> Welcome <%= current_user.first_name %>- this is your dashboard.</h2>
 
+<h3>Bookmarked properties</h3>
 
+<!-- Bookmarked Properties -->
+<div class="d-flex ">
+<div class="card m-3 card-radius" style="width: 285px">
+  <img class="card-img-top card-image-radius" src="https://www.roomtogrow.co.uk/app/uploads/2019/05/Urban-Birch-Bunk-UBB1.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Single room in Hoxton</h5>
+    <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 1 bed available</span></i>
+    <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.8 miles away</span></i>
+    <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Shared facilities</span></i>
+  </div>
+</div>
+
+<div class="card m-3 card-radius" style="width: 285px">
+  <img class="card-img-top card-image-radius" src="https://ii1.pepperfry.com/media/catalog/product/s/w/494x544/swirl-single-bed-with-box-storage-in-denver-oak-finish-by-hometown-swirl-single-bed-with-box-storage-dtz9tx.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Family room in Shoreditch</h5>
+    <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 3 beds available</span></i>
+    <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.2 miles away</span></i>
+    <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Ensuite facilities</span></i>
+  </div>
+</div>
+
+
+</div>
+
+
+<!-- Inbox Section -->
+<h2>Messages</h2>
 <table class="table table-inbox table-hover">
 <tbody>
   <tr class="unread">
@@ -8,7 +38,7 @@
           <input type="checkbox" class="mail-checkbox">
       </td>
       <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-      <td class="view-message  dont-show">PHPClass</td>
+      <td class="view-message  dont-show">IcareBnb: Room Enquiry for <%= current_user.first_name %></td>
       <td class="view-message ">Request for a new room</td>
       <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
       <td class="view-message  text-right">9:27 AM</td>
@@ -18,8 +48,8 @@
           <input type="checkbox" class="mail-checkbox">
       </td>
       <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-      <td class="view-message dont-show">Google Webmaster </td>
-      <td class="view-message">Improve the search presence of WebSite</td>
+      <td class="view-message dont-show">IcareBnb: Confirming a booking</td>
+      <td class="view-message">Thank you <%= current_user.first_name %>!</td>
       <td class="view-message inbox-small-cells"></td>
       <td class="view-message text-right">March 15</td>
   </tr>
@@ -28,8 +58,8 @@
           <input type="checkbox" class="mail-checkbox">
       </td>
       <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-      <td class="view-message dont-show">JW Player</td>
-      <td class="view-message">Last Chance: Upgrade to Pro for </td>
+      <td class="view-message dont-show">IcareBnb: Room Check</td>
+      <td class="view-message">Checking Availblilty for these dates <%= current_user.first_name %> </td>
       <td class="view-message inbox-small-cells"></td>
       <td class="view-message text-right">March 15</td>
   </tr>
@@ -38,8 +68,8 @@
           <input type="checkbox" class="mail-checkbox">
       </td>
       <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-      <td class="view-message dont-show">Tim Reid, S P N</td>
-      <td class="view-message">Boost Your Website Traffic</td>
+      <td class="view-message dont-show">IcareBnb: Room</td>
+      <td class="view-message">Hi <%= current_user.first_name %> we wanted to check...</td>
       <td class="view-message inbox-small-cells"></td>
       <td class="view-message text-right">April 01</td>
   </tr>
@@ -48,11 +78,11 @@
           <input type="checkbox" class="mail-checkbox">
       </td>
       <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-      <td class="view-message dont-show">Freelancer.com <span class="label label-danger pull-right">urgent</span></td>
-      <td class="view-message">Stop wasting your visitors </td>
+      <td class="view-message dont-show">IcareBnb user <%= current_user.first_name %> <span class="label label-danger pull-right">urgent</span></td>
+      <td class="view-message">Thank you for your response <%= current_user.first_name %> </td>
       <td class="view-message inbox-small-cells"></td>
       <td class="view-message text-right">May 23</td>
   </tr>
 </tbody>
 </table>
-
+</div>

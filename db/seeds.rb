@@ -23,7 +23,6 @@ flats_images = ["https://raw.githubusercontent.com/lewagon/flats-boilerplate/mas
 
 
 
-
 puts "creating users ;)"
 10.times do
   user = User.create(

@@ -1,16 +1,20 @@
 class RoomsController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_room, only: [:edit, :update, :destroy]
+
 
   def new
+    @room = Room.new
   end
 
   def index
+    @room = Room.all
   end
 
   def show
-    @room = Room.find(params[:id])
     if @room.public_visible
-      # do something
+      @room = Room.find(params[:id])
+
     else
       redirect_to home_path
     end
@@ -27,7 +31,18 @@ class RoomsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def room_params
+    params.require(:room).permit(:adult_space, :child_space, :infant_space, :beds, :max_stay_length, :availability, :public_visible)
+  end
+
+  def set_room
+        @room = Room.find(params[:id])
+  end
 end
+
 
 # what do we want the rooms controller to do?
 #   new - get the form for all of the attributes, including an image,

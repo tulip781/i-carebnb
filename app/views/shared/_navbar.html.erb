@@ -15,7 +15,7 @@
           <%= link_to "Dashboard", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Find a Room", "#", class: "nav-link" %>
+          <%= link_to "Find a Room", search_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
@@ -33,10 +33,10 @@
           <%= link_to "Find a Room", search_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Get Involved", "#", class: "nav-link" %>
+          <%= link_to "Get Involved", about_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign Up", "#", class: "nav-link" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>

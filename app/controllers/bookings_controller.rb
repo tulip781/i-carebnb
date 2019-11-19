@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-    before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
     @booking = Booking.all
@@ -14,9 +14,10 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    # @booking.room =
     if @booking.save
       redirect_to booking_path(@booking)
-      # check path
     else
       render :new
     end
@@ -33,20 +34,18 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     redirect_to root_path
-
   end
 
 private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :room_id, :adults, :children, :infants, :start_date, :end_date, :submit, :confirmed)
+    params.require(:booking).permit(:number_of_adults, :number_of_children, :number_of_infants, :start_date, :end_date)
   end
 
   def set_booking
-        @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:id])
   end
 end
-
 
 # booking should only happen when the host confirms the booking sent to it by the charity.
 

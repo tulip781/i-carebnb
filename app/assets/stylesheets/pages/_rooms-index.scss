@@ -33,9 +33,16 @@
   }
 }
 
-@media(max-width:992px) {
+@media(max-width:991px) {
   .search-bar {
   margin-bottom: 35px;
   margin-top: 0;
   }
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+h1 {
+  font-size: 3em;
 }

@@ -1,2 +1,20 @@
-<h1>Rooms#edit</h1>
-<p>Find me in app/views/rooms/edit.html.erb</p>
+<%= simple_form_for(@room) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :address %>
+    <%= f.input :adult_space %>
+    <%= f.input :child_space %>
+    <%= f.input :infant_space %>
+    <%= f.input :beds %>
+    <%= f.input :max_stay_length %>
+    <%= f.input :image_url %>
+    <%= f.input :availability %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn-primary" %>
+  </div>
+<% end %>

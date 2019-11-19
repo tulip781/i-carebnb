@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_103637) do
+ActiveRecord::Schema.define(version: 2019_11_19_115512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 2019_11_19_103637) do
     t.bigint "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "confirmed", default: false
+    t.boolean "host_control", default: true
+    t.integer "number_of_adults"
+    t.integer "number_of_children"
+    t.integer "number_of_infants"
     t.index ["room_id"], name: "index_bookings_on_room_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -31,12 +36,12 @@ ActiveRecord::Schema.define(version: 2019_11_19_103637) do
     t.integer "infant_space"
     t.integer "beds"
     t.integer "max_stay_length"
-    t.string "availability"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
     t.string "title"
+    t.boolean "availability", default: true
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 

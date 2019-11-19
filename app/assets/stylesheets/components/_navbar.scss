@@ -1,12 +1,23 @@
-.navbar-lewagon {
+.navbar-icare {
   justify-content: space-between;
-  background: white;
+  background: #ea8a8a;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-icare .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-icare .navbar-brand img {
+  width: 50px;
+}
+
+.nav-link {
+  margin: 0 10px;
+  color: white !important;
+  font-family: "Alata", "Helvetica", "sans-serif";
+  letter-spacing: 0.03em;
+}
+
+.nav-link:hover {
+  color: #e5e5e5 !important;
 }

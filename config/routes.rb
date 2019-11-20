@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'about', to: "pages#about"
   get 'dashboard', to: "pages#dashboard"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  authenticated :user do
+    root :to => "pages#dashboard"
+  end
   root to: 'pages#landing'
 end
 

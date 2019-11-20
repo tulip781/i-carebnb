@@ -8,93 +8,23 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
-      <div class="card mb-3 card-radius">
-        <img class="card-img-top card-image-radius" src="https://www.roomtogrow.co.uk/app/uploads/2019/05/Urban-Birch-Bunk-UBB1.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Single room in Hoxton</h5>
-          <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 1 bed available</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.8 miles away</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Shared facilities</span></i>
+    <% @rooms.each do |room| %>
+      <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
+        <div class="card mb-3 card-radius">
+          <img class="card-img-top card-image-radius" src="<%= room.image_url%>" alt="Card image cap">
+          <div class="card-body">
+            <h5>
+              <%= link_to room_path(room), class:"card-title" do %>
+              <%= room.beds %> 'beds in' <%= room.address  %></h5>
+              <% end %>
+            <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= room.beds%> beds available</span></i>
+            <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.8 miles away</span></i>
+            <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Shared facilities</span></i>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
-      <div class="card mb-3 card-radius">
-        <img class="card-img-top card-image-radius" src="https://ii1.pepperfry.com/media/catalog/product/s/w/494x544/swirl-single-bed-with-box-storage-in-denver-oak-finish-by-hometown-swirl-single-bed-with-box-storage-dtz9tx.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Family room in Shoreditch</h5>
-          <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 3 beds available</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.2 miles away</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Ensuite facilities</span></i>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
-      <div class="card mb-3 card-radius">
-        <img class="card-img-top card-image-radius" src="https://images-na.ssl-images-amazon.com/images/I/81Chh4C6mML._SL1500_.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Double room in Hoxton</h5>
-          <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 2 beds available</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 1.2 miles away</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Shared facilities</span></i>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
-      <div class="card mb-3 card-radius">
-        <img class="card-img-top card-image-radius" src="https://www.cuckooland.com/dnc/cuckooland/artwork/product_images/Pino-White-Kids-Single-Bed.jpg?quality=95&scale=canvas&width=400&height=400" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Single room in Spitalfields</h5>
-          <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 1 bed available</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.3 miles away</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Ensuite facilities</span></i>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
-      <div class="card mb-3 card-radius">
-        <img class="card-img-top card-image-radius" src="https://www.roomtogrow.co.uk/app/uploads/2019/05/Urban-Birch-Bunk-UBB1.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Single room in Hoxton</h5>
-          <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 1 bed available</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.8 miles away</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Shared facilities</span></i>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
-      <div class="card mb-3 card-radius">
-        <img class="card-img-top card-image-radius" src="https://ii1.pepperfry.com/media/catalog/product/s/w/494x544/swirl-single-bed-with-box-storage-in-denver-oak-finish-by-hometown-swirl-single-bed-with-box-storage-dtz9tx.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Family room in Shoreditch</h5>
-          <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 3 beds available</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.2 miles away</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Ensuite facilities</span></i>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
-      <div class="card mb-3 card-radius">
-        <img class="card-img-top card-image-radius" src="https://images-na.ssl-images-amazon.com/images/I/81Chh4C6mML._SL1500_.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Double room in Hoxton</h5>
-          <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 2 beds available</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 1.2 miles away</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Shared facilities</span></i>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
-      <div class="card mb-3 card-radius">
-        <img class="card-img-top card-image-radius" src="https://www.cuckooland.com/dnc/cuckooland/artwork/product_images/Pino-White-Kids-Single-Bed.jpg?quality=95&scale=canvas&width=400&height=400" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Single room in Spitalfields</h5>
-          <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 1 bed available</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.3 miles away</span></i>
-          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Ensuite facilities</span></i>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
+
+

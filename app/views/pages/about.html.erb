@@ -1,59 +1,35 @@
 <div class="container">
-  <h1 class="text-center m-0 p-0">Our Cause</h1>
-  <div class="pic-text d-flex justify-content-around m-0">
-    <%= image_tag "about.png", style:"height:300px", class:"align-self-center"  %>
-    <div class="text-wrap p-3">
-      <h2>How can you help change a life and see it happen with your own eyes?</h2>
-      <p class="lead">
-        <strong>icarebnb</strong> gives you direct control over the help you give someone in need.
-        You help them to ultimately help themselves.  <mark>So how does it work?</mark>
-      </p>
-      <p class="lead">You control which charities you support.
-        This can be all of the charities registered with icarebnb or just some of them.</p>
-      <p class="lead">You register with us.  This is the first step to <mark>changing lives.</mark>
-        Registration will give you access to information from the icarebnb support charities of your choice.</p>
+  <div class="row">
+    <div class="col-12">
+      <div class="jumbotron mt-5 p-5">
+        <h1 class="display-4">Our Mission</h1>
+        <hr class="my-4">
+        <p class="lead">We aim to connect people who want to make a difference by volunteering a room in their house for a select period of time to charities who are in contact with those most in need. <br><br>There are over 300,000 homeless people in the UK and we hope we can make a difference by bringing volunteers and the homeless together to arrange temporary accomodation.</p>
+        <div class="form-actions btn btn-secondary mt-4">
+          <%= link_to "Join as a Host", new_user_registration_path, class: "nav-link" %>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="pic-text d-flex justify-content-around">
-    <div class="text-wrap p-5">
-      <h4>If you have a spare room, you can register to become a host.</h4>
-      <p class="lead"> Because charities are putting potentially vulnerable people in your home, the charities may have specific
-      policies to safeguard them.  This can involve criminal record checks home visits and training with
-      practical tips, advice on maintaining boundaries and how to access support. This can differ from charity
-      to charity but you may want to start the process for criminal record checks soon after you register.
-      https://dbscheckonline.org.uk/individuals. </p>
-
-      <p class="lead">You can offer your spare room for as many nights as you are comfortable with.
-      You might want to start with one night initially and increase
-      it as you become more familiar with the idea.</p>
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <%= image_tag "icare_logo_main.svg", class:"rounded" %>
     </div>
-    <%= image_tag "about2.png", style:"height:300px", class:"align-self-center" %>
-  </div>
-
-  <div class="pic-text d-flex justify-content-around">
-    <%= image_tag "1.png", style:"height:300px", class:"align-self-center"  %>
-    <div class="text-wrap p-5">
-      <h4>Different charities take different approaches to vetting the guests who you would host. </h5>
-      <p class="lead"><strong><mark>You are in complete control</mark></strong> - when a charity contacts you through icarebnb to see
-      if you can host a specific guest, you should ask as many questions as you need to to get
-      comfortable with hosting that guest. That is a great opportunity to see how that guest has
-      been vetted by the charity.</p>
-      <p class="lead">
-        Ideally, hosts provide an evening meal, a private room, somewhere for guests to wash and breakfast.
-        You can ultimately do as much or as little as you can or would like to.
-        This is something you can agree with the charity when they contact you to see if you are willing to host.
-      </p>
+    <div class="col-12 col-md-8">
+      <h3 class="ml-4 mt-5">How can you help change a life and see it happen with your own eyes?</h3>
+      <p class="ml-4 lead pt-4">icarebnb gives <mark>you direct control</mark> over the help you give someone in need. You help them to ultimately help themselves.<br><br> So how does it work?
+        <br><br>
     </div>
   </div>
-  <p class="lead">
-  Different charities take different approaches to reimbursing hosts.
-  Some charities reimburse hosts for the expenses they incur, and some
-  provide hosts with toiletries to offer to any guests they introduce.
-  </p>
-
-  <div class="form-actions btn btn-secondary mt-4">
-        <%= link_to "Join as a Host", new_user_registration_path, class: "nav-link" %>
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <h3 class="ml-4 mt-5">If you have a spare room, you can register to become a host</h3>
+      <p class="ml-4 lead pt-4 mb-5">When a charity contacts you through icarebnb to see if you can host a specific guest, you should <mark>ask as many questions as you need</mark> to to get comfortable with hosting that guest. <br><br>That is a great opportunity to see how that guest has
+      been vetted by the charity. Ideally, hosts provide somewhere for guests to wash, eat and sleep. You can ultimately do as much or as little as you can or would like to.
+    </div>
+    <div class="col-12 col-md-4">
+      <%= image_tag "sleep.svg", class:"rounded" %>
+    </div>
   </div>
-
 </div>
+

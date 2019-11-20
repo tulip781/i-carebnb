@@ -1,8 +1,14 @@
-<h1>Booking request confirmed</h1>
-<br>
+<div class="container">
+  <div class="jumbotron mt-5 p-5">
+    <h1 class="display-4">Booking request confirmed</h1>
+    <hr class="my-4">
+    <p class="lead">We will notify you as soon as the host approves the booking</p>
+    <div class="form-actions btn btn-secondary mt-4">
+      <%= link_to "Go to dashboard", dashboard_path, class: "nav-link" %>
+    </div>
+  </div>
+</div>
 
-<h5>We will notify you as soon as the host approves the booking</h5>
 
-<br>
 
-<%= link_to "Go to dashboard", dashboard_path %>
+

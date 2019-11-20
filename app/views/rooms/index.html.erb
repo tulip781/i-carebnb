@@ -21,7 +21,7 @@
           <div class="card-body">
             <h5>
               <%= link_to room_path(room), class:"card-title" do %>
-              <%= room.beds %> bed in <%= room.address  %></h5>
+              <%= room.beds %> bed in <%= room.postcode  %></h5>
               <% end %>
             <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= room.beds%> beds available</span></i>
             <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.8 miles away</span></i>

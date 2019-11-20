@@ -27,6 +27,7 @@ flats_titles = ["Double Room In London City", "Double Room In Old Street", "Sing
 address_london = ["Croydon", "Camden", "Lewisham", "Hackney", "Haggerston", "Old Street", "Hackney Wick",
 "Shoreditch", "Kings Cross", "Paddington", "Whitechapel", "Aldgate", "Liverpool Street"]
 
+
 puts "creating users ;)"
 10.times do
   user = User.create(
@@ -49,7 +50,8 @@ puts "creating rooms ;)"
   child_space = rand(2)
   infant_space = rand(1)
   room = Room.new(
-    address: address_london.sample,
+    # address: address_london.sample,
+    address: "159 St. John Street, London, EC1V 4QJ",
     adult_space: adult_space,
     child_space: child_space,
     infant_space: infant_space,
@@ -58,7 +60,7 @@ puts "creating rooms ;)"
     image_url: flats_images[rand(8)],
     user: User.all.sample,
     title: flats_titles.sample,
-    postcode: "LS63AG",
+    postcode: address_london.sample,
     facilities: ["Shared","Private"].sample,
    )
  room.save!

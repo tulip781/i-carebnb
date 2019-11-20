@@ -3,8 +3,8 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:edit, :show, :update, :destroy]
 
   def index
-    @rooms = Room.all
-    # @roomss = Room.geocoded #returns rooms with coordinates
+    # @rooms = Room.all
+    @rooms = Room.geocoded #returns rooms with coordinates
     # raise
     @markers = @rooms.map do |room|
       {

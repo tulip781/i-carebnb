@@ -56,9 +56,10 @@ puts "creating rooms ;)"
     beds: (adult_space + child_space + infant_space),
     max_stay_length: rand(5),
     image_url: flats_images[rand(8)],
-    availability: [true, false].sample,
     user: User.all.sample,
     title: flats_titles.sample,
+    postcode: "LS63AG",
+    facilities: ["Shared","Private"].sample,
    )
  room.save!
 end

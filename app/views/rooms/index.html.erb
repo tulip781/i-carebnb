@@ -8,6 +8,16 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-12 my-4">
+        <div id="map"
+          style="width: 100%;
+          height: 300px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          ></div>
+      </div>
+  </div>
+  <div class="row">
     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
       <div class="card mb-3 card-radius">
         <img class="card-img-top card-image-radius" src="https://www.roomtogrow.co.uk/app/uploads/2019/05/Urban-Birch-Bunk-UBB1.jpg" alt="Card image cap">

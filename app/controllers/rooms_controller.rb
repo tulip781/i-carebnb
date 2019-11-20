@@ -3,7 +3,15 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:edit, :show, :update, :destroy]
 
   def index
-    @room = Room.all
+    @rooms = Room.geocoded #returns rooms with coordinates
+    # raise
+    @markers = @rooms.map do |room|
+      {
+        lat: room.latitude,
+        lng: room.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { room: room })
+      }
+    end
   end
 
   def show

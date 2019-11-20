@@ -13,15 +13,19 @@ Room.destroy_all
 User.destroy_all
 
 flats_images = ["https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat1.jpg",
-"https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat2.jpg",
-"https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat3.jpg",
-"https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat4.jpg",
+"https://ii1.pepperfry.com/media/catalog/product/s/w/494x544/swirl-single-bed-with-box-storage-in-denver-oak-finish-by-hometown-swirl-single-bed-with-box-storage-dtz9tx.jpg",
+"https://images-na.ssl-images-amazon.com/images/I/81Chh4C6mML._SL1500_.jpg",
+"https://www.cuckooland.com/dnc/cuckooland/artwork/product_images/Pino-White-Kids-Single-Bed.jpg?quality=95&scale=canvas&width=400&height=400",
 "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat5.jpg",
 "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat6.jpg",
 "https://ksassets.timeincuk.net/wp/uploads/sites/56/2013/05/Blue-bedroom-ideas-1.jpg",
 "https://www.noaandnani.co.uk/images/hampshire-single-bed-frame-in-white-p919-6359_image.jpg"]
 
+flats_titles = ["Double Room In London City", "Double Room In Old Street", "Single Room in Hoxton", "Double room in Shoreditch",
+"Single Bed In Haggerston", "Single Bed In Hackeny", "Double Room in Whitechapel", "Single Bed in Kings Cross", "Single Room Stepney"]
 
+address_london = ["Croydon", "Camden", "Lewisham", "Hackney", "Haggerston", "Old Street", "Hackney Wick",
+"Shoreditch", "Kings Cross", "Paddington", "Whitechapel", "Aldgate", "Liverpool Street"]
 
 puts "creating users ;)"
 10.times do
@@ -39,12 +43,13 @@ puts "creating users ;)"
     )
 end
 puts "creating rooms ;)"
+
 10.times do
   adult_space = rand(5)
   child_space = rand(2)
   infant_space = rand(1)
   room = Room.new(
-    address: Faker::Address.street_address,
+    address: address_london.sample,
     adult_space: adult_space,
     child_space: child_space,
     infant_space: infant_space,
@@ -53,7 +58,23 @@ puts "creating rooms ;)"
     image_url: flats_images[rand(8)],
     availability: [true, false].sample,
     user: User.all.sample,
+    title: flats_titles.sample,
    )
  room.save!
 end
+
+puts "Creating test user with email: 'test' and password: '123456'"
+
+test_user = User.create(
+    email: "test@test.com",
+    title: ["Mr", "Mrs", "Miss"].sample,
+    first_name: "Test",
+    surname: "Test" ,
+    address: Faker::Address.street_address ,
+    phone_number: Faker::PhoneNumber.phone_number,
+    date_of_birth: Faker::Date.backward(days: 400),
+    gender: ["Male", "Female"].sample ,
+    host: [true, false].sample,
+    password: "123456"
+)
 

@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @booking = Booking.all
+    @bookings = Booking.all
   end
 
   def show

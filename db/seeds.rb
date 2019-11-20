@@ -45,7 +45,7 @@ end
 puts "creating rooms ;)"
 
 10.times do
-  adult_space = rand(5)
+  adult_space = rand(1..5)
   child_space = rand(2)
   infant_space = rand(1)
   room = Room.new(
@@ -64,7 +64,7 @@ puts "creating rooms ;)"
  room.save!
 end
 
-puts "Creating test user with email: 'test' and password: '123456'"
+puts "Creating test user with email: 'test@test.com' and password: '123456'"
 
 test_user = User.create(
     email: "test@test.com",

@@ -1,0 +1,21 @@
+<h1>Book this room</h1>
+
+<br>
+
+<%= simple_form_for(@booking) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :number_of_adults %>
+    <%= f.input :number_of_children %>
+    <%= f.input :number_of_infants %>
+    <%= f.input :start_date, as: :string, class: 'form-control datepicker', input_html: {type: :date, value: Time.now.strftime("%Y-%m-%d") } %>
+    <%= f.input :end_date, as: :string, class: 'form-control datepicker', input_html: {type: :date, value: (Time.now+86400).strftime("%Y-%m-%d")} %>
+    <%= f.hidden_field :room_id, :value => params[:id] %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn-primary" %>
+  </div>
+<% end %>

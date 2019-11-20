@@ -7,4 +7,6 @@ class Room < ApplicationRecord
   validates :infant_space, presence: true, numericality: true
   validates :beds, presence: true, numericality: true
   validates :address, presence: true
+  validates :postcode, presence: true
+  validates :facilities, inclusion: { in: ["Shared", "Private"] }
 end

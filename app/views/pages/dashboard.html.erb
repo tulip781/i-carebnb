@@ -1,121 +1,116 @@
 <div class="container">
-  <h2 class="text-center m-3"> Welcome <%= current_user.first_name %>- this is your dashboard.</h2>
-
-  <h3>Bookmarked properties</h3>
-
-  <!-- Bookmarked Properties -->
-  <div class="d-flex justify-content-between align-items-center m-3">
-  <div class="bookmarke-properties d-flex">
-    <div class="card m-3 card-radius" style="width: 285px">
-      <img class="card-img-top card-image-radius" src="https://www.roomtogrow.co.uk/app/uploads/2019/05/Urban-Birch-Bunk-UBB1.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Single room in Hoxton</h5>
-        <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 1 bed available</span></i>
-        <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.8 miles away</span></i>
-        <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Shared facilities</span></i>
-      </div>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center mt-5"> Welcome to your dashboard <%= current_user.first_name %></h1>
     </div>
-    <div class="card m-3 card-radius" style="width: 285px">
-      <img class="card-img-top card-image-radius" src="https://ii1.pepperfry.com/media/catalog/product/s/w/494x544/swirl-single-bed-with-box-storage-in-denver-oak-finish-by-hometown-swirl-single-bed-with-box-storage-dtz9tx.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Family room in Shoreditch</h5>
-        <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 3 beds available</span></i>
-        <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.2 miles away</span></i>
-        <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Ensuite facilities</span></i>
-      </div>
-      </div>
-    </div>
-    <div class="form-actions btn btn-secondary mt-4" style="height: 52px">
-          <%= link_to "Search For A Room", search_path, class: "nav-link" %>
+    <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+      <%= link_to "Search For A Room", search_path, class: "nav-link btn btn-secondary my-2" %>
     </div>
   </div>
-
-
-  <!-- Inbox Section -->
-  <h2 class="m-3">Messages</h2>
-  <table class="table table-inbox table-hover m-3">
-  <tbody>
-    <tr class="unread">
-        <td class="inbox-small-cells">
-            <input type="checkbox" class="mail-checkbox">
-        </td>
-        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-        <td class="view-message  dont-show">IcareBnb: Room Enquiry for <%= current_user.first_name %></td>
-        <td class="view-message ">Request for a new room</td>
-        <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-        <td class="view-message  text-right">9:27 AM</td>
-    </tr>
-    <tr class="unread">
-        <td class="inbox-small-cells">
-            <input type="checkbox" class="mail-checkbox">
-        </td>
-        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-        <td class="view-message dont-show">IcareBnb: Confirming a booking</td>
-        <td class="view-message">Thank you <%= current_user.first_name %>!</td>
-        <td class="view-message inbox-small-cells"></td>
-        <td class="view-message text-right">March 15</td>
-    </tr>
-    <tr class="">
-        <td class="inbox-small-cells">
-            <input type="checkbox" class="mail-checkbox">
-        </td>
-        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-        <td class="view-message dont-show">IcareBnb: Room Check</td>
-        <td class="view-message">Checking Availblilty for these dates <%= current_user.first_name %> </td>
-        <td class="view-message inbox-small-cells"></td>
-        <td class="view-message text-right">March 15</td>
-    </tr>
-    <tr class="">
-        <td class="inbox-small-cells">
-            <input type="checkbox" class="mail-checkbox">
-        </td>
-        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-        <td class="view-message dont-show">IcareBnb: Room</td>
-        <td class="view-message">Hi <%= current_user.first_name %> we wanted to check...</td>
-        <td class="view-message inbox-small-cells"></td>
-        <td class="view-message text-right">April 01</td>
-    </tr>
-    <tr class="">
-        <td class="inbox-small-cells">
-            <input type="checkbox" class="mail-checkbox">
-        </td>
-        <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-        <td class="view-message dont-show">IcareBnb user <%= current_user.first_name %> <span class="label label-danger pull-right">urgent</span></td>
-        <td class="view-message">Thank you for your response <%= current_user.first_name %> </td>
-        <td class="view-message inbox-small-cells"></td>
-        <td class="view-message text-right">May 23</td>
-    </tr>
-  </tbody>
-  </table>
-
-  <!-- Confirmed Bookings -->
-
-  <h3>Confirmed Bookings</h3>
-
-  <!-- Bookmarked Properties -->
-  <div class="d-flex justify-content-between align-items-center m-3">
-  <div class="bookmarke-properties d-flex">
-    <div class="card m-3 card-radius" style="width: 285px">
-      <img class="card-img-top card-image-radius" src="https://www.roomtogrow.co.uk/app/uploads/2019/05/Urban-Birch-Bunk-UBB1.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Single room in Hoxton</h5>
-        <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 1 bed available</span></i>
-        <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.8 miles away</span></i>
-        <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Shared facilities</span></i>
+  <div class="row">
+    <div class="col-12">
+      <h3 class="my-4">Pending bookings <i class="far fa-paper-plane main-colour ml-3"></i></h3>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
+      <div class="card mb-3 card-radius">
+        <img class="card-img-top card-image-radius" src="https://www.roomtogrow.co.uk/app/uploads/2019/05/Urban-Birch-Bunk-UBB1.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Single room in Hoxton</h5>
+          <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 1 bed available</span></i>
+          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.8 miles away</span></i>
+          <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Shared facilities</span></i>
+        </div>
       </div>
     </div>
-    <div class="card m-3 card-radius" style="width: 285px">
-      <img class="card-img-top card-image-radius" src="https://ii1.pepperfry.com/media/catalog/product/s/w/494x544/swirl-single-bed-with-box-storage-in-denver-oak-finish-by-hometown-swirl-single-bed-with-box-storage-dtz9tx.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Family room in Shoreditch</h5>
-        <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 3 beds available</span></i>
-        <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.2 miles away</span></i>
-        <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Ensuite facilities</span></i>
-      </div>
+    <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
+      <div class="card mb-3 card-radius">
+        <img class="card-img-top card-image-radius" src="https://ii1.pepperfry.com/media/catalog/product/s/w/494x544/swirl-single-bed-with-box-storage-in-denver-oak-finish-by-hometown-swirl-single-bed-with-box-storage-dtz9tx.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Family room in Shoreditch</h5>
+          <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 3 beds available</span></i>
+          <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.2 miles away</span></i>
+          <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Ensuite facilities</span></i>
+        </div>
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-12">
+      <h3 class="my-4">Messages <i class="far fa-envelope main-colour ml-3"></i></h3>
+        <table class="table table-inbox table-hover">
+          <tbody>
+            <tr class="unread">
+                <td class="inbox-small-cells">
+                    <input type="checkbox" class="mail-checkbox">
+                </td>
+                <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                <td class="view-message  dont-show">icareBnb: Room Enquiry for <%= current_user.first_name %></td>
+                <td class="view-message ">Request for a new room</td>
+                <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
+                <td class="view-message  text-right">9:27 AM</td>
+            </tr>
+            <tr class="unread">
+                <td class="inbox-small-cells">
+                    <input type="checkbox" class="mail-checkbox">
+                </td>
+                <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                <td class="view-message dont-show">icareBnb: Confirming a booking</td>
+                <td class="view-message">Thank you <%= current_user.first_name %>!</td>
+                <td class="view-message inbox-small-cells"></td>
+                <td class="view-message text-right">March 15</td>
+            </tr>
+            <tr class="">
+                <td class="inbox-small-cells">
+                    <input type="checkbox" class="mail-checkbox">
+                </td>
+                <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                <td class="view-message dont-show">icareBnb: Room Check</td>
+                <td class="view-message">Checking Availblilty for these dates <%= current_user.first_name %> </td>
+                <td class="view-message inbox-small-cells"></td>
+                <td class="view-message text-right">March 15</td>
+            </tr>
+            <tr class="">
+                <td class="inbox-small-cells">
+                    <input type="checkbox" class="mail-checkbox">
+                </td>
+                <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                <td class="view-message dont-show">icareBnb: Room</td>
+                <td class="view-message">Hi <%= current_user.first_name %> we wanted to check...</td>
+                <td class="view-message inbox-small-cells"></td>
+                <td class="view-message text-right">April 01</td>
+            </tr>
+            <tr class="">
+                <td class="inbox-small-cells">
+                    <input type="checkbox" class="mail-checkbox">
+                </td>
+                <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
+                <td class="view-message dont-show">icareBnb user <%= current_user.first_name %> <span class="label label-danger pull-right">urgent</span></td>
+                <td class="view-message">Thank you for your response <%= current_user.first_name %> </td>
+                <td class="view-message inbox-small-cells"></td>
+                <td class="view-message text-right">May 23</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h3 class="my-4">Confirmed bookings<i class="fas fa-check-circle main-colour ml-3"></i></h3>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
+        <div class="card mb-5 card-radius">
+          <img class="card-img-top card-image-radius" src="https://www.roomtogrow.co.uk/app/uploads/2019/05/Urban-Birch-Bunk-UBB1.jpg" alt="Card image cap">
+          <div class="card-body">
 
+            <h5 class="card-title">Single room in Hoxton</h5>
+            <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 1 bed available</span></i>
+            <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.8 miles away</span></i>
+            <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Shared facilities</span></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 

@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:edit, :show, :update, :destroy]
 
   def index
+
     @rooms = Room.geocoded #returns rooms with coordinates
     # raise
     @markers = @rooms.map do |room|
@@ -12,6 +13,7 @@ class RoomsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { room: room })
       }
     end
+
   end
 
   def show
@@ -47,7 +49,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:adult_space, :child_space, :infant_space, :beds, :max_stay_length, :availability, :address, :title, :image_url)
+    params.require(:room).permit(:adult_space, :child_space, :infant_space, :beds, :max_stay_length, :postcode, :address, :title, :image_url, :description, :facilities)
   end
 
   def set_room

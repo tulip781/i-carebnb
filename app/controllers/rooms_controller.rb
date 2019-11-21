@@ -28,7 +28,7 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     @room.user = current_user
     if @room.save
-      redirect_to rooms_path
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -39,7 +39,7 @@ class RoomsController < ApplicationController
 
   def update
     @room.update(room_params)
-    redirect_to rooms_path
+    redirect_to dashboard_path
   end
 
   def destroy

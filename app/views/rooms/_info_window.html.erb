@@ -1,2 +1,4 @@
-<%= "#{room.beds} available beds \n located at \n #{room.address}" %>
-<%= link_to 'Show', rooms_path %>
+<%= link_to room_path(room) do %>
+  <%= image_tag room.image_url, :class => "lil-image" %>
+  <%= "#{room.beds} available beds \n located at \n #{room.address}" %>
+<% end %>

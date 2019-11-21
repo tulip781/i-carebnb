@@ -14,10 +14,19 @@
             <%= current_user.host ? 'Host' : 'Charity' %> Dashboard
             <% end %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Find a Room", search_path, class: "nav-link" %>
+        <% if current_user.host %>
 
-        </li>
+          <li class="nav-item">
+          <%= link_to "Add a new room", new_room_path, class: "nav-link" %>
+          </li>
+
+        <% else %>
+
+          <li class="nav-item">
+            <%= link_to "Find a Room", search_path, class: "nav-link" %>
+          </li>
+        <% end %>
+
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
 

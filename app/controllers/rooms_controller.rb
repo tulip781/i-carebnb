@@ -3,7 +3,10 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:edit, :show, :update, :destroy]
 
   def index
+    # raise
     # @rooms = Room.all
+    room_latitude = 51.5237683,
+    room_longitude = -0.102898898506743
     @rooms = Room.geocoded #returns rooms with coordinates
     # raise
     @markers = @rooms.map do |room|
@@ -13,6 +16,8 @@ class RoomsController < ApplicationController
         lng: room.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { room: room })
       }
+
+    @rooms = Room.near(getsearchquery)
     end
 
   end
@@ -29,7 +34,7 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     @room.user = current_user
     if @room.save
-      redirect_to rooms_path
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -40,7 +45,7 @@ class RoomsController < ApplicationController
 
   def update
     @room.update(room_params)
-    redirect_to rooms_path
+    redirect_to dashboard_path
   end
 
   def destroy

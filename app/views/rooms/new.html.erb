@@ -1,27 +1,52 @@
-<h1>Add a new room</h1>
-
-<br>
-
-<%= simple_form_for(@room) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :address %>
-    <%= f.input :postcode %>
-    <%= f.input :adult_space %>
-    <%= f.input :child_space %>
-    <%= f.input :infant_space %>
-    <%= f.input :beds %>
-    <%= f.input :facilities, as: :radio_buttons, collection: ['Shared', 'Private'] %>
-    <%= f.input :max_stay_length %>
-    <%= f.input :image_url %>
+<div class="background2">
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8 offset-lg-2">
+      <div class="my-5 p-5 box-design">
+        <h1>Add a new room</h1>
+      <%= simple_form_for(@room) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="form-inputs mt-4">
+          <%= f.input :address, placeholder: "Full address" %>
+        </div>
+        <div class="form-inputs">
+          <div class="form-row">
+            <div class="form-group col-6 col-sm-6">
+              <%= f.input :postcode, placeholder: "Postcode" %>
+            </div>
+            <div class="form-group col-6 col-sm-6">
+              <%= f.input :facilities, collection: ['Shared', 'Private'], prompt: :translate, :label => "Facilities:" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-inputs">
+          <div class="form-row">
+            <div class="form-group col-6 col-md-3">
+              <%= f.input :adult_space, placeholder: "0" %>
+            </div>
+            <div class="form-group col-6 col-md-3">
+              <%= f.input :child_space, placeholder: "0" %>
+            </div>
+            <div class="form-group col-6 col-md-3">
+              <%= f.input :infant_space, placeholder: "0" %>
+            </div>
+            <div class="form-group col-6 col-md-3">
+              <%= f.input :beds, placeholder: "0" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :image_url, as: :file, :label => "Room picture:" %>
+          <%= f.input :description, placeholder: "Tell me about your room", :label => "Room description:" %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-secondary nav-link ml-0" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn-primary" %>
-  </div>
-<% end %>
+</div>
+</div>
 

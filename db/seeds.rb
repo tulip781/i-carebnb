@@ -186,8 +186,10 @@ test_user1 = User.create(
 )
 
 puts "Assiging Room to Paula - the host"
-Room.all.sample.user = test_user1
-Room.all.sample.user = test_user1
+room = Room.all.sample.user = test_user1
+room2 = Room.all.sample.user = test_user1
+room.save!
+room2.save!
 puts "Creating Charity Representative 'Leia' with email: 'charity@icarebnb.com' and password: '123456'"
 
 test_user2 = User.create(

@@ -17,7 +17,11 @@
     <% @rooms.each do |room| %>
       <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
         <div class="card mb-3 card-radius">
-          <img class="card-img-top card-image-radius" src="<%= room.image_url%>" alt="Card image cap">
+          <% if room.photo.attached? %>
+            <%= cl_image_tag room.photo.key, alt: room.address, class: "card-img-top card-image-radius" %>
+          <% else %>
+            <%= image_tag room.image_url, alt: room.address, class: "card-img-top card-image-radius" %>
+          <% end %>
           <div class="card-body">
             <h5>
               <%= link_to room_path(room), class:"card-title" do %>

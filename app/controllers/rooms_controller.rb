@@ -8,6 +8,7 @@ class RoomsController < ApplicationController
     # raise
     @markers = @rooms.map do |room|
       {
+        image_url: helpers.asset_url('mapbox-icare.svg'),
         lat: room.latitude,
         lng: room.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { room: room })

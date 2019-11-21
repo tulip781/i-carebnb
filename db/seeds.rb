@@ -21,8 +21,8 @@ flats_images = ["https://raw.githubusercontent.com/lewagon/flats-boilerplate/mas
 flats_titles = ["Double Room In London City", "Double Room In Old Street", "Single Room in Hoxton", "Double room in Shoreditch",
 "Single Bed In Haggerston", "Single Bed In Hackeny", "Double Room in Whitechapel", "Single Bed in Kings Cross", "Single Room Stepney"]
 
-address_london = ["Croydon", "Camden", "Lewisham", "Hackney", "Haggerston", "Old Street", "Hackney Wick",
-"Shoreditch", "Kings Cross", "Paddington", "Whitechapel", "Aldgate", "Liverpool Street"]
+address_london = ["Croydon", "Camden", "Balham", "Hackney", "Dulwich", "Old Street", "Slough",
+"Chiswick", "Greenwich", "Catford", "Whitechapel", "Aldgate", "Liverpool Street"]
 
 
 real_location_london = ["42 Ravenslea Rd, Balham, London SW12 8RX",
@@ -53,11 +53,12 @@ puts "creating users ;)"
 end
 
 puts "creating rooms ;)"
-
-10.times do
+i = 0
+13.times do
   adult_space = rand(1..5)
   child_space = rand(2)
   infant_space = rand(1)
+
   room = Room.new(
     # address: address_london.sample,
     address: real_location_london.sample,
@@ -66,7 +67,7 @@ puts "creating rooms ;)"
     infant_space: infant_space,
     beds: (adult_space + child_space + infant_space),
     max_stay_length: rand(5),
-    image_url: flats_images[rand(8)],
+    image_url: flats_images[i],
     user: User.all.sample,
     title: flats_titles.sample,
     postcode: address_london.sample,
@@ -74,6 +75,7 @@ puts "creating rooms ;)"
    )
  room.user = User.all.sample
  room.save!
+ i += 1
 end
 
 puts "Creating Bookings"

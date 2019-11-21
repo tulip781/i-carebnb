@@ -16,7 +16,7 @@ class RoomsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { room: room })
       }
 
-    @rooms = Room.near(getsearhquery)
+    @rooms = Room.near(getsearchquery)
     end
 
   end

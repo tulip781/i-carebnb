@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1 class="text-center mt-5"> Welcome to your dashboard, <%= current_user.first_name %>!</h1>
+        <h1 class="text-center mt-5"> Welcome to your <%= current_user.host ? 'Host' : 'Charity' %>  dashboard, <%= current_user.first_name %>!</h1>
       </div>
       <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
         <%= link_to "Add a room", new_room_path, class: "nav-link btn btn-secondary my-2" %>
@@ -21,7 +21,9 @@
         <div class="card mb-3 card-radius">
           <img class="card-img-top card-image-radius" src=<%= room.image_url %> alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">Room in <%= link_to room.postcode, room_path(room) %></h5>
+            <h5 class="card-title"><%= link_to room_path(room), class:"card-title" do %>
+              <%= room.beds %> <%= room.beds == 1 ? 'Bed' : 'Beds' %> - <%= room.address  %></h5>
+              <% end %></h5>
             <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= room.beds %></span></i>
             <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= room.facilities %> facilities</span></i>
             <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "Edit", edit_room_path(room) %></span></i>
@@ -147,7 +149,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1 class="text-center mt-5"> Welcome to your dashboard, <%= current_user.first_name %>!</h1>
+        <h1 class="text-center mt-5"> Welcome to your <%= current_user.host ? 'Host' : 'Charity' %> dashboard, <%= current_user.first_name %>!</h1>
       </div>
       <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
         <%= link_to "Search For A Room", search_path, class: "nav-link btn btn-secondary my-2" %>
@@ -166,7 +168,9 @@
             <div class="card mb-3 card-radius">
               <img class="card-img-top card-image-radius" src=<%= booking.room.image_url %> alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title">Room in <%= booking.room.postcode %></h5>
+                <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
+              <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %></h5>
+              <% end %></h5>
                 <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
                 <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
                 <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "View details", booking_path(booking) %></span></i>
@@ -250,7 +254,9 @@
                 <img class="card-img-top card-image-radius" src=<%= booking.room.image_url %> alt="Card image cap">
                 <div class="card-body">
 
-                  <h5 class="card-title">Room in <%= booking.room.postcode %></h5>
+                  <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
+              <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %></h5>
+              <% end %></h5>
                   <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
                   <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
                   <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "Details", booking_path(booking) %></span></i>

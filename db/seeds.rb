@@ -34,28 +34,28 @@ address_london = ["Croydon", "Camden", "Balham", "Hackney", "Dulwich", "Old Stre
 "Reading"]
 
 
-real_location = ["42 Ravenslea Rd, Balham, London SW12 8RX",
+real_location = ["42 Ravenslea Rd, Balham, London, SW12 8RX",
 "12 Peckham Rye, London, SE15 3JD",
-"51 Walnut Tree Rd, London SE10 9EU",
+"51 Walnut Tree Rd, London, SE10 9EU",
 "1 Robert St, London, NW1 3JU",
-"119 Rushmore Rd, Lower Clapton, London E5 0HA",
+"119 Rushmore Rd, Lower Clapton, London, E5 0HA",
 "46 Rushford Rd, London, SE4 1SG",
 "19 Grove Park Gardens, London, W4 3RY",
 "15 High Street Chalvey, Slough, SL1 2RU",
-"101 Gordon St Northampton NN2 6BW",
-"41 Crown St, Reading RG1 2SN",
+"101 Gordon St Northampton, NN2 6BW",
+"41 Crown St, Reading, RG1 2SN",
 "46 Rushford Rd, London, SE4 1SG",
 "19 Grove Park Gardens, London, W4 3RY",
 "15 High Street Chalvey, Slough, SL1 2RU",
-"101 Gordon St Northampton NN2 6BW",
-"41 Crown St, Reading RG1 2SN",
-"101 Gordon St Northampton NN2 6BW",
-"41 Crown St, Reading RG1 2SN",
+"101 Gordon St Northampton, NN2 6BW",
+"41 Crown St, Reading, RG1 2SN",
+"101 Gordon St Northampton, NN2 6BW",
+"41 Crown St, Reading, RG1 2SN",
 "46 Rushford Rd, London, SE4 1SG",
 "19 Grove Park Gardens, London, W4 3RY",
 "15 High Street Chalvey, Slough, SL1 2RU",
-"101 Gordon St Northampton NN2 6BW",
-"41 Crown St, Reading RG1 2SN"
+"101 Gordon St Northampton, NN2 6BW",
+"41 Crown St, Reading, RG1 2SN"
 ]
 
 descriptions = ["Double room in period flat.

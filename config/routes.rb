@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :rooms
-  resources :bookings
+  resources :bookings do
+    post 'confirmed', on: :member
+  end
   get 'users/show'
   get 'search', to: "pages#search"
   get 'about', to: "pages#about"

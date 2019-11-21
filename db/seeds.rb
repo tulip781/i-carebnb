@@ -75,7 +75,8 @@ test_user = User.create(
     date_of_birth: Faker::Date.backward(days: 400),
     gender: ["Male", "Female"].sample ,
     host: true,
-    password: "123456"
+    password: "123456",
+    avatar_url:
 )
 
 puts "Creating Charity Representative user with email: 'charity@icarebnb.com' and password: '123456'"
@@ -89,6 +90,7 @@ test_user = User.create(
     phone_number: Faker::PhoneNumber.phone_number,
     date_of_birth: Faker::Date.backward(days: 400),
     gender: ["Male", "Female"].sample ,
-    host: true,
-    password: "123456"
+    host: false,
+    password: "123456",
+    avatar_url:
 )

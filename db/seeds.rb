@@ -5,6 +5,8 @@ Booking.destroy_all
 
 # Variables Defined
 
+# Variables Defined
+
 flats_images = ["https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat1.jpg",
 "https://ii1.pepperfry.com/media/catalog/product/s/w/494x544/swirl-single-bed-with-box-storage-in-denver-oak-finish-by-hometown-swirl-single-bed-with-box-storage-dtz9tx.jpg",
 "https://images-na.ssl-images-amazon.com/images/I/81Chh4C6mML._SL1500_.jpg",
@@ -17,12 +19,14 @@ flats_images = ["https://raw.githubusercontent.com/lewagon/flats-boilerplate/mas
 "https://www.padsforstudents.co.uk/UserFiles/properties/229/746796b99e2ae3297a8e2fb7402ea520_1_l.jpg",
 "https://www.theculpeper.com/wp-content/uploads/2016/03/DRM_Culp_Rooms_HR-24DRM_0573.jpg",
 "https://images.trvl-media.com/hotels/27000000/26600000/26590900/26590840/0d4279dc_z.jpg",
+
 "https://images.trvl-media.com/hotels/36000000/35870000/35867700/35867652/25aad79f_z.jpg",
 "https://media.jeromes.com/content/Image/levels/desktop/bedroom_featured-collections_full-beds.webp",
 "https://lid.zoocdn.com/645/430/188ed11956e130eee60a1ea6d69894c796c91172.jpg",
 "https://media-cdn.tripadvisor.com/media/photo-s/02/01/8d/2b/ibis-hotel-northampton.jpg",
 "https://imganuncios.mitula.net/medium/2_bedroom_flat_for_sale_2400095566573537933.jpg",
 ]
+
 
 flats_titles = ["Double Room In London City", "Double Room In Old Street", "Single Room in Hoxton", "Double room in Shoreditch",
 "Single Bed In Haggerston", "Single Bed In Hackeny", "Double Room in Whitechapel", "Single Bed in Kings Cross", "Single Room Stepney"]
@@ -90,6 +94,17 @@ livingroom and a large kitchen suitable for dinners. You can write me anytime if
 you might need anything extra."]
 
 
+real_location_london = ["42 Ravenslea Rd, Balham, London SW12 8RX",
+"12 Peckham Rye, London, SE15 3JD",
+"51 Walnut Tree Rd, London SE10 9EU",
+"1 Robert St, London, NW1 3JU",
+"119 Rushmore Rd, Lower Clapton, London E5 0HA",
+"46 Rushford Rd, London, SE4 1SG",
+"19 Grove Park Gardens, London, W4 3RY",
+"15 High Street Chalvey, Slough, SL1 2RU"]
+
+
+
 puts "creating users ;)"
 10.times do
   user = User.create(
@@ -114,8 +129,10 @@ i = 0
   infant_space = 0
 
   room = Room.new(
+
     address: real_location[i],
     # address: real_location_london.sample,
+
     adult_space: adult_space,
     child_space: child_space,
     infant_space: infant_space,
@@ -125,7 +142,9 @@ i = 0
     description: descriptions.sample,
     user: User.all.sample,
     title: flats_titles.sample,
+
     postcode: address_london[i],
+
     facilities: ["Shared","Private"].sample
    )
  room.user = User.all.sample
@@ -148,6 +167,7 @@ puts "Creating Bookings"
   booking.room = Room.all.sample
   booking.save!
 end
+
 
 puts "Creating host user 'Paula' with email: 'host@icarebnb.com' and password: '123456'"
 

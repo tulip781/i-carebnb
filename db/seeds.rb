@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
 Room.destroy_all
@@ -18,7 +11,12 @@ flats_images = ["https://raw.githubusercontent.com/lewagon/flats-boilerplate/mas
 "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat5.jpg",
 "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat6.jpg",
 "https://ksassets.timeincuk.net/wp/uploads/sites/56/2013/05/Blue-bedroom-ideas-1.jpg",
-"https://www.noaandnani.co.uk/images/hampshire-single-bed-frame-in-white-p919-6359_image.jpg"]
+"https://www.noaandnani.co.uk/images/hampshire-single-bed-frame-in-white-p919-6359_image.jpg",
+"https://media-cdn.tripadvisor.com/media/photo-s/10/76/7c/8f/bedroom-with-small-window.jpg",
+"https://www.padsforstudents.co.uk/UserFiles/properties/229/746796b99e2ae3297a8e2fb7402ea520_1_l.jpg",
+"https://www.theculpeper.com/wp-content/uploads/2016/03/DRM_Culp_Rooms_HR-24DRM_0573.jpg",
+"https://images.trvl-media.com/hotels/27000000/26600000/26590900/26590840/0d4279dc_z.jpg",
+"https://images.trvl-media.com/hotels/36000000/35870000/35867700/35867652/25aad79f_z.jpg"]
 
 flats_titles = ["Double Room In London City", "Double Room In Old Street", "Single Room in Hoxton", "Double room in Shoreditch",
 "Single Bed In Haggerston", "Single Bed In Hackeny", "Double Room in Whitechapel", "Single Bed in Kings Cross", "Single Room Stepney"]
@@ -65,10 +63,10 @@ puts "creating rooms ;)"
  room.save!
 end
 
-puts "Creating test user with email: 'test@test.com' and password: '123456'"
+puts "Creating host user with email: 'host@icarebnb.com' and password: '123456'"
 
 test_user = User.create(
-    email: "test@test.com",
+    email: "host@icarebnb.com",
     title: ["Mr", "Mrs", "Miss"].sample,
     first_name: "Test",
     surname: "Test" ,
@@ -76,7 +74,21 @@ test_user = User.create(
     phone_number: Faker::PhoneNumber.phone_number,
     date_of_birth: Faker::Date.backward(days: 400),
     gender: ["Male", "Female"].sample ,
-    host: [true, false].sample,
+    host: true,
     password: "123456"
 )
 
+puts "Creating Charity Representative user with email: 'charity@icarebnb.com' and password: '123456'"
+
+test_user = User.create(
+    email: "charity@icarebnb.com",
+    title: ["Mr", "Mrs", "Miss"].sample,
+    first_name: "Test",
+    surname: "Test" ,
+    address: Faker::Address.street_address ,
+    phone_number: Faker::PhoneNumber.phone_number,
+    date_of_birth: Faker::Date.backward(days: 400),
+    gender: ["Male", "Female"].sample ,
+    host: true,
+    password: "123456"
+)

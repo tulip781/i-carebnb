@@ -171,7 +171,7 @@ end
 
 puts "Creating host user 'Paula' with email: 'host@icarebnb.com' and password: '123456'"
 
-test_user = User.create(
+test_user1 = User.create(
     email: "host@icarebnb.com",
     title: ["Mr", "Mrs", "Miss"].sample,
     first_name: "Paula",
@@ -185,9 +185,12 @@ test_user = User.create(
     avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhiz0_0XhnXFWXEp_8OpHjoO4HfEh4B8B-hkodfu7Z2G_7u1Sr&s"
 )
 
+puts "Assiging Room to Paula - the host"
+Room.all.sample.user = test_user1
+Room.all.sample.user = test_user1
 puts "Creating Charity Representative 'Leia' with email: 'charity@icarebnb.com' and password: '123456'"
 
-test_user = User.create(
+test_user2 = User.create(
     email: "charity@icarebnb.com",
     title: "Miss",
     first_name: "Leia",
@@ -203,7 +206,7 @@ test_user = User.create(
 
 puts "Creating Test email: 'test@test.com' and password: '123456'"
 
-test_user = User.create(
+test_user3 = User.create(
     email: "test@test.com",
     title: "Miss",
     first_name: "Leia",

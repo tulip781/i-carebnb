@@ -1,15 +1,9 @@
-.ollie-image {
-width: 400px;
-position: absolute;
-right: 90px;
-bottom: 90px;
-z-index: -100;
+h5 a {
+  text-decoration: none;
+  color: $gray;
 }
 
-.ollie-image2 {
-width: 200px;
-position: absolute;
-right: 480px;
-bottom: 100px;
-z-index: -100;
+h5 a:hover{
+
+  color: $gray;
 }

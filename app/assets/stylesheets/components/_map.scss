@@ -1,9 +1,33 @@
-
 .mapboxgl-popup {
-  max-width: 200px;
+  max-width: 600px;
+  border-radius: 50%;
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  text-align: center !important;
+  font-family: $body-font;
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 20px !important;
+  a {
+    text-decoration: none;
+    font-family: 'Open Sans', 'Helvetica', 'sans-serif';
+    color: #808080;
+    font-size: 0.8em;
+    img {
+    border-radius: 5%;
+    width: 100%;
+    filter: grayscale(100%);
+    }
+  }
 }
+

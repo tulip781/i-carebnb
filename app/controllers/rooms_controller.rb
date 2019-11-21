@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:edit, :show, :update, :destroy]
 
   def index
+
     default_radius = 30
     if params[:location].present? && params[:radius].present?
       @rooms = Room.near(params[:location], params[:radius])
@@ -38,12 +39,15 @@ class RoomsController < ApplicationController
       end
     end
 
+
     @markers = @rooms.map do |room|
       {
+        image_url: helpers.asset_url('mapbox-icare.svg'),
         lat: room.latitude,
         lng: room.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { room: room })
       }
+
     end
 
   end
@@ -60,7 +64,7 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     @room.user = current_user
     if @room.save
-      redirect_to rooms_path
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -71,7 +75,7 @@ class RoomsController < ApplicationController
 
   def update
     @room.update(room_params)
-    redirect_to rooms_path
+    redirect_to dashboard_path
   end
 
   def destroy
@@ -81,7 +85,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:adult_space, :child_space, :infant_space, :beds, :max_stay_length, :postcode, :address, :title, :image_url, :description, :facilities)
+    params.require(:room).permit(:adult_space, :child_space, :infant_space, :beds, :max_stay_length, :postcode, :address, :title, :image_url, :description, :facilities, :photo)
   end
 
   def set_room

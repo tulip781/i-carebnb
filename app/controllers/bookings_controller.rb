@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy, :confirmed]
 
   def index
     @bookings = Booking.all
@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to dashboard_path(current_user)
     else
       render :new
     end
@@ -27,12 +27,18 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
-    redirect_to booking_path(@booking)
+    redirect_to dashboard_path
   end
 
   def destroy
     @booking.destroy
     redirect_to root_path
+  end
+
+  def confirmed
+    @booking.confirmed = true
+    @booking.save
+    redirect_to dashboard_path
   end
 
 private

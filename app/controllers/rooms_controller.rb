@@ -3,12 +3,43 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:edit, :show, :update, :destroy]
 
   def index
-    # raise
-    # @rooms = Room.all
-    # room_latitude = 51.5237683,
-    # room_longitude = -0.102898898506743
-    @rooms = Room.geocoded #returns rooms with coordinates
-    # raise
+
+    default_radius = 30
+    if params[:location].present? && params[:radius].present?
+      @rooms = Room.near(params[:location], params[:radius])
+
+      @rooms = @rooms.select do |room|
+        params[:adults].to_i <= room.adult_space &&
+        params[:children].to_i <= room.child_space &&
+        params[:infants].to_i <= room.infant_space &&
+        params[:beds].to_i <= room.beds &&
+        params[:minimum_stay].to_i <= room.max_stay_length
+      end
+
+
+    elsif params[:location].present?
+      @rooms = Room.near(params[:location], default_radius)
+
+      @rooms = @rooms.select do |room|
+        params[:adults].to_i <= room.adult_space &&
+        params[:children].to_i <= room.child_space &&
+        params[:infants].to_i <= room.infant_space &&
+        params[:beds].to_i <= room.beds &&
+        params[:minimum_stay].to_i <= room.max_stay_length
+      end
+    else
+      @rooms = Room.geocoded
+
+      @rooms = @rooms.select do |room|
+        params[:adults].to_i <= room.adult_space &&
+        params[:children].to_i <= room.child_space &&
+        params[:infants].to_i <= room.infant_space &&
+        params[:beds].to_i <= room.beds &&
+        params[:minimum_stay].to_i <= room.max_stay_length
+      end
+    end
+
+
     @markers = @rooms.map do |room|
       {
         image_url: helpers.asset_url('mapbox-icare.svg'),
@@ -17,7 +48,6 @@ class RoomsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { room: room })
       }
 
-    # @rooms = Room.near(getsearchquery)
     end
 
   end

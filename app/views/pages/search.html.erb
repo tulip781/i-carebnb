@@ -5,26 +5,17 @@
         <div class="mt-5 p-5 box-design">
           <h1>Search for a room</h1>
           <h5 class="mb-5">Please enter the below information then click search.</h5>
-            <div class="form-group">
-              <label for="Location">Location of guest:</label>
-              <%= form_tag rooms_path, method: :get do %>
-                <%= text_field_tag :location,
-                  params[:location],
-                  class: "form-control",
-                  placeholder: "e.g. address, city or postcode"
-                %>
-              <label for="Location">How far can the guest travel from their location?</label>
-                <%= text_field_tag :radius,
-                  params[:radius],
-                  class: "form-control",
-                  placeholder: "How far can the guest travel from their location?"
-                %>
-                <div class="mt-4">
-                <%= submit_tag "Search", class: "nav-link btn btn-secondary m-0" %>
-                </div>
-              <% end %>
+          <div class="form-group">
+            <label for="Location">Location of guest:</label>
+            <%= form_tag rooms_path, method: :get do %>
+            <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "Address, City or Postcode" %>
+            <label for="Distance" class="mt-3">How far can the guest travel from their location?</label>
+            <%= text_field_tag :radius, params[:radius], class: "form-control", placeholder: "In Miles" %>
+            <div class="mt-4">
+              <%= submit_tag "Search", class: "nav-link btn btn-secondary m-0" %>
             </div>
-
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

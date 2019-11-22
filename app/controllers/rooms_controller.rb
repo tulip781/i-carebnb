@@ -23,8 +23,7 @@ class RoomsController < ApplicationController
         params[:adults].to_i <= room.adult_space &&
         params[:children].to_i <= room.child_space &&
         params[:infants].to_i <= room.infant_space &&
-        params[:beds].to_i <= room.beds &&
-        params[:minimum_stay].to_i <= room.max_stay_length
+        params[:beds].to_i <= room.beds
       end
     else
       @rooms = Room.geocoded

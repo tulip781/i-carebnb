@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1 class="text-center mt-5"> Welcome to your <%= current_user.host ? 'Host' : 'Charity' %>  dashboard, <%= current_user.first_name %>!</h1>
+        <h1 class="text-center mt-5"> Welcome to your <%= current_user.host ? 'Host' : 'Charity' %>  Dashboard, <%= current_user.first_name %>!</h1>
       </div>
       <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
         <%= link_to "Add a room", new_room_path, class: "nav-link btn btn-secondary my-2" %>
@@ -10,27 +10,27 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <h3 class="my-4">Your rooms <i class="far fa-paper-plane main-colour ml-3"></i></h3>
+        <h3 class="my-4">Your Rooms <i class="fas fa-bed main-colour ml-3"></i></h3>
       </div>
       <% current_user.rooms.each do |room| %>
       <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
         <div class="card mb-3 card-radius">
-          <img class="card-img-top card-image-radius" src=<%= room.image_url %> alt="Card image cap">
+          <img class="card-img-top card-image-radius" src="<%= room.image_url %>" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title"><%= link_to room_path(room), class:"card-title" do %>
               <%= room.beds %> <%= room.beds == 1 ? 'Bed' : 'Beds' %> - <%= room.address  %>
               <% end %></h5>
             <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= room.beds %></span></i>
-            <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= room.facilities %> facilities</span></i>
-            <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "Edit", edit_room_path(room) %></span></i>
-            <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "Delete", room_path(room), method: :delete, data: {confirm: "Are you sure?"} %></span></i>
+            <i class="fas fa-shower mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= room.facilities %> facilities</span></i>
+            <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-warning card-button"><%= link_to "Edit", edit_room_path(room) %></span></i>
+            <i class="mr-2"><span class="card-detail-text btn btn-sm btn-danger card-button"><%= link_to "Delete", room_path(room), method: :delete, data: {confirm: "Are you sure?"} %></span></i>
 
           </div>
         </div>
       </div>
       <% end %>
       <div class="col-12">
-        <h3 class="my-4">Booking requests <i class="far fa-paper-plane main-colour ml-3"></i></h3>
+        <h3 class="my-4">Booking Requests <i class="fas fa-hourglass-half main-colour ml-3"></i></h3>
       </div>
       <% bookings = current_user.rooms.map { |room| room.bookings }.flatten %>
       <% bookings.each do |booking| %>
@@ -38,18 +38,18 @@
         <% if booking.confirmed == false && booking.declined == false %>
           <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
             <div class="card mb-3 card-radius">
-              <img class="card-img-top card-image-radius" src=<%= booking.room.image_url %> alt="Card image cap">
+              <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
               <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %>
               <% end %></h5>
                 <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
-                <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
-                <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "Details", booking_path(booking) %></span></i>
+                <i class="fas fa-shower mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
+                <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "Details", booking_path(booking) %></span></i>
 
                 <% if booking.declined == false %>
-                  <%= link_to "Confirm", confirmed_booking_path(booking), method: :post %>
-                  <%= link_to "Decline", declined_booking_path(booking), method: :post, data: {confirm: "Are you sure?"} %>
+                  <i class="mr-2"><span class="card-detail-text btn btn-sm btn-success card-button"><%= link_to "Confirm", confirmed_booking_path(booking), method: :post %></span></i>
+                  <i class="mr-2"><span class="card-detail-text btn btn-sm btn-danger card-button"><%= link_to "Decline", declined_booking_path(booking), method: :post, data: {confirm: "Are you sure?"} %></span></i>
                 <% end %>
 
               </div>
@@ -61,7 +61,7 @@
 
       <div class="row">
         <div class="col-12">
-          <h3 class="my-4">Confirmed bookings<i class="fas fa-check-circle main-colour ml-3"></i></h3>
+          <h3 class="my-4">Confirmed Bookings<i class="fas fa-check-circle main-colour ml-3"></i></h3>
         </div>
 
         <% bookings = current_user.rooms.map { |room| room.bookings }.flatten %>
@@ -70,15 +70,15 @@
 
             <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
               <div class="card mb-5 card-radius">
-                <img class="card-img-top card-image-radius" src=<%= booking.room.image_url %> alt="Card image cap">
+                <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
                 <div class="card-body">
 
                   <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
                   <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %>
                   <% end %></h5>
                   <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
-                  <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
-                  <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "Details", booking_path(booking) %></span></i>
+                  <i class="fas fa-shower mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
+                  <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "Details", booking_path(booking) %></span></i>
 
                 </div>
               </div>
@@ -89,7 +89,7 @@
 
       <div class="row">
         <div class="col-12">
-          <h3 class="my-4">Declined bookings<i class="fas fa-check-circle main-colour ml-3"></i></h3>
+          <h3 class="my-4">Declined Bookings<i class="fas fa-times-circle main-colour ml-3"></i></h3>
         </div>
 
         <% bookings = current_user.rooms.map { |room| room.bookings }.flatten %>
@@ -98,15 +98,15 @@
 
             <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
               <div class="card mb-5 card-radius">
-                <img class="card-img-top card-image-radius" src=<%= booking.room.image_url %> alt="Card image cap">
+                <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
                   <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %>
                   <% end %></h5>
                   <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
-                  <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
-                  <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "Details", booking_path(booking) %></span></i>
-                  <%= link_to "Undo", declined_booking_path(booking), method: :post %>
+                  <i class="fas fa-shower mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
+                  <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "Details", booking_path(booking) %></span></i>
+                  <i class="mr-2"><span class="card-detail-text btn btn-sm btn-danger card-button"><%= link_to "Undo", declined_booking_path(booking), method: :post %></span></i>
                 </div>
               </div>
             </div>
@@ -116,7 +116,7 @@
 
     <div class="row">
       <div class="col-12">
-        <h3 class="my-4">Messages <i class="far fa-envelope main-colour ml-3"></i></h3>
+        <h3 class="my-4">Messages <i class="fas fa-envelope main-colour ml-3"></i></h3>
           <table class="table table-inbox table-hover">
             <tbody>
               <tr class="unread">
@@ -176,19 +176,19 @@
 
       <div class="row">
         <div class="col-12">
-          <h3 class="my-4">Confirmed bookings<i class="fas fa-check-circle main-colour ml-3"></i></h3>
+          <h3 class="my-4">Confirmed Bookings<i class="fas fa-check-circle main-colour ml-3"></i></h3>
         </div>
         <% bookings = current_user.rooms.map { |room| room.bookings }.flatten %>
         <% bookings.each do |booking| %>
         <% if booking.confirmed %>
             <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
               <div class="card mb-5 card-radius">
-                <img class="card-img-top card-image-radius" src=<%= booking.room.image_url %> alt="Card image cap">
+                <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Room in <%= booking.room.postcode %></h5>
                   <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
-                  <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
-                  <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "View details", booking_path(booking) %></span></i>
+                  <i class="fas fa-shower mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
+                  <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "View details", booking_path(booking) %></span></i>
                 </div>
               </div>
             </div>
@@ -204,7 +204,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1 class="text-center mt-5"> Welcome to your <%= current_user.host ? 'Host' : 'Charity' %> dashboard, <%= current_user.first_name %>!</h1>
+        <h1 class="text-center mt-5"> Welcome to your <%= current_user.host ? 'Host' : 'Charity' %> Dashboard, <%= current_user.first_name %>!</h1>
       </div>
       <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
         <%= link_to "Search For A Room", search_path, class: "nav-link btn btn-secondary my-2" %>
@@ -212,7 +212,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <h3 class="my-4">Pending bookings <i class="far fa-paper-plane main-colour ml-3"></i></h3>
+        <h3 class="my-4">Pending Bookings <i class="fas fa-hourglass-half main-colour ml-3"></i></h3>
       </div>
 
       <% current_user.bookings.each do |booking| %>
@@ -221,15 +221,15 @@
 
           <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
             <div class="card mb-3 card-radius">
-              <img class="card-img-top card-image-radius" src=<%= booking.room.image_url %> alt="Card image cap">
+              <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
               <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %></h5>
               <% end %></h5>
                 <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
-                <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
-                <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "View details", booking_path(booking) %></span></i>
-                <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "Cancel booking", booking_path(booking), method: :delete, data: {confirm: "Are you sure?"} %></span></i>
+                <i class="fas fa-shower mr-2 mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
+                <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "View details", booking_path(booking) %></span></i>
+                <i class="mr-2"><span class="card-detail-text btn btn-sm btn-danger card-button"><%= link_to "Cancel booking", booking_path(booking), method: :delete, data: {confirm: "Are you sure?"} %></span></i>
               </div>
             </div>
           </div>
@@ -239,7 +239,7 @@
 
       <div class="row">
         <div class="col-12">
-          <h3 class="my-4">Confirmed bookings<i class="fas fa-check-circle main-colour ml-3"></i></h3>
+          <h3 class="my-4">Confirmed Bookings<i class="fas fa-check-circle main-colour ml-3"></i></h3>
         </div>
 
         <% current_user.bookings.each do |booking| %>
@@ -247,15 +247,15 @@
 
             <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
               <div class="card mb-5 card-radius">
-                <img class="card-img-top card-image-radius" src=<%= booking.room.image_url %> alt="Card image cap">
+                <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
                 <div class="card-body">
 
                   <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
                   <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %></h5>
                   <% end %></h5>
                   <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
-                  <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
-                  <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "Details", booking_path(booking) %></span></i>
+                  <i class="fas fa-shower mr-2 mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
+                  <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "Details", booking_path(booking) %></span></i>
 
                 </div>
               </div>
@@ -266,7 +266,7 @@
 
       <div class="row">
         <div class="col-12">
-          <h3 class="my-4">Declined bookings<i class="fas fa-check-circle main-colour ml-3"></i></h3>
+          <h3 class="my-4">Declined Bookings<i class="fas fa-times-circle main-colour ml-3"></i></h3>
         </div>
 
         <% current_user.bookings.each do |booking| %>
@@ -274,14 +274,14 @@
 
             <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
               <div class="card mb-5 card-radius">
-                <img class="card-img-top card-image-radius" src=<%= booking.room.image_url %> alt="Card image cap">
+                <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
                   <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %></h5>
                   <% end %></h5>
                   <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
-                  <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
-                  <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "Details", booking_path(booking) %></span></i>
+                  <i class="fas fa-shower mr-2 mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
+                  <br><i class="mr-2 my-2 main-colour"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "Details", booking_path(booking) %></span></i>
                   <p>This booking has been declined by the host</p>
                 </div>
               </div>
@@ -292,7 +292,7 @@
 
     <div class="row">
       <div class="col-12">
-        <h3 class="my-4">Messages <i class="far fa-envelope main-colour ml-3"></i></h3>
+        <h3 class="my-4">Messages <i class="fas fa-envelope main-colour ml-3"></i></h3>
           <table class="table table-inbox table-hover">
             <tbody>
               <tr class="unread">

@@ -13,6 +13,8 @@
       <div class="col-12 col-md-5 offset-md-1 card">
         <h2>Booking Details</h2>
         <p><strong>Host Name:</strong> <%= @booking.room.user.first_name %> <%= @booking.room.user.surname %></p>
+        <p><strong>Booking Confirmed?:</strong> <%= @booking.confirmed ? "Yes" : "No - Awaiting Response From #{@booking.room.user.first_name}." %></p>
+        <p><strong>Start?:</strong> <%= @booking.confirmed ? "Yes" : "No - Awaiting Response From #{@booking.room.user.first_name}." %></p>
       </div>
     </div>
     <div class="form-actions btn btn-secondary mt-4">

@@ -11,5 +11,4 @@ class Room < ApplicationRecord
   validates :address, presence: true
   validates :postcode, presence: true
   validates :facilities, inclusion: { in: ["Shared", "Private"] }
-  validates :title, presence: true
 end

@@ -11,4 +11,12 @@ class Room < ApplicationRecord
   validates :address, presence: true
   validates :postcode, presence: true
   validates :facilities, inclusion: { in: ["Shared", "Private"] }
+
+  def photo_url_or_default
+    if photo.attached?
+      photo.key
+    else
+      "default_v9rlap"
+    end
+  end
 end

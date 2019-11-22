@@ -19,12 +19,29 @@
 
 .card-detail-text {
   font-family: 'Open Sans', 'Helvetica', 'sans-serif';
-  color: #808080;
+  color: $accent;
   font-size: 0.8em;
 }
 
 .search-bar {
   margin-top: 35px;
+}
+
+a.card-title {
+  text-decoration: none;
+  color: $second;
+}
+
+a.card-title:hover {
+  color: black;
+}
+
+.grow {
+  transition: all .1s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.03);
 }
 
 @media(max-width:576px) {

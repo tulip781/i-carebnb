@@ -6,6 +6,13 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @markers =
+      [{
+        image_url: helpers.asset_url('mapbox-icare.svg'),
+        lat: @booking.room.latitude,
+        lng: @booking.room.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { room_address: @booking.room.address })
+      }]
   end
 
   def new

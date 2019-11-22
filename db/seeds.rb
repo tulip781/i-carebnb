@@ -200,6 +200,19 @@ test_user2 = User.create(
     avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkovcVYkJI4zr3FkFjbROa8S7gkZ42FWLEaDxfIHPKBj8Xg_kg&s"
 )
 
+puts 'Creating Pending Booking and Confirmed Booking'
+
+booking1 = Booking.new
+booking1.room = room
+booking1.user = test_user2
+booking1.save!
+booking2 = Booking.new
+booking2.room = room2
+booking2.user = test_user2
+booking2.confirmed = true
+booking2.save!
+
+
 puts "Creating Test email: 'test@test.com' and password: '123456'"
 
 test_user3 = User.create(

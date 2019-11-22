@@ -1,8 +1,26 @@
 <div class="container">
   <div class="jumbotron mt-5 p-5">
-    <h1 class="display-4">Booking request confirmed</h1>
+    <h1 class="display-4">Booking Details</h1>
     <hr class="my-4">
-    <p class="lead">We will notify you as soon as the host approves the booking</p>
+    <div class="row">
+      <div class="col-12 col-md-6 card">
+        <h3><%= @booking.room.beds %> <%= @booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= @booking.room.address %></h3>
+        <i class="fas fa-map-marker-alt mr-4 my-2 main-colour"><span class="card-detail-text">&nbsp 0.8 miles away</span></i><i class="fas fa-shower my-2 main-colour"><span class="card-detail-text">&nbsp <%= @booking.room.facilities %> facilities</span></i>
+        <p class="lead my-4"> <%= @booking.room.description %></p>
+        <%= image_tag @booking.room.image_url, style: 'width:100%;max-height:315px;object-fit:cover;margin-bottom:50px;' %>
+      </div>
+      <div class="col-12 col-md-5 offset-md-1 card">
+        <h2>Booking Details</h2>
+        <p><strong>Host Name:</strong> <%= @booking.room.user.first_name %> <%= @booking.room.user.surname %></p>
+        <p><strong>Booking Confirmed:</strong> <%= @booking.confirmed ? "Yes" : "No - Awaiting Response From #{@booking.room.user.first_name}." %></p>
+        <p><strong>Start Date:</strong> <%= @booking.start_date %></p>
+        <p><strong>End Date:</strong> <%= @booking.end_date %></p>
+        <p><strong>Number Of Adults:</strong> <%= @booking.number_of_adults %></p>
+        <p><strong>Number Of Children:</strong> <%= @booking.number_of_children %></p>
+        <p><strong>Number Of Children:</strong> <%= @booking.room.latitude %></p>
+        <div id="map" style="width: 100%; height: 300px; marker-color: red" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+    </div>
     <div class="form-actions btn btn-secondary mt-4">
       <%= link_to "Go to dashboard", dashboard_path, class: "nav-link" %>
     </div>
@@ -11,4 +29,17 @@
 
 
 
+<!--
 
+ t.bigint "user_id"
+    t.bigint "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "confirmed", default: false
+    t.boolean "host_control", default: true
+    t.integer "number_of_adults"
+    t.integer "number_of_children"
+    t.integer "number_of_infants"
+    t.date "start_date"
+    t.date "end_date"
+ -->

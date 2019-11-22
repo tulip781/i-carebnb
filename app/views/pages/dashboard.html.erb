@@ -15,7 +15,7 @@
       <% current_user.rooms.each do |room| %>
       <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
         <div class="card mb-3 card-radius">
-          <img class="card-img-top card-image-radius" src="<%= room.image_url %>" alt="Card image cap">
+          <%= cl_image_tag room.photo_url_or_default, alt: room.address, class: "card-img-top card-image-radius" %>
           <div class="card-body">
             <h5 class="card-title"><%= link_to room_path(room), class:"card-title" do %>
               <%= room.beds %> <%= room.beds == 1 ? 'Bed' : 'Beds' %> - <%= room.address  %>
@@ -38,7 +38,7 @@
         <% if booking.confirmed == false && booking.declined == false %>
           <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
             <div class="card mb-3 card-radius">
-              <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
+              <%= cl_image_tag booking.room.photo_url_or_default, alt: booking.room.address, class: "card-img-top card-image-radius" %>
               <div class="card-body">
                 <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
               <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %>
@@ -70,7 +70,7 @@
 
             <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
               <div class="card mb-5 card-radius">
-                <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
+                <%= cl_image_tag booking.room.photo_url_or_default, alt: booking.room.address, class: "card-img-top card-image-radius" %>
                 <div class="card-body">
 
                   <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
@@ -98,7 +98,7 @@
 
             <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
               <div class="card mb-5 card-radius">
-                <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
+                <%= cl_image_tag booking.room.photo_url_or_default, alt: booking.room.address, class: "card-img-top card-image-radius" %>
                 <div class="card-body">
                   <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
                   <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %>
@@ -198,10 +198,10 @@
 
           <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
             <div class="card mb-3 card-radius">
-              <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
+              <%= cl_image_tag booking.room.photo_url_or_default, alt: booking.room.address, class: "card-img-top card-image-radius" %>
               <div class="card-body">
                 <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
-              <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %></h5>
+                <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %></h5>
               <% end %></h5>
                 <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
                 <i class="fas fa-shower mr-2 mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
@@ -221,19 +221,16 @@
 
         <% current_user.bookings.each do |booking| %>
           <% if booking.confirmed %>
-
             <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
               <div class="card mb-5 card-radius">
-                <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
+                <%= cl_image_tag booking.room.photo_url_or_default, alt: booking.room.address, class: "card-img-top card-image-radius" %>
                 <div class="card-body">
-
                   <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
                   <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %></h5>
                   <% end %></h5>
                   <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
                   <i class="fas fa-shower mr-2 mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
                   <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "Details", booking_path(booking) %></span></i>
-
                 </div>
               </div>
             </div>
@@ -245,13 +242,11 @@
         <div class="col-12">
           <h3 class="my-4">Declined Bookings<i class="fas fa-times-circle main-colour ml-3"></i></h3>
         </div>
-
         <% current_user.bookings.each do |booking| %>
           <% if booking.declined %>
-
             <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
               <div class="card mb-5 card-radius">
-                <img class="card-img-top card-image-radius" src="<%= booking.room.image_url %>" alt="Card image cap">
+                <%= cl_image_tag booking.room.photo_url_or_default, alt: booking.room.address, class: "card-img-top card-image-radius" %>
                 <div class="card-body">
                   <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
                   <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %></h5>

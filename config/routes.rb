@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :rooms
   resources :bookings do
     post 'confirmed', on: :member
+    post 'declined', on: :member
   end
   get 'users/show'
   get 'search', to: "pages#search"

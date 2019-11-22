@@ -65,11 +65,11 @@ ActiveRecord::Schema.define(version: 2019_11_22_111513) do
     t.datetime "updated_at", null: false
     t.string "image_url"
     t.string "title"
-    t.float "latitude"
-    t.float "longitude"
     t.text "description"
     t.string "postcode"
     t.string "facilities"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 

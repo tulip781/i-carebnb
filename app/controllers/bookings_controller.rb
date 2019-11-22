@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy, :confirmed]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy, :confirmed, :declined]
 
   def index
     @bookings = Booking.all
@@ -37,6 +37,16 @@ class BookingsController < ApplicationController
 
   def confirmed
     @booking.confirmed = true
+    @booking.save
+    redirect_to dashboard_path
+  end
+
+  def declined
+    if @booking.declined == false
+      @booking.declined = true
+    else
+      @booking.declined = false
+    end
     @booking.save
     redirect_to dashboard_path
   end

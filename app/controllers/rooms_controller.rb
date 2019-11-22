@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:edit, :show, :update, :destroy]
 
   def index
+
     default_radius = 30
     if params[:location].present? && params[:radius].present?
       @rooms = Room.near(params[:location], params[:radius])

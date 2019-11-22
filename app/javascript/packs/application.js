@@ -11,3 +11,4 @@ initSweetalert('#sweet-alert-demo', {
   icon: "success",
   confirmButtonColor: '#8CD4F5'
 });
+

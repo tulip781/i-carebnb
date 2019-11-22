@@ -1,5 +1,5 @@
 .mapboxgl-popup {
-  max-width: 600px;
+  max-width: 300px;
   border-radius: 50%;
 }
 
@@ -14,7 +14,7 @@
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 20px !important;
@@ -23,11 +23,13 @@
     font-family: 'Open Sans', 'Helvetica', 'sans-serif';
     color: #808080;
     font-size: 0.8em;
+
     img {
     border-radius: 5%;
     width: 100%;
-    filter: grayscale(100%);
+
+    overflow: hidden;
+
     }
   }
 }
-

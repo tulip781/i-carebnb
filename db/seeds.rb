@@ -3,30 +3,28 @@ Room.destroy_all
 User.destroy_all
 Booking.destroy_all
 
-# Variables Defined
-
-# Variables Defined
-
-flats_images = ["https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat1.jpg",
-"https://ii1.pepperfry.com/media/catalog/product/s/w/494x544/swirl-single-bed-with-box-storage-in-denver-oak-finish-by-hometown-swirl-single-bed-with-box-storage-dtz9tx.jpg",
-"https://images-na.ssl-images-amazon.com/images/I/81Chh4C6mML._SL1500_.jpg",
-"https://www.cuckooland.com/dnc/cuckooland/artwork/product_images/Pino-White-Kids-Single-Bed.jpg?quality=95&scale=canvas&width=400&height=400",
-"https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat5.jpg",
-"https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat6.jpg",
-"https://ksassets.timeincuk.net/wp/uploads/sites/56/2013/05/Blue-bedroom-ideas-1.jpg",
-"https://www.noaandnani.co.uk/images/hampshire-single-bed-frame-in-white-p919-6359_image.jpg",
-"https://media-cdn.tripadvisor.com/media/photo-s/10/76/7c/8f/bedroom-with-small-window.jpg",
-"https://www.padsforstudents.co.uk/UserFiles/properties/229/746796b99e2ae3297a8e2fb7402ea520_1_l.jpg",
-"https://www.theculpeper.com/wp-content/uploads/2016/03/DRM_Culp_Rooms_HR-24DRM_0573.jpg",
-"https://images.trvl-media.com/hotels/27000000/26600000/26590900/26590840/0d4279dc_z.jpg",
-
-"https://images.trvl-media.com/hotels/36000000/35870000/35867700/35867652/25aad79f_z.jpg",
-"https://media.jeromes.com/content/Image/levels/desktop/bedroom_featured-collections_full-beds.webp",
-"https://lid.zoocdn.com/645/430/188ed11956e130eee60a1ea6d69894c796c91172.jpg",
-"https://media-cdn.tripadvisor.com/media/photo-s/02/01/8d/2b/ibis-hotel-northampton.jpg",
-"https://imganuncios.mitula.net/medium/2_bedroom_flat_for_sale_2400095566573537933.jpg",
+flats_images = ["https://a0.muscache.com/im/pictures/24bace61-7ed2-4dec-8574-978f6e581e81.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/dac4c061-2de8-48f6-98db-e5d6959828ed.jpg?aki_policy=xx_large",
+"https://a0.muscache.com/im/pictures/0e876759-fb04-40ec-aaf1-6900b46cfb02.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/50196810/0ba10ad4_original.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/c3be634f-b568-47ad-a0d5-bb2362ea7627.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/cf2e893a-5bcb-4bcf-9a94-1fdbbe43fef2.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/b6c585dd-b809-4530-80fc-341061fce378.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/f5a41e43-4ad1-4213-ad28-58c96a3181d4.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/2bdfd4b1-ce5f-40fb-9836-8ae004997980.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/2d329037-c547-4d3f-a7a8-504dde5da06e.jpg?aki_policy=xx_large",
+"https://a0.muscache.com/im/pictures/b8873145-d46d-4ab3-9c72-707721355e75.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/5f5b7c19-9c8b-45f3-81a1-c86338b1093d.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/5eb43720-f7ab-4aeb-9809-8251ba31ed38.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/27187347-9681-40ba-8eb4-440f26a2ab01.jpg?aki_policy=xx_large",
+"https://a0.muscache.com/im/pictures/ceb026b3-f13f-46d5-bf7c-b55c4ec3d4e7.jpg?aki_policy=xx_large",
+"https://a0.muscache.com/im/pictures/ea6d95b8-2d33-4c09-be6c-c1032783f68e.jpg?aki_policy=xx_large",
+"https://a0.muscache.com/im/pictures/25d4f0b4-38fa-4902-8f68-42bf3620e915.jpg?aki_policy=xx_large",
+"https://a0.muscache.com/im/pictures/75416643/ec3bf2d9_original.jpg?aki_policy=xx_large",
+"https://a0.muscache.com/im/pictures/93553720-9560-4d36-84e2-e7a017323f60.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/2e9f4f65-ce86-4ee5-accd-326648223b20.jpg?aki_policy=x_large",
+"https://a0.muscache.com/im/pictures/1903b8d8-48e4-42da-a4cb-e7f130657633.jpg?aki_policy=x_large"
 ]
-
 
 flats_titles = ["Double Room In London City", "Double Room In Old Street", "Single Room in Hoxton", "Double room in Shoreditch",
 "Single Bed In Haggerston", "Single Bed In Hackeny", "Double Room in Whitechapel", "Single Bed in Kings Cross", "Single Room Stepney"]
@@ -37,7 +35,6 @@ address_london = ["Croydon", "Camden", "Balham", "Hackney", "Dulwich", "Old Stre
 "Chiswick", "Greenwich", "Catford", "Whitechapel", "Aldgate", "Liverpool Street", "Northampton",
 "Reading"]
 
-
 real_location = ["42 Ravenslea Rd, Balham, London, SW12 8RX",
 "12 Peckham Rye, London, SE15 3JD",
 "51 Walnut Tree Rd, London, SE10 9EU",
@@ -47,19 +44,17 @@ real_location = ["42 Ravenslea Rd, Balham, London, SW12 8RX",
 "19 Grove Park Gardens, London, W4 3RY",
 "15 High Street Chalvey, Slough, SL1 2RU",
 "101 Gordon St Northampton, NN2 6BW",
+"20 Cumin Pl Edinburgh EH9 2JX",
+"10 Downing Street, London, SW1A 2AA",
 "41 Crown St, Reading, RG1 2SN",
-"46 Rushford Rd, London, SE4 1SG",
-"19 Grove Park Gardens, London, W4 3RY",
-"15 High Street Chalvey, Slough, SL1 2RU",
-"101 Gordon St Northampton, NN2 6BW",
-"41 Crown St, Reading, RG1 2SN",
-"101 Gordon St Northampton, NN2 6BW",
-"41 Crown St, Reading, RG1 2SN",
-"46 Rushford Rd, London, SE4 1SG",
-"19 Grove Park Gardens, London, W4 3RY",
-"15 High Street Chalvey, Slough, SL1 2RU",
-"101 Gordon St Northampton, NN2 6BW",
-"41 Crown St, Reading, RG1 2SN"
+"149 Cardigan Rd, Leeds, LS6 1LJ",
+"Victoria St Bristol BS1 6AH",
+"50 Stoke Rd Plymouth PL1 5JG",
+"55 Kinson Rd Bournemouth BH10 4AH",
+"419 Claremont Rd Manchester M14 5XF",
+"Broad Ln Sheffield S3 7HQ",
+"Milestone Ln Birmingham B21 0LA",
+"7 Madingley Rd Cambridge CB3 0EE"
 ]
 
 descriptions = ["Double room in period flat.
@@ -91,21 +86,20 @@ Chinatown.", "Great double room in a lovely Victorian house right infront Victor
  Stoke Newington. 2 mins to Canonbury tube station. It is the right place for any age, from families to young fellas. Great restaurants, markets and connection to the city
 centre! The whole flat is at your service, newly renovated with a sofabed in the
 livingroom and a large kitchen suitable for dinners. You can write me anytime if
-you might need anything extra."]
-
-
-real_location_london = ["42 Ravenslea Rd, Balham, London SW12 8RX",
-"12 Peckham Rye, London, SE15 3JD",
-"51 Walnut Tree Rd, London SE10 9EU",
-"1 Robert St, London, NW1 3JU",
-"119 Rushmore Rd, Lower Clapton, London E5 0HA",
-"46 Rushford Rd, London, SE4 1SG",
-"19 Grove Park Gardens, London, W4 3RY",
-"15 High Street Chalvey, Slough, SL1 2RU"]
-
-
+you might need anything extra.", "Location is everything with this home (located M3 - Central,
+8 min from Arena, 10minutes to Northern Quarter, 15min tram ride away from football
+stadiums), a nice one bedroom flat with a comfortable double bed, my lounge is open plan
+ and overlooks Manchester - the flat sleeps 2 people easily, and the living room can accommodate up
+ to one extra guests staying on pop up beds (extra charge done via airbnb ) , an affordable, central
+  home for you to see Manchester from :)", "This en-suite apartment consists of one room and bathroom.
+  In the room there is a large double bed (real, sprung mattress) on one side and a small kitchen on the other.
+  There is a double wardrobe, a table and chair, and an armchair. In the bathroom there is a shower
+  (but no bathtub). We provide towels, basic toiletries and a hairdryer, so you don't need to bring yours.
+The kitchen has a small fridge with a freezer, a microwave-oven, 2 hotplates, toaster, electric kettle so
+you can cook small meals or warm up any take-aways. We provide tea, milk, and breakfast cereals."]
 
 puts "creating users ;)"
+
 10.times do
   user = User.create(
     email: Faker::Internet.free_email,
@@ -122,17 +116,15 @@ puts "creating users ;)"
 end
 
 puts "creating rooms ;)"
+
 i = 0
-17.times do
+20.times do
   adult_space = rand(1..2)
   child_space = rand(1)
-  infant_space = 0
+  infant_space = rand(1)
 
   room = Room.new(
-
     address: real_location[i],
-    # address: real_location_london.sample,
-
     adult_space: adult_space,
     child_space: child_space,
     infant_space: infant_space,
@@ -142,9 +134,7 @@ i = 0
     description: descriptions.sample,
     user: User.all.sample,
     title: flats_titles.sample,
-
     postcode: address_london[i],
-
     facilities: ["Shared","Private"].sample
    )
  room.user = User.all.sample
@@ -185,13 +175,15 @@ test_user1 = User.create(
     avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhiz0_0XhnXFWXEp_8OpHjoO4HfEh4B8B-hkodfu7Z2G_7u1Sr&s"
 )
 
-puts "Assiging Room to Paula - the host"
+puts "Assiging Room to the Host, Paula"
+
 room = Room.all.sample
 room.user = test_user1
 room.save!
 room2 = Room.all.sample
 room2.user = test_user1
 room2.save!
+
 puts "Creating Charity Representative 'Leia' with email: 'charity@icarebnb.com' and password: '123456'"
 
 test_user2 = User.create(

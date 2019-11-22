@@ -2,6 +2,21 @@
   <div class="row">
     <div class="col-12 col-lg-6 mt-4 mb-2">
       <h1>Here are your results</h1>
+
+      <form action="/rooms" method="GET">
+        <label for="Adults">Number of adults:</label>
+        <input type="integer" name="adults">
+        <label for="Children">Number of children:</label>
+        <input type="integer" name="children">
+        <label for="Infants">Number of infants:</label>
+        <input type="integer" name="infants">
+        <label for="Beds">Number of beds:</label>
+        <input type="integer" name="beds">
+        <label for="Minimum stay">Minimum stay needed:</label>
+        <input type="text" name="minimum_stay">
+        <button type="submit">Submit</button>
+      </form>
+
     </div>
     <div class="col-12 col-lg-6 search-bar">
       <input class="form-control" type="text" placeholder="Change Search Location" aria-label="Search">
@@ -49,19 +64,18 @@
   <div class="row">
     <% @rooms.each do |room| %>
       <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
-        <div class="card mb-3 card-radius">
-          <% if room.photo.attached? %>
-            <%= cl_image_tag room.photo.key, alt: room.address, class: "card-img-top card-image-radius" %>
-          <% else %>
-            <%= image_tag room.image_url, alt: room.address, class: "card-img-top card-image-radius" %>
+        <div class="card mb-3 card-radius grow w-100">
+          <%= link_to room_path(room) do %>
+            <% if room.photo.attached? %>
+              <%= cl_image_tag room.photo.key, alt: room.address, class: "card-img-top card-image-radius" %>
+            <% else %>
+              <%= image_tag room.image_url, alt: room.address, class: "card-img-top card-image-radius" %>
+            <% end %>
           <% end %>
           <div class="card-body">
-            <h5>
-              <%= link_to room_path(room), class:"card-title" do %>
-
-              <%= room.beds %> <%= room.beds == 1 ? 'Bed' : 'Beds' %> - <%= room.address  %></h5>
-
-              <% end %>
+            <%= link_to room_path(room), class: "card-title" do %>
+              <h5><%= room.beds %> <%= room.beds == 1 ? 'Bed' : 'Beds' %> - <%= room.address  %></h5>
+            <% end %>
             <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= room.beds%> <%= room.beds == 1 ? 'Bed' : 'Beds' %> available</span></i>
             <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp 0.8 miles away</span></i>
             <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp Shared facilities</span></i>

@@ -2,6 +2,7 @@ require 'faker'
 Room.destroy_all
 User.destroy_all
 Booking.destroy_all
+puts "🚀"
 
 flats_images = ["https://a0.muscache.com/im/pictures/24bace61-7ed2-4dec-8574-978f6e581e81.jpg?aki_policy=x_large",
 "https://a0.muscache.com/im/pictures/dac4c061-2de8-48f6-98db-e5d6959828ed.jpg?aki_policy=xx_large",
@@ -130,13 +131,16 @@ i = 0
     infant_space: infant_space,
     beds: (adult_space + child_space + infant_space),
     max_stay_length: rand(5),
-    image_url: flats_images[i],
+    # image_url: flats_images[i],
     description: descriptions.sample,
     user: User.all.sample,
     title: flats_titles.sample,
     postcode: address_london[i],
     facilities: ["Shared","Private"].sample
-   )
+  )
+  file = URI.open(flats_images[i])
+  room.photo.attach(io: file, filename: 'some-image.jpg', content_type: 'image/jpg')
+
  room.user = User.all.sample
  room.save!
  i += 1
@@ -228,3 +232,5 @@ test_user3 = User.create(
     password: "123456",
     avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkovcVYkJI4zr3FkFjbROa8S7gkZ42FWLEaDxfIHPKBj8Xg_kg&s"
 )
+
+puts D👽NE

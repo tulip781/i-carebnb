@@ -58,11 +58,7 @@
       <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
         <div class="card mb-3 card-radius grow w-100">
           <%= link_to room_path(room) do %>
-            <% if room.photo.attached? %>
-              <%= cl_image_tag room.photo.key, alt: room.address, class: "card-img-top card-image-radius" %>
-            <% else %>
-              <%= image_tag room.image_url, alt: room.address, class: "card-img-top card-image-radius" %>
-            <% end %>
+            <%= cl_image_tag room.photo_url_or_default, alt: room.address, class: "card-img-top card-image-radius" %>
           <% end %>
           <div class="card-body">
             <%= link_to room_path(room), class: "card-title" do %>

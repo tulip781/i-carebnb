@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root :to => "pages#dashboard"
   end
+  # get 'switch_login', to: "pages#switch_login", as: :switch_login
   root to: 'pages#landing'
 end
 

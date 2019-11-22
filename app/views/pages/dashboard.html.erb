@@ -1,4 +1,3 @@
-
 <% if current_user.host %>
   <div class="container">
     <div class="row">
@@ -8,15 +7,12 @@
       <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
         <%= link_to "Add a room", new_room_path, class: "nav-link btn btn-secondary my-2" %>
       </div>
-
     </div>
     <div class="row">
       <div class="col-12">
         <h3 class="my-4">Your rooms <i class="far fa-paper-plane main-colour ml-3"></i></h3>
       </div>
-
       <% current_user.rooms.each do |room| %>
-
       <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
         <div class="card mb-3 card-radius">
           <img class="card-img-top card-image-radius" src=<%= room.image_url %> alt="Card image cap">
@@ -30,17 +26,13 @@
           </div>
         </div>
       </div>
-
       <% end %>
-
       <div class="col-12">
         <h3 class="my-4">Booking requests <i class="far fa-paper-plane main-colour ml-3"></i></h3>
       </div>
-
       <% bookings = current_user.rooms.map { |room| room.bookings }.flatten %>
       <% bookings.each do |booking| %>
         <% if booking.confirmed == false %>
-
           <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
             <div class="card mb-3 card-radius">
               <img class="card-img-top card-image-radius" src=<%= booking.room.image_url %> alt="Card image cap">
@@ -56,7 +48,6 @@
         <% end %>
       <% end %>
     </div>
-
     <div class="row">
       <div class="col-12">
         <h3 class="my-4">Messages <i class="far fa-envelope main-colour ml-3"></i></h3>
@@ -120,21 +111,17 @@
         <div class="col-12">
           <h3 class="my-4">Confirmed bookings<i class="fas fa-check-circle main-colour ml-3"></i></h3>
         </div>
-
         <% bookings = current_user.rooms.map { |room| room.bookings }.flatten %>
         <% bookings.each do |booking| %>
         <% if booking.confirmed %>
-
             <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
               <div class="card mb-5 card-radius">
                 <img class="card-img-top card-image-radius" src=<%= booking.room.image_url %> alt="Card image cap">
                 <div class="card-body">
-
                   <h5 class="card-title">Room in <%= booking.room.postcode %></h5>
                   <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
                   <i class="fas fa-shower mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
                   <i class="mr-2 my-2 main-colour"><span class="card-detail-text"><%= link_to "View details", booking_path(booking) %></span></i>
-
                 </div>
               </div>
             </div>

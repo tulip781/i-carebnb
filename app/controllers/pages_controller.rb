@@ -5,13 +5,18 @@ class PagesController < ApplicationController
   end
 
   def search
-  @rooms = Room.all.sample(3)
+    @rooms = Room.all.sample(3)
   end
 
   def about
   end
 
   def dashboard
+  end
+
+  def switch_login
+    session[:guest] = !session[:guest]
+    redirect_to(request.env['HTTP_REFERER'])
   end
 
 end

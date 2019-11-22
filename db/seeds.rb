@@ -233,4 +233,4 @@ test_user3 = User.create(
     avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkovcVYkJI4zr3FkFjbROa8S7gkZ42FWLEaDxfIHPKBj8Xg_kg&s"
 )
 
-puts D👽NE
+puts 'D👽NE'

@@ -22,8 +22,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.room = Room.find(params[:room_id])
     if @booking.save
-      redirect_to dashboard_path(current_user)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -61,7 +62,7 @@ class BookingsController < ApplicationController
 private
 
   def booking_params
-    params.require(:booking).permit(:number_of_adults, :number_of_children, :number_of_infants, :start_date, :end_date, :room_id)
+    params.require(:booking).permit(:number_of_adults, :number_of_children, :number_of_infants, :start_date, :end_date)
   end
 
   def set_booking

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :rooms
-  resources :bookings do
+  resources :rooms do
+    resources :bookings, only: [:new, :create]
+  end
+  resources :bookings, except: [:new, :create] do
     post 'confirmed', on: :member
     post 'declined', on: :member
   end

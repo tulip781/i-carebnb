@@ -1,0 +1,46 @@
+.main-back {
+  background-color: $main;
+  color: white;
+}
+
+.footer-header {
+  font-family: $headers-font;
+  min-width: 155px;
+  float: right;
+}
+
+@media (max-width: 769px) {
+  .footer-header {
+    float: none;
+  }
+}
+
+.main-font {
+  font-family: $headers-font;
+}
+
+.no-style {
+  color: white;
+}
+
+.no-style:hover {
+  color: #e5e5e5;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.blue {
+  background-color: $second;
+}
+
+.send {
+  color: white;
+}
+
+.send:hover {
+  color: #e5e5e5;
+}
+
+.inline {
+  display: inline;
+}

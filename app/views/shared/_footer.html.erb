@@ -1,0 +1,47 @@
+<footer class="main-back font-small pt-4">
+  <div class="container-fluid text-center text-md-left">
+    <div class="row">
+      <div class="col-md-6 mt-md-0 mt-3">
+        <div class="main-font mt-2 ml-2 pb-4">
+          <p class="inline no-style" data-toggle="modal" data-target="#modalContactForm">Contact Us</p>
+          <p class="inline ml-4"><%= link_to "Get Involved", about_path, class: "no-style" %></p>
+        </div>
+      </div>
+      <hr class="clearfix w-100 d-md-none pb-3">
+      <div class="col-md-6 mb-md-0 mb-3">
+        <h4 class="footer-header mb-3">icarebnb <%= image_tag "icare_logo.svg", style: "max-width:50px;" %></h4>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Modal -->
+<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center main-back">
+        <h4 class="modal-title w-100 main-font">Get in touch, one of our awesome team members will be happy to help 👋🏻</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form">
+          <input type="text" id="form34" class="form-control validate" placeholder="👤 Your name">
+          <label data-error="wrong" data-success="right" for="form34"></label>
+        </div>
+        <div class="md-form">
+          <input type="email" id="form29" class="form-control validate" placeholder="🖥 Your email address">
+          <label data-error="wrong" data-success="right" for="form29"></label>
+        </div>
+        <div class="md-form">
+          <textarea type="text" id="form8" class="md-textarea form-control" rows="6" placeholder="✏️ Type your message here..."></textarea>
+          <label data-error="wrong" data-success="right" for="form8"></label>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center blue">
+        <button class="btn btn-lg send">Send <i class="fas fa-paper-plane ml-1"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

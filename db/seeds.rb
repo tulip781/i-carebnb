@@ -3,6 +3,11 @@ Room.destroy_all
 User.destroy_all
 Booking.destroy_all
 Resident.destroy_all
+Charity.destroy_all
+CharitySupport.destroy_all
+Guest.destroy_all
+Safeguarding.destroy_all
+puts "💥Destroying Old Database💥"
 puts "🚀"
 puts "🚀🚀"
 puts "🚀🚀🚀"

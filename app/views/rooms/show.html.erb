@@ -14,7 +14,7 @@
       <%= cl_image_tag @room.photo_url_or_default, alt: @room.address, style: 'width:100%;max-height:315px;object-fit:cover;margin-bottom:50px;' %>
     </div>
     <div class="col-12 col-md-5 offset-md-1">
-      <%= render "bookings/new" %>
+      <%= render "bookings/new", booking: @booking, room: @room %>
     </div>
   </div>
 </div>

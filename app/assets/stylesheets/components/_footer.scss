@@ -1,4 +1,9 @@
 .main-back {
+  background-color: #F2F2F2;
+  color: white;
+}
+
+.main-modal {
   background-color: $main;
   color: white;
 }
@@ -9,28 +14,26 @@
   float: right;
 }
 
-@media (max-width: 769px) {
-  .footer-header {
-    float: none;
-  }
-}
-
 .main-font {
   font-family: $headers-font;
 }
 
 .no-style {
-  color: white;
+  color: $second;
 }
 
 .no-style:hover {
-  color: #e5e5e5;
+  color: black;
   text-decoration: none;
   cursor: pointer;
 }
 
 .blue {
   background-color: $second;
+}
+
+.blue-text {
+  color: $second;
 }
 
 .send {
@@ -43,4 +46,35 @@
 
 .inline {
   display: inline;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 5rem; /* Footer height */
+}
+
+#footer {
+  margin-top: -5rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 769px) {
+  .footer-header {
+    float: none;
+  }
+}
+
+@media (max-width: 769px) {
+  #footer {
+  margin-top: 13rem;
+  }
+  #content-wrap {
+  padding-bottom: 13rem; /* Footer height */
+  }
 }

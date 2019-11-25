@@ -147,7 +147,7 @@ i = 0
     facilities: ["Shared","Private"].sample
   )
   file = URI.open(flats_images[i])
-  room.photos.attach(io: file, filename: 'some-image.jpg', content_type: 'image/jpg')
+  room.photo.attach(io: file, filename: 'some-image.jpg', content_type: 'image/jpg')
 
  room.user = User.all.sample
  room.save!

@@ -12,3 +12,20 @@ h1 {
   color: $second;
   margin-bottom: 30px;
 }
+
+.title {
+  font-size: 5em;
+}
+
+.lead {
+  font-size: 1.3em;
+}
+
+@media (max-width: 769px) {
+  .title {
+    font-size: 4em;
+  }
+  .lead {
+    font-size: 1.15em;
+  }
+}

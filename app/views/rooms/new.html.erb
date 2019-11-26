@@ -8,12 +8,12 @@
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <div class="form-inputs mt-4">
-          <%= f.input :address, placeholder: "Full address" %>
+          <%= f.input :address, required: true, autofocus: true, placeholder: "Full address" %>
         </div>
         <div class="form-inputs">
           <div class="form-row">
             <div class="form-group col-6 col-sm-6">
-              <%= f.input :postcode, placeholder: "Postcode" %>
+              <%= f.input :postcode, required: true, autofocus: true, placeholder: "Postcode" %>
             </div>
             <div class="form-group col-6 col-sm-6">
               <%= f.input :facilities, collection: ['Shared', 'Private'], prompt: :translate, :label => "Facilities:" %>
@@ -23,16 +23,16 @@
         <div class="form-inputs">
           <div class="form-row">
             <div class="form-group col-6 col-md-3">
-              <%= f.input :adult_space, :input_html => { :value => '1' } %>
+              <%= f.input :adult_space, required: true, autofocus: true, :input_html => { :value => '1' } %>
             </div>
             <div class="form-group col-6 col-md-3">
-              <%= f.input :child_space, :input_html => { :value => '0' } %>
+              <%= f.input :child_space, required: true, autofocus: true, :input_html => { :value => '0' } %>
             </div>
             <div class="form-group col-6 col-md-3">
-              <%= f.input :infant_space, :input_html => { :value => '0' } %>
+              <%= f.input :infant_space, required: true, autofocus: true, :input_html => { :value => '0' } %>
             </div>
             <div class="form-group col-6 col-md-3">
-              <%= f.input :max_stay_length, :input_html => { :value => '1' } %>
+              <%= f.input :max_stay_length, required: true, autofocus: true, :input_html => { :value => '1' } %>
             </div>
           </div>
         </div>

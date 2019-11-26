@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
   devise_for :users
   resources :rooms
+  resources :chatrooms do
+    resources :chats
+  end
   resources :bookings do
     post 'confirmed', on: :member
     post 'declined', on: :member
@@ -18,3 +22,5 @@ Rails.application.routes.draw do
   root to: 'pages#landing'
 end
 
+# index, create and destroy for chatrooms
+# chats - create and destroy

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :rooms
+  resources :chatrooms
+  resources :chats
   resources :bookings do
     post 'confirmed', on: :member
     post 'declined', on: :member
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   get 'search', to: "pages#search"
   get 'about', to: "pages#about"
   get 'dashboard', to: "pages#dashboard"
+  get '/dashboard', to: 'chats#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   authenticated :user do

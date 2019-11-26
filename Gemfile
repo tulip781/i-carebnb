@@ -17,7 +17,11 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
-
+gem 'jquery-rails'
+gem 'pusher'
+gem 'figaro'
+gem 'coffee-rails'
+gem 'popper_js', '~> 1.14.5'
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

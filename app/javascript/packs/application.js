@@ -6,9 +6,10 @@ initMapbox();
 
 
 initSweetalert('#sweet-alert-demo', {
-  title: "Thank You For Your Booking",
-  text: "A room request has been sent to the host",
+  title: "Thank You For Your Booking Request",
+  text: "A booking request has been sent to the host",
   icon: "success",
   confirmButtonColor: '#8CD4F5'
 });
+
 

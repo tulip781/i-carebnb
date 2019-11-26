@@ -23,16 +23,16 @@
         <div class="form-inputs">
           <div class="form-row">
             <div class="form-group col-6 col-md-3">
-              <%= f.input :adult_space, placeholder: "0" %>
+              <%= f.input :adult_space, :input_html => { :value => '1' } %>
             </div>
             <div class="form-group col-6 col-md-3">
-              <%= f.input :child_space, placeholder: "0" %>
+              <%= f.input :child_space, :input_html => { :value => '0' } %>
             </div>
             <div class="form-group col-6 col-md-3">
-              <%= f.input :infant_space, placeholder: "0" %>
+              <%= f.input :infant_space, :input_html => { :value => '0' } %>
             </div>
-            <div class="form-group col-6 col-md-3">
-              <%= f.input :beds, placeholder: "0" %>
+           <div class="form-group col-6 col-md-3">
+              <%= f.input :max_stay_length, :input_html => { :value => '1' } %>
             </div>
           </div>
         </div>

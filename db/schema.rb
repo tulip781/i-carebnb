@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_111513) do
+ActiveRecord::Schema.define(version: 2019_11_26_121039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +49,58 @@ ActiveRecord::Schema.define(version: 2019_11_22_111513) do
     t.date "start_date"
     t.date "end_date"
     t.boolean "declined", default: false
+    t.bigint "guest_id"
+    t.index ["guest_id"], name: "index_bookings_on_guest_id"
     t.index ["room_id"], name: "index_bookings_on_room_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "charities", force: :cascade do |t|
+    t.string "name"
+    t.string "charity_number"
+    t.string "address"
+    t.string "email"
+    t.string "phone_number"
+    t.string "main_contact"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "charity_supports", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "charity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "newsletter"
+    t.index ["charity_id"], name: "index_charity_supports_on_charity_id"
+    t.index ["user_id"], name: "index_charity_supports_on_user_id"
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.bigint "charity_id"
+    t.string "first_name"
+    t.date "date_of_birth"
+    t.string "permanent_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "adult_space", default: 1
+    t.integer "child_space"
+    t.integer "infant_space"
+    t.index ["charity_id"], name: "index_guests_on_charity_id"
+  end
+
+  create_table "residents", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.date "date_of_birth"
+    t.boolean "safeguarding_check?"
+    t.bigint "room_id"
+    t.string "gender"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_residents_on_room_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -70,7 +120,20 @@ ActiveRecord::Schema.define(version: 2019_11_22_111513) do
     t.string "facilities"
     t.float "latitude"
     t.float "longitude"
+    t.date "unavailability"
+    t.boolean "public_visible", default: false
+    t.text "pets"
     t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
+
+  create_table "safeguardings", force: :cascade do |t|
+    t.bigint "resident_id"
+    t.bigint "user_id"
+    t.boolean "approved", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resident_id"], name: "index_safeguardings_on_resident_id"
+    t.index ["user_id"], name: "index_safeguardings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -90,9 +153,20 @@ ActiveRecord::Schema.define(version: 2019_11_22_111513) do
     t.text "gender"
     t.boolean "host"
     t.text "avatar_url"
+    t.boolean "safeguarding_check?", default: false
+    t.boolean "charity_verified?", default: false
+    t.text "supported_charities"
+    t.text "languages_spoken"
+    t.text "employment_status"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "charity_supports", "charities"
+  add_foreign_key "charity_supports", "users"
+  add_foreign_key "guests", "charities"
+  add_foreign_key "residents", "rooms"
+  add_foreign_key "safeguardings", "residents"
+  add_foreign_key "safeguardings", "users"
 end

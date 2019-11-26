@@ -2,7 +2,15 @@ require 'faker'
 Room.destroy_all
 User.destroy_all
 Booking.destroy_all
+Resident.destroy_all
+Charity.destroy_all
+CharitySupport.destroy_all
+Guest.destroy_all
+Safeguarding.destroy_all
+puts "💥Destroying Old Database💥"
 puts "🚀"
+puts "🚀🚀"
+puts "🚀🚀🚀"
 
 flats_images = ["https://a0.muscache.com/im/pictures/24bace61-7ed2-4dec-8574-978f6e581e81.jpg?aki_policy=x_large",
 "https://a0.muscache.com/im/pictures/dac4c061-2de8-48f6-98db-e5d6959828ed.jpg?aki_policy=xx_large",
@@ -97,9 +105,13 @@ stadiums), a nice one bedroom flat with a comfortable double bed, my lounge is o
   There is a double wardrobe, a table and chair, and an armchair. In the bathroom there is a shower
   (but no bathtub). We provide towels, basic toiletries and a hairdryer, so you don't need to bring yours.
 The kitchen has a small fridge with a freezer, a microwave-oven, 2 hotplates, toaster, electric kettle so
-you can cook small meals or warm up any take-aways. We provide tea, milk, and breakfast cereals."]
+you can cook small meals or warm up any take-aways. We provide tea, milk, and breakfast cereals.",
+"Get a true coastal experience from this minimalist-inspired apartment highlighted with natural
+woods and charming sea-themed decor. With an open-plan living space, sea views, and skylight-lit
+rooms, it provides a comfortable and peaceful ambiance."
+]
 
-puts "creating users ;)"
+puts "👫 creating users 👫"
 
 10.times do
   user = User.create(
@@ -116,12 +128,87 @@ puts "creating users ;)"
     )
 end
 
-puts "creating rooms ;)"
+puts "👵 Creating host user 'Paula' with email: 'host@icarebnb.com' and password: '123456' 👵"
+
+test_user1 = User.create(
+    email: "host@icarebnb.com",
+    title: ["Mr", "Mrs", "Miss"].sample,
+    first_name: "Paula",
+    surname: "Smith" ,
+    address: "159 St. John Street, London, EC1V 4QJ",
+    phone_number: Faker::PhoneNumber.phone_number,
+    date_of_birth: Faker::Date.backward(days: 400),
+    gender: "Female",
+    host: true,
+    password: "123456",
+    avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhiz0_0XhnXFWXEp_8OpHjoO4HfEh4B8B-hkodfu7Z2G_7u1Sr&s"
+)
+
+puts "🙆‍♀️ Creating Charity Representative 'Leia' with email: 'charity@icarebnb.com' and password: '123456' 🙆‍♀️"
+
+test_user2 = User.create(
+    email: "charity@icarebnb.com",
+    title: "Miss",
+    first_name: "Leia",
+    surname: "Mantell" ,
+    address: Faker::Address.street_address ,
+    phone_number: Faker::PhoneNumber.phone_number,
+    date_of_birth: Faker::Date.backward(days: 400),
+    gender: "Female" ,
+    host: false,
+    password: "123456",
+    avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkovcVYkJI4zr3FkFjbROa8S7gkZ42FWLEaDxfIHPKBj8Xg_kg&s"
+)
+
+puts "🕺 Creating Test email: 'test@test.com' and password: '123456' 🕺"
+
+test_user3 = User.create(
+    email: "test@test.com",
+    title: "Miss",
+    first_name: "Leia",
+    surname: "Allen" ,
+    address: Faker::Address.street_address ,
+    phone_number: Faker::PhoneNumber.phone_number,
+    date_of_birth: Faker::Date.backward(days: 400),
+    gender: "Female" ,
+    host: false,
+    password: "123456",
+    avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkovcVYkJI4zr3FkFjbROa8S7gkZ42FWLEaDxfIHPKBj8Xg_kg&s"
+)
+
+puts '♥️ Creating Charity with name = Shelter ♥️'
+
+charity_one = Charity.create(
+  charity_number: '202020',
+  name: 'Shelter',
+  address: '88 Old St, London EC1V 9HU',
+  phone_number: '0300 330 1234',
+  main_contact: 'Charity Main Contact')
+
+puts '♥️♥️ Creating Charity with name = Mencap ♥️♥️'
+
+charity_two = Charity.create(
+  charity_number: '101010',
+  name: 'Mencap',
+  address: '66 Commercial St, Spitalfields, London E1 6LT',
+  phone_number: '0312 33231 1234',
+  main_contact: 'Charity Main Contact 2')
+
+puts '♥️♥️♥️ Creating Charity with name = Toynbee Hall ♥️♥️♥️'
+
+charity_three = Charity.create(
+  charity_number: '303030',
+  name: 'Toynbee Hall',
+  address: '66 Commercial St, Spitalfields, London E1 6LT',
+  phone_number: '0312 33231 1234',
+  main_contact: 'Charity Main Contact 3')
+
+puts "🏠 creating rooms 🏠"
 
 i = 0
 20.times do
   adult_space = rand(1..2)
-  child_space = rand(1)
+  child_space = rand(2)
   infant_space = rand(1)
 
   room = Room.new(
@@ -146,40 +233,7 @@ i = 0
  i += 1
 end
 
-puts "Creating Bookings"
-
-10.times do
-  booking = Booking.new(
-    confirmed: [true, false].sample,
-    host_control: [true, false].sample,
-    number_of_adults: rand(1..3),
-    number_of_children: rand(0..2),
-    number_of_infants: rand(0..1),
-    start_date: Faker::Date.forward(days: 2),
-    end_date: Faker::Date.forward(days: 6))
-  booking.user = User.all.sample
-  booking.room = Room.all.sample
-  booking.save!
-end
-
-
-puts "Creating host user 'Paula' with email: 'host@icarebnb.com' and password: '123456'"
-
-test_user1 = User.create(
-    email: "host@icarebnb.com",
-    title: ["Mr", "Mrs", "Miss"].sample,
-    first_name: "Paula",
-    surname: "Christa" ,
-    address: "159 St. John Street, London, EC1V 4QJ",
-    phone_number: Faker::PhoneNumber.phone_number,
-    date_of_birth: Faker::Date.backward(days: 400),
-    gender: "Female",
-    host: true,
-    password: "123456",
-    avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhiz0_0XhnXFWXEp_8OpHjoO4HfEh4B8B-hkodfu7Z2G_7u1Sr&s"
-)
-
-puts "Assiging Room to the Host, Paula"
+puts "👩‍🦰 Assiging Room to the Host, Paula 👩‍🦰"
 
 room = Room.all.sample
 room.user = test_user1
@@ -188,49 +242,138 @@ room2 = Room.all.sample
 room2.user = test_user1
 room2.save!
 
-puts "Creating Charity Representative 'Leia' with email: 'charity@icarebnb.com' and password: '123456'"
+puts '🌟Creating a Guest called Harry - assigned to Charity Mencap🌟'
 
-test_user2 = User.create(
-    email: "charity@icarebnb.com",
-    title: "Miss",
-    first_name: "Leia",
-    surname: "Mantell" ,
-    address: Faker::Address.street_address ,
-    phone_number: Faker::PhoneNumber.phone_number,
-    date_of_birth: Faker::Date.backward(days: 400),
-    gender: "Female" ,
-    host: false,
-    password: "123456",
-    avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkovcVYkJI4zr3FkFjbROa8S7gkZ42FWLEaDxfIHPKBj8Xg_kg&s"
-)
+harry = Guest.new(
+  first_name: "Harry",
+  child_space: 2,
+  adult_space: 1)
+harry.charity = charity_two
+harry.save!
 
-puts 'Creating Pending Booking and Confirmed Booking'
+puts '🌟Creating a Guest called Tarry - assigned to Charity Mencap🌟'
+
+tarry = Guest.new(
+  first_name: "Tarry",
+  child_space: 2,
+  adult_space: 1)
+tarry.charity = charity_two
+tarry.save!
+
+puts '🌟🌟Creating a Guest called Tash - assigned to Charity Shelter🌟🌟'
+
+tash = Guest.new(
+  first_name: "Tash",
+  child_space: 2,
+  adult_space: 1)
+tash.charity = charity_one
+tash.save!
+
+puts "📆 Creating Bookings 📆"
+
+10.times do
+  booking = Booking.new(
+    confirmed: [true, false].sample,
+    host_control: [true, false].sample,
+    number_of_adults: rand(1..3),
+    number_of_children: rand(0..2),
+    number_of_infants: rand(0..2),
+    start_date: Faker::Date.forward(days: 2),
+    end_date: Faker::Date.forward(days: 6))
+  booking.user = User.all.sample
+  booking.room = Room.all.sample
+  booking.guest = Guest.all.sample
+  booking.save!
+end
+
+puts '🗃 Creating Pending Booking and Confirmed Booking For Paula 🗃'
 
 booking1 = Booking.new
 booking1.room = room
 booking1.user = test_user2
+booking1.guest = harry
 booking1.save!
 booking2 = Booking.new
-booking2.room = room2
+booking2.room = Room.all.sample
 booking2.user = test_user2
 booking2.confirmed = true
+booking2.guest = tarry
 booking2.save!
+booking3 = Booking.new
+booking3.room = room2
+booking3.user = test_user2
+booking3.confirmed = true
+booking3.guest = tash
+booking3.save!
+
+puts '🌱 Starting Marco Seeds 🌱'
+
+puts '👨‍👩‍👧‍👦 Creating Residents 👨‍👩‍👧‍👦'
+
+puts '👨‍👨‍👧 Creating Resident One 👨‍👨‍👧'
+
+test_resident = Resident.new(
+  first_name: "I am a test resident First Name",
+  last_name: "This is a Resident Last Name",
+  address: Faker::Address.street_address,
+  date_of_birth: Faker::Date.backward(days: 400),
+  gender: "Female",
+  safeguarding_check?: true)
+test_resident.room = room
+test_resident.save!
+
+puts '👨‍👨‍👧‍👦 Creating Resident Two 👨‍👨‍👧‍👦'
+
+test_resident2 = Resident.new(
+  first_name: "I am a 2nd test resident First Name",
+  last_name: "This is a 2nd Resident Last Name",
+  address: Faker::Address.street_address,
+  date_of_birth: Faker::Date.backward(days: 400),
+  gender: "Male",
+  safeguarding_check?: true)
+test_resident2.room = room
+test_resident2.save!
+
+puts '👨‍👦 Creating Safeguarding 👨‍👦 1'
+
+safe_guard = Safeguarding.new(
+  approved: true)
+safe_guard.user = test_user1
+safe_guard.resident = test_resident
+safe_guard.save!
 
 
-puts "Creating Test email: 'test@test.com' and password: '123456'"
+puts '👩‍👩‍👦‍👦 Creating Safeguarding 👩‍👩‍👦‍👦 2'
 
-test_user3 = User.create(
-    email: "test@test.com",
-    title: "Miss",
-    first_name: "Leia",
-    surname: "Mantell" ,
-    address: Faker::Address.street_address ,
-    phone_number: Faker::PhoneNumber.phone_number,
-    date_of_birth: Faker::Date.backward(days: 400),
-    gender: "Female" ,
-    host: false,
-    password: "123456",
-    avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkovcVYkJI4zr3FkFjbROa8S7gkZ42FWLEaDxfIHPKBj8Xg_kg&s"
-)
+safe_guard2 = Safeguarding.new(
+  approved: true)
+safe_guard2.user = test_user1
+safe_guard2.resident = test_resident2
+safe_guard2.save!
+
+puts '🌺 Creating Charity Supports (Charity + User Joining Table) - Assiging Host Paula to
+Charity Shelter with newsletter = true 🌺'
+
+charity_support1 = CharitySupport.new(
+  newsletter: true)
+charity_support1.user = test_user1
+charity_support1.charity = charity_one
+charity_support1.save!
+
+puts '🌺 Creating Charity Supports (Charity + User Joining Table) - Assiging Representative Leia to
+Charity Mencap with newsletter = true 🌺'
+
+charity_support2 = CharitySupport.new(
+  newsletter: true)
+charity_support2.user = test_user2
+charity_support2.charity = charity_two
+charity_support2.save!
 
 puts 'D👽NE'
+
+
+
+
+
+
+

@@ -4,7 +4,7 @@
     </div>
   </div>
 
-  <% if @charity_pending_bookings.empty? %>
+  <% if charity_pending_bookings.empty? %>
 
     <div class="row">
       <div class="col-12">
@@ -15,7 +15,7 @@
   <% else %>
     <div class="row">
 
-    <% @charity_pending_bookings.each do |booking| %>
+    <% charity_pending_bookings.each do |booking| %>
     <% if booking.confirmed == false && booking.declined == false %>
 
       <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">

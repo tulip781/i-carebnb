@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:email])
   end
 
+  # protected
+
+  # def after_sign_up_path_for(resource)
+  #   edit_user_registration_path
+  # end
+
   private
 
   def storable_location?
@@ -20,4 +26,5 @@ class ApplicationController < ActionController::Base
     # :user is the scope we are authenticating
     store_location_for(:user, request.fullpath)
   end
+
 end

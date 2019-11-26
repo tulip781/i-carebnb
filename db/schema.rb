@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_172436) do
+ActiveRecord::Schema.define(version: 2019_11_26_121039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2019_11_25_172436) do
     t.date "start_date"
     t.date "end_date"
     t.boolean "declined", default: false
+    t.bigint "guest_id"
+    t.index ["guest_id"], name: "index_bookings_on_guest_id"
     t.index ["room_id"], name: "index_bookings_on_room_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -74,15 +76,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_172436) do
     t.index ["user_id"], name: "index_charity_supports_on_user_id"
   end
 
-  create_table "families", force: :cascade do |t|
-    t.bigint "booking_id"
-    t.bigint "guest_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["booking_id"], name: "index_families_on_booking_id"
-    t.index ["guest_id"], name: "index_families_on_guest_id"
-  end
-
   create_table "guests", force: :cascade do |t|
     t.bigint "charity_id"
     t.string "first_name"
@@ -90,6 +83,9 @@ ActiveRecord::Schema.define(version: 2019_11_25_172436) do
     t.string "permanent_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "adult_space", default: 1
+    t.integer "child_space"
+    t.integer "infant_space"
     t.index ["charity_id"], name: "index_guests_on_charity_id"
   end
 
@@ -169,8 +165,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_172436) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "charity_supports", "charities"
   add_foreign_key "charity_supports", "users"
-  add_foreign_key "families", "bookings"
-  add_foreign_key "families", "guests"
   add_foreign_key "guests", "charities"
   add_foreign_key "residents", "rooms"
   add_foreign_key "safeguardings", "residents"

@@ -35,8 +35,11 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.update(booking_params)
-    redirect_to dashboard_path
+    if @booking.update(booking_params)
+      redirect_to dashboard_path
+    else
+      render :edit
+    end
   end
 
   def destroy

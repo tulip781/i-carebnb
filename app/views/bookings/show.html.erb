@@ -10,11 +10,19 @@
       <div class="col-12 col-md-5">
         <i class="fas fa-map-marker-alt mr-4 mt-2 mb-4 main-colour" style="font-size:1.2em;"><span class="card-detail-text">&nbsp 0.8 miles away</span></i><i class="fas fa-shower my-2 main-colour" style="font-size:1.2em;"><span class="card-detail-text">&nbsp <%= @booking.room.facilities %> facilities</span></i>
         <p><strong style="color:#3F3D56;">Host Name:</strong> <%= @booking.room.user.first_name %> <%= @booking.room.user.surname %></p>
-        <p><strong style="color:#3F3D56;">Booking Confirmed:</strong> <%= @booking.confirmed ? "Yes" : "No - Awaiting Response From #{@booking.room.user.first_name}." %></p>
-<!--         <p><strong>Start Date:</strong> <%= @booking.start_date %></p>
-        <p><strong>End Date:</strong> <%= @booking.end_date %></p> -->
+        <p><strong style="color:#3F3D56;">Booking Status:</strong> <% if @booking.confirmed %>
+          Confirmed
+          <% elsif @booking.declined %>
+          Booking declined by the host
+          <% else %>
+          Not confirmed - Awaiting response from <%= @booking.room.user.first_name%></p>
+          <% end %>
+        <p><strong>Start Date:</strong> <%= @booking.start_date %></p>
+        <p><strong>End Date:</strong> <%= @booking.end_date %></p>
         <p><strong style="color:#3F3D56;">Number Of Adults:</strong> <%= @booking.number_of_adults %></p>
         <p><strong style="color:#3F3D56;">Number Of Children:</strong> <%= @booking.number_of_children %></p>
+        <p><strong style="color:#3F3D56;">Number Of Infants:</strong> <%= @booking.number_of_infants %></p>
+
         <p class="lead my-4"> <%= @booking.room.description %></p>
         <div class="form-actions btn btn-secondary">
           <%= link_to "Back to dashboard", dashboard_path, class: "nav-link" %>

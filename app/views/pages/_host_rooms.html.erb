@@ -1,0 +1,42 @@
+  <div class="row">
+
+    <div class="col-12">
+      <h3 class="my-4">Your Rooms <i class="fas fa-bed main-colour ml-3"></i></h3>
+    </div>
+
+  </div>
+
+  <% if rooms.empty? %>
+
+  <div class="row">
+
+    <div class="col-12">
+      <p>You don't have any rooms at the moment. Click on 'Add a room' to add your first one</p>
+    </div>
+
+  </div>
+
+  <% else %>
+
+  <div class="row">
+
+  <% rooms.each do |room| %>
+
+    <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
+      <div class="card mb-3 card-radius">
+        <%= cl_image_tag room.photo_url_or_default, alt: room.address, class: "card-img-top card-image-radius" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to room_path(room), class:"card-title" do %>
+            <%= room.beds %> <%= room.beds == 1 ? 'Bed' : 'Beds' %> - <%= room.address  %>
+            <% end %></h5>
+            <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= room.beds %></span></i>
+            <i class="fas fa-shower mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= room.facilities %> facilities</span></i>
+            <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-warning card-button"><%= link_to "Edit", edit_room_path(room) %></span></i>
+            <i class="mr-2"><span class="card-detail-text btn btn-sm btn-danger card-button"><%= link_to "Delete", room_path(room), method: :delete, data: {confirm: "Are you sure?"} %></span></i>
+          </div>
+        </div>
+    </div>
+  <% end %>
+
+  </div>
+  <% end %>

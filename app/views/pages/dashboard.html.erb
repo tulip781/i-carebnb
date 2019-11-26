@@ -12,7 +12,6 @@
         <%= link_to "Add a room", new_room_path, class: "nav-link btn btn-secondary my-2" %>
       </div>
     </div>
-
     <%= render "host_rooms", rooms: @rooms  %>
 
     <%= render "host_booking_requests", booking_requests: @booking_requests  %>

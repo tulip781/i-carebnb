@@ -1,7 +1,15 @@
+.map-custom {
+  border-radius: 0 10px 10px 0;
+}
+
 .card-img-top {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
+}
+
+.small-radius {
+  border-radius: 8px;
 }
 
 .card-radius {
@@ -23,8 +31,11 @@
   font-size: 0.8em;
 }
 
-.search-bar {
-  margin-top: 35px;
+#search-bar {
+  background-color: $second;
+  border-radius: 10px 0 0 10px;
+  padding: 25px;
+  color: white;
 }
 
 a.card-title {
@@ -46,14 +57,22 @@ a.card-title:hover {
 
 @media(max-width:576px) {
   .card-img-top {
-  height: 300px;
+  height: 200px;
+  }
+  #search-bar {
+  margin-bottom: 0;
   }
 }
 
 @media(max-width:991px) {
   .search-bar {
-  margin-bottom: 35px;
   margin-top: 0;
+  }
+  #search-bar {
+  border-radius: 10px 10px 0 0;
+  }
+  .map-custom {
+  border-radius: 0 0 10px 10px;
   }
   h1 {
     margin-bottom: 10px;

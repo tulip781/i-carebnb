@@ -73,8 +73,11 @@ class RoomsController < ApplicationController
   end
 
   def update
-    @room.update(room_params)
-    redirect_to dashboard_path
+    if @room.update(room_params)
+      redirect_to dashboard_path
+    else
+      render :edit
+    end
   end
 
   def destroy

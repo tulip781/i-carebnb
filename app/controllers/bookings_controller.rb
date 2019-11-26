@@ -22,6 +22,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.guest = Guest.all.sample
     @booking.room = Room.find(params[:room_id])
     if @booking.save
       redirect_to dashboard_path

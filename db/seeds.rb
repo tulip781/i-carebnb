@@ -105,7 +105,10 @@ stadiums), a nice one bedroom flat with a comfortable double bed, my lounge is o
   There is a double wardrobe, a table and chair, and an armchair. In the bathroom there is a shower
   (but no bathtub). We provide towels, basic toiletries and a hairdryer, so you don't need to bring yours.
 The kitchen has a small fridge with a freezer, a microwave-oven, 2 hotplates, toaster, electric kettle so
-you can cook small meals or warm up any take-aways. We provide tea, milk, and breakfast cereals."
+you can cook small meals or warm up any take-aways. We provide tea, milk, and breakfast cereals.",
+"Get a true coastal experience from this minimalist-inspired apartment highlighted with natural
+woods and charming sea-themed decor. With an open-plan living space, sea views, and skylight-lit
+rooms, it provides a comfortable and peaceful ambiance."
 ]
 
 puts "👫 creating users 👫"
@@ -257,7 +260,7 @@ tarry = Guest.new(
 tarry.charity = charity_two
 tarry.save!
 
-puts '🌟🌟Creating a Guest called Tarry - assigned to Charity Shelter🌟🌟'
+puts '🌟🌟Creating a Guest called Tash - assigned to Charity Shelter🌟🌟'
 
 tash = Guest.new(
   first_name: "Tash",

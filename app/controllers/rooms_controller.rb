@@ -62,7 +62,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     @room.user = current_user
-    if @room.save
+    if @room.save!
       redirect_to dashboard_path
     else
       render :new

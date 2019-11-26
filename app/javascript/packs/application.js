@@ -13,7 +13,7 @@ initSweetalert('#sweet-alert-demo', 'new_booking', {
 }, (_value, form) => form.submit());
 
 initSweetalert('.ollie-sweet-alert', 'cancel_booking', {
-  title: "Are you sure you want to delete this room?",
+  title: "Are you sure?",
   icon: "warning",
   buttons: true,
   dangerMode: true,

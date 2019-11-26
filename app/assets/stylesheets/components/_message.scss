@@ -53,14 +53,27 @@ body {
       }
       .chat-bubble {
         border-radius: 10px;
-        background-color: $accent;
+        background-color: rgba(222, 118, 109, 0.8);
         padding: 5px;
         // float: right;
       }
 
-.chat-time {
-font-size: 0.7em;
-}
+      .chat-bubble-right {
+        border-radius: 10px;
+        background-color: rgba(222, 118, 109, 0.3);
+        padding: 5px;
+        // float: right;
+      }
+
+      .chatbox {
+        max-width: 60%;
+
+      }
+
+      .chat-details {
+      font-size: 0.7em;
+      margin: 0;
+      }
 
       .chats {
         height: 23vh;

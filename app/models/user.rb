@@ -17,7 +17,7 @@ class User < ApplicationRecord
     if photo.attached?
       photo.key
     else
-      "icare_logo.svg"
+      "unsplash.jpg"
     end
   end
 

@@ -22,6 +22,9 @@
         <p><strong style="color:#3F3D56;">Number Of Adults:</strong> <%= @booking.number_of_adults %></p>
         <p><strong style="color:#3F3D56;">Number Of Children:</strong> <%= @booking.number_of_children %></p>
         <p><strong style="color:#3F3D56;">Number Of Infants:</strong> <%= @booking.number_of_infants %></p>
+        <p><strong style="color:#3F3D56;">Booking made by:</strong> <%= @booking.user.first_name %> from <%= @booking.user.charity_supports.first.charity.name %></p>
+        <p><strong style="color:#3F3D56;">Guest name:</strong> <%= @booking.guest.first_name %></p>
+
 
         <p class="lead my-4"> <%= @booking.room.description %></p>
         <div class="form-actions btn btn-secondary">

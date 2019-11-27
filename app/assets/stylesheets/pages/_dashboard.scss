@@ -13,6 +13,18 @@
   min-height: 150px;
 }
 
+.dash_content {
+  display: flex;
+  display: table;
+}
+
+#table_center {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  margin: 0 auto;
+}
+
 #dash_title {
   font-size: 2.5em;
   color: white;
@@ -24,6 +36,12 @@
 
 .dash_avatar {
   width: 110px;
+}
+
+.max_image_size {
+  width: 200px;
+  height: 150px;
+  border-radius: 15px;
 }
 
 @media(max-width:576px) {

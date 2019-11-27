@@ -12,7 +12,7 @@ before_action :set_guest, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    @guest = Guest.new(guests_params)
+    @guest = Guest.new(guest_params)
     @charity = current_user.charity_supports.first.charity
     if @guest.save!
       redirect_to dashboard_path
@@ -25,7 +25,7 @@ before_action :set_guest, only: [:show, :edit, :update, :destroy]
   end
 
   def update
-    if @guest.update(guests_params)
+    if @guest.update(guest_params)
       redirect_to dashboard_path
     else
       render :edit
@@ -39,11 +39,11 @@ before_action :set_guest, only: [:show, :edit, :update, :destroy]
 
   private
 
-  def set_guests
+  def set_guest
     @guest = Guest.find(params[:id])
   end
 
-  def guests_params
+  def guest_params
     params.require(:guest).permit(:first_name, :permanent_address, :date_of_birth, :adult_space, :child_space, :infant_space, :charity_id)
   end
 end

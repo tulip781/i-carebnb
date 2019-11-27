@@ -4,6 +4,7 @@ class Room < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
   has_many :bookings, dependent: :destroy
+  before_validation :calculate_beds
 
   has_many :residents, dependent: :destroy
 
@@ -21,5 +22,9 @@ class Room < ApplicationRecord
     else
       "default_v9rlap"
     end
+  end
+
+  def calculate_beds
+    self[:beds] = adult_space + child_space + infant_space
   end
 end

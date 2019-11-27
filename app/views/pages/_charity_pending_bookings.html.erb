@@ -39,6 +39,13 @@
                     <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "Details", booking_path(booking) %></span></i>
                     <i class="mr-2"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "Edit", edit_booking_path(booking) %></span></i>
                     <i class="mr-2"><span class="card-detail-text btn btn-sm btn-danger card-button"><%= link_to "Cancel booking", booking_path(booking), method: :delete, data: {confirm: "Are you sure?"} %></span></i>
+                    <i class="mr-2">
+                      <span class="card-detail-text btn btn-sm btn-danger card-button">
+                        <button class="btn btn-sm btn-danger ollie-sweet-alert">Cancel Booking</button>
+                        <%= form_tag booking_path(booking), method: :delete, id: "cancel_booking" do %>
+                          <%= hidden_field_tag 'booking_id', booking.id %>
+                        <% end %>
+                      </span></i>
                   </div>
                 </div>
               </div>
@@ -49,6 +56,7 @@
               <% end %>
             <% end %>
           <% end %>
+
         </div>
       </div>
 

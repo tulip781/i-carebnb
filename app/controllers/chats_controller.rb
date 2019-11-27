@@ -11,24 +11,25 @@ class ChatsController < ApplicationController
   def create
     @chat = Chat.new(chat_params)
     @chatroom = Chatroom.find(params[:chatroom_id])
+    @chatrooms = current_user.chatrooms
     @chat.chatroom = @chatroom
     @chat.user = current_user
     if @chatroom.sender != current_user
-      interlocutor = @chatroom.sender
+      @interlocutor = @chatroom.sender
     else
-      interlocutor = @chatroom.recipient
+      @interlocutor = @chatroom.recipient
     end
 
     if @chat.save
       Pusher.trigger('chat-channel', 'message-created', {
         message: @chat.message,
-        recipient_id: @chat.chatroom.recipient.id,
-        sender_id: @chat.chatroom.sender.id,
-        current_user: current_user.id
+        sender_id: @chatroom.sender.id,
+        current_user: @chat.user.id,
+        timestamp: @chat.created_at.strftime('%I:%M %p'),
+        user_email: @chat.user.email
       })
       # this is the data that is referred to in the view, which is being bound up for the channel
-      # redirect_to chatroom_path(@chat.chatroom)
-      render 'chatrooms/show', notice: 'Your message has been sent!'
+      redirect_to chatroom_path(@chat.chatroom)
     else
       render 'chatrooms/show'
     end

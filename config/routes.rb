@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :bookings, only: [:new, :create]
   end
-  resources :chatrooms do
+  resources :chatrooms, except: [:new, :create] do
     resources :chats
+  end
+  resources :users, only: [] do
+    resources :chatrooms, only: [:create]
   end
   resources :bookings, except: [:new, :create] do
     post 'confirmed', on: :member

@@ -20,4 +20,8 @@ class User < ApplicationRecord
       "icare_logo.svg"
     end
   end
+
+  def chatrooms
+    Chatroom.where(sender: self).or(Chatroom.where(recipient: self))
+  end
 end

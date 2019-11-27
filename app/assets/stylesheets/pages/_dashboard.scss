@@ -5,12 +5,25 @@
   font-family: $body-font;
 }
 
+.card {
+  border-radius: 20px;
+}
+
+.white-font {
+  color: white;
+}
+
+.card-header {
+  background-color: $second !important;
+}
+
 .card-button {
   border-radius: 6px;
 }
 
 .dash_head {
   min-height: 150px;
+  margin-bottom: 20px;
 }
 
 .dash_content {
@@ -41,7 +54,7 @@
 .max_image_size {
   width: 200px;
   height: 150px;
-  border-radius: 15px;
+  border-radius: 8px;
 }
 
 @media(max-width:576px) {

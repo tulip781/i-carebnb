@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   resources :rooms do
     resources :bookings, only: [:new, :create]
+    resources :residents
+    resources :unavailabilities
   end
   resources :chatrooms do
     resources :chats
@@ -12,6 +14,12 @@ Rails.application.routes.draw do
     post 'confirmed', on: :member
     post 'declined', on: :member
   end
+  resources :charities, only: [:index, :show] do
+    resources :guests
+  end
+
+  # resources :charities, except: [:index, :show] do
+
   get 'users/show'
   get 'search', to: "pages#search"
   get 'about', to: "pages#about"

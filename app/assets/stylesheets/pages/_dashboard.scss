@@ -8,3 +8,35 @@
 .card-button {
   border-radius: 6px;
 }
+
+.dash_head {
+  min-height: 150px;
+}
+
+#dash_title {
+  font-size: 2.5em;
+  color: white;
+}
+
+.alata {
+  font-family: "Alata";
+}
+
+.dash_avatar {
+  width: 110px;
+}
+
+@media(max-width:576px) {
+  .btn-resize {
+    min-width: 180px;
+  }
+}
+
+@media(max-width:1140px) {
+  .hidden-small {
+    display: none;
+  }
+  #dash_title {
+    padding: 50px 0 50px 0;
+  }
+}

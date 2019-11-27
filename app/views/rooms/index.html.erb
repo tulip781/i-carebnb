@@ -1,56 +1,71 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 mt-4 mb-2">
-      <h1>Here are your results...</h1>
+  <div class="row no-gutters">
+    <div class="col-12 col-lg-6 mb-lg-4 mt-4">
+      <div id="search-bar" style="background-image: url(<%= asset_path "undraw.svg" %>);background-repeat: no-repeat;
+  background-size: 1100px;">
+        <h2>Search <i class="fas fa-search" style="font-size: 0.7em;"></i></h2>
+        <form>
+          <div class="form-row">
+            <div class="col-9 my-1">
+              <!-- <input type="text" class="form-control-sm w-100 small-radius" placeholder="Location"> -->
+              <%= form_tag rooms_path, method: :get do %>
+              <%= text_field_tag :location, params[:location], class: "form-control-sm w-100 small-radius", placeholder: "Location" %>
+            </div>
+            <div class="col-3 my-1">
+              <!-- <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Distance"> -->
+              <%= text_field_tag :radius, params[:radius], class: "form-control-sm w-100 small-radius", placeholder: "Distance" %>
+            </div>
+            <div class="col-6 my-1">
+              <input type="text" class="form-control-sm w-100 small-radius" placeholder="Start Date">
+            </div>
+            <div class="col-6 my-1">
+              <input type="text" class="form-control-sm w-100 small-radius" placeholder="End Date">
+            </div>
+            <div class="col-4 my-1">
+              <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Adults">
+            </div>
+            <div class="col-4 my-1">
+              <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Children">
+            </div>
+            <div class="col-4 my-1">
+              <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Infants">
+            </div>
+            <div class="col-12 mt-2">
+              <%= submit_tag "Search", class: "mx-0 nav-link btn btn-secondary" %>
+              <!-- <button type="submit" class="mx-0 nav-link btn btn-secondary">Submit</button> -->
+            </div>
+            <% end %>
+          </div>
+        </form>
+      </div>
     </div>
-    <!-- <div class="col-12 col-lg-6 search-bar">
-      <input class="form-control" type="integer" name="radius" placeholder="Change distance guest is willing to travel?" aria-label="Search">
-    </div> -->
-  </div>
-  <div class="row">
-    <div class="col-12 col-lg-3">
+<!--     <div class="col-12 col-lg-3">
       <form action="/rooms" method="GET">
         <input type="hidden" name="location" value="<%= params[:location] %>">
         <input type="hidden" name="radius" value="<%= params[:radius] %>">
-<!--         <div class="form-row">
-          <div class="col-12 col-lg-4">
-            <label for="Adults">Number of adults:</label>
-            <input type="integer" name="adults">
-          </div>
-          <div class="col-12 col-lg-4">
-            <label for="Children">Number of children:</label>
-            <input type="integer" name="children">
-          </div>
-          <div class="col-12 col-lg-4">
-            <label for="Infants">Number of infants:</label>
-            <input type="integer" name="infants">
-          </div>
-        </div> -->
-        <!-- <div class="form-row"> -->
-          <div class="col-12 mb-3 px-0">
-            <label for="Beds">Change number of beds:</label>
-            <input type="integer" name="beds">
-          </div>
-          <div class="col-12 mb-3 px-0">
-            <label for="Minimum stay">Change minimum stay:</label>
-            <input type="integer" name="minimum_stay">
-          </div>
-          <div class="col-12 mb-4 px-0">
-            <label for="Distance">Change distance:</label>
-            <input type="integer" name="radius" value="<%= params[:radius] %>">
-          </div>
-          <div class="col-12 px-0">
-            <button type="submit" class="mb-4 mx-0 nav-link btn btn-secondary">Submit</button>
-          </div>
-      <!--   </div> -->
+        <div class="col-12 mb-3 px-0">
+          <label for="Beds">Change number of beds:</label>
+          <input type="integer" name="beds">
+        </div>
+        <div class="col-12 mb-3 px-0">
+          <label for="Minimum stay">Change minimum stay:</label>
+          <input type="integer" name="minimum_stay">
+        </div>
+        <div class="col-12 mb-4 px-0">
+          <label for="Distance">Change distance:</label>
+          <input type="integer" name="radius" value="<%= params[:radius] %>">
+        </div>
+        <div class="col-12 px-0">
+          <button type="submit" class="mb-4 mx-0 nav-link btn btn-secondary">Submit</button>
+        </div>
       </form>
-    </div>
-    <div class="col-12 col-lg-9 mb-4">
-      <div id="map" style="width: 100%; height: 300px; marker-color: red" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div> -->
+    <div class="col-12 col-lg-6 mt-lg-4 mb-4">
+      <div id="map" class="map-custom" style="width: 100%; height: 261px; marker-color: red" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row mb-4">
     <% @rooms.each do |room| %>
       <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
         <div class="card mb-3 card-radius grow w-100">
@@ -71,4 +86,12 @@
   </div>
 </div>
 
+<!-- Jquery JS-->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<!-- Vendor JS-->
+<script src="assets/vendor/select2/select2.min.js"></script>
+<script src="assets/vendor/datepicker/moment.min.js"></script>
+<script src="assets/vendor/datepicker/daterangepicker.js"></script>
 
+<!-- Main JS-->
+<script src="js/global.js"></script>

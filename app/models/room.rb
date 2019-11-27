@@ -3,7 +3,10 @@ class Room < ApplicationRecord
   has_one_attached :photo
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
+
+  has_many :residents, dependent: :destroy
+
   validates :adult_space, presence: true, numericality: true
   validates :child_space, presence: true, numericality: true
   validates :infant_space, presence: true, numericality: true

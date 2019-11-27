@@ -751,6 +751,11 @@
   resolved "https://registry.yarnpkg.com/@mapbox/whoots-js/-/whoots-js-3.1.0.tgz#497c67a1cef50d1a2459ba60f315e448d2ad87fe"
   integrity sha512-Es6WcD0nO5l+2BOQS4uLfNPYQaNDfbot3X1XUoloz+x0mPDS3eeORZJl06HXjwBG1fOGwCRnzK88LMdxKRrd6Q==
 
+"@pusher/chatkit-client@^1.13.2":
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/@pusher/chatkit-client/-/chatkit-client-1.13.2.tgz#144dfc01c51386bf843e880927b286f73e15290f"
+  integrity sha512-XJl63igmHnhLYcK82VK4+y+VIAuFlG/LBh2PjqUFv4tsOEAxzSLZ88scO/3vPD+bF2DxQCe/zJjzShbnSjGC9w==
+
 "@rails/webpacker@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-4.2.0.tgz#7cb40af589c3f38f9cc7847ee5f15e16d5d89d29"

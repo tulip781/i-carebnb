@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
+
   devise_for :users, controllers: { registrations: "registrations" }
   resources :rooms do
     resources :bookings, only: [:new, :create]
+  end
+  resources :chatrooms do
+    resources :chats
   end
   resources :bookings, except: [:new, :create] do
     post 'confirmed', on: :member
@@ -20,3 +25,5 @@ Rails.application.routes.draw do
   root to: 'pages#landing'
 end
 
+# index, create and destroy for chatrooms
+# chats - create and destroy

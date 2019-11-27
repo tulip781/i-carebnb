@@ -1,28 +1,42 @@
-
   <% confirmed_bookings = bookings.select { |booking| booking.confirmed == true } %>
 
   <% unless confirmed_bookings.count.zero? %>
 
-  <div class="row">
-    <div class="col-12">
-      <h3 class="my-4">Confirmed Bookings<i class="fas fa-check-circle main-colour ml-3"></i></h3>
-    </div>
-
-    <% confirmed_bookings.each do |booking| %>
-
-    <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
-      <div class="card mb-5 card-radius">
-        <%= cl_image_tag booking.room.photo_url_or_default, alt: booking.room.address, class: "card-img-top card-image-radius" %>
-        <div class="card-body">
-          <h5 class="card-title"><%= link_to room_path(booking.room), class:"card-title" do %>
-            <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %>
-            <% end %></h5>
-            <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %> beds available</span></i>
-            <i class="fas fa-shower mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
-            <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "Details", booking_path(booking) %></span></i>
+    <div class="row">
+      <div class="col-12 col-lg-10 offset-lg-1">
+        <div class="card mt-3 mb-5">
+          <div class="card-header" style="border-top-right-radius: 15px; border-top-left-radius: 15px;">
+            <h4 class="float-left white-font">Confirmed Bookings<i class="fas fa-check-circle ml-3 mt-2 main-colour"></i>
           </div>
+
+          <% counter = 1 %>
+          <% confirmed_bookings.each do |booking| %>
+
+            <div class="card-body">
+              <div class="dash_content w-100">
+                <%= cl_image_tag booking.room.photo_url_or_default, alt: booking.room.address, class: "max_image_size hidden-small mr-5" %>
+                <div id="table_center">
+                  <h5 class="card-title">
+                  <%= link_to room_path(booking.room), class: "card-title" do %>
+                    <%= booking.room.beds %> <%= booking.room.beds == 1 ? 'Bed' : 'Beds' %> - <%= booking.room.address  %>
+                  <% end %>
+                  </h5>
+                  <!-- <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %></span></i> -->
+                  <i class="fas fa-shower mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
+                  <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "Details", booking_path(booking) %></span></i>
+                </div>
+              </div>
+            </div>
+
+            <% if counter < confirmed_bookings.length %>
+              <hr style="margin:0;">
+            <% counter += 1 %>
+            <% end %>
+
+          <% end %>
         </div>
       </div>
-    <% end %>
-  </div>
+
+    </div>
+
   <% end %>

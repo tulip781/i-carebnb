@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
 
+  get 'unavailabilities/show'
+  get 'unavailabilities/index'
+  get 'unavailabilities/edit'
+  get 'unavailabilities/create'
+  get 'unavailabilities/update'
+  get 'unavailabilities/destroy'
+  get 'unavailabilities/new'
   devise_for :users, controllers: { registrations: "registrations" }
   resources :rooms do
     resources :bookings, only: [:new, :create]

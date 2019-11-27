@@ -70,6 +70,7 @@ class RoomsController < ApplicationController
   end
 
   def edit
+    @unav = @room.unavailabilities.pluck(:date).map{|d|d.strftime("%Y-%m-%d")}
   end
 
   def update

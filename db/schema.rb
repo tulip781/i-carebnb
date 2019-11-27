@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_11_26_141759) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,25 +55,6 @@ ActiveRecord::Schema.define(version: 2019_11_26_141759) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-
-  create_table "chatrooms", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "sender_id"
-    t.integer "recipient_id"
-    t.index ["recipient_id"], name: "index_chatrooms_on_recipient_id"
-    t.index ["sender_id", "recipient_id"], name: "index_chatrooms_on_sender_id_and_recipient_id", unique: true
-    t.index ["sender_id"], name: "index_chatrooms_on_sender_id"
-  end
-
-  create_table "chats", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.text "message"
-    t.integer "chatroom_id"
-    t.index ["user_id"], name: "index_chats_on_user_id"
-
   create_table "charities", force: :cascade do |t|
     t.string "name"
     t.string "charity_number"
@@ -95,6 +74,25 @@ ActiveRecord::Schema.define(version: 2019_11_26_141759) do
     t.boolean "newsletter"
     t.index ["charity_id"], name: "index_charity_supports_on_charity_id"
     t.index ["user_id"], name: "index_charity_supports_on_user_id"
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.index ["recipient_id"], name: "index_chatrooms_on_recipient_id"
+    t.index ["sender_id", "recipient_id"], name: "index_chatrooms_on_sender_id_and_recipient_id", unique: true
+    t.index ["sender_id"], name: "index_chatrooms_on_sender_id"
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.text "message"
+    t.integer "chatroom_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
   create_table "guests", force: :cascade do |t|
@@ -122,7 +120,6 @@ ActiveRecord::Schema.define(version: 2019_11_26_141759) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_residents_on_room_id"
-
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -137,8 +134,6 @@ ActiveRecord::Schema.define(version: 2019_11_26_141759) do
     t.datetime "updated_at", null: false
     t.string "image_url"
     t.string "title"
-    t.float "latitude"
-    t.float "longitude"
     t.text "description"
     t.string "postcode"
     t.string "facilities"
@@ -187,13 +182,11 @@ ActiveRecord::Schema.define(version: 2019_11_26_141759) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-
-  add_foreign_key "chats", "users"
   add_foreign_key "charity_supports", "charities"
   add_foreign_key "charity_supports", "users"
+  add_foreign_key "chats", "users"
   add_foreign_key "guests", "charities"
   add_foreign_key "residents", "rooms"
   add_foreign_key "safeguardings", "residents"
   add_foreign_key "safeguardings", "users"
-
 end

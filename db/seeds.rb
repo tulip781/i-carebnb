@@ -217,7 +217,7 @@ i = 0
     child_space: child_space,
     infant_space: infant_space,
     beds: (adult_space + child_space + infant_space),
-    max_stay_length: rand(5),
+    max_stay_length: rand(30),
     # image_url: flats_images[i],
     description: descriptions.sample,
     user: User.all.sample,

@@ -1,0 +1,9 @@
+
+
+<%= simple_form_for [room, Unavailability.new] do |f| -%>
+  <%= f.input :date, as: :string %>
+  <%= f.submit %>
+<% end %>
+
+<%= content_tag :div, class: "past_unavailability", data: {past: unav} do %>
+<% end %>

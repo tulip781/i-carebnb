@@ -39,14 +39,14 @@
                   <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-warning card-button"><%= link_to "Edit", edit_room_path(room) %></span></i>
                   <i class="mr-2"><span class="card-detail-text btn btn-sm btn-danger card-button"><%= link_to "Delete", room_path(room), method: :delete, data: {confirm: "Are you sure?"} %></span></i>
                   <i class="mr-2">
-              <span class="card-detail-text btn btn-sm btn-danger card-button">
-                  <%#= link_to "Cancel booking", booking_path(booking), method: :delete, id: 'ollie-sweet-alert' %>
-                  <button class="btn btn-sm btn-danger ollie-sweet-alert">Delete</button>
-                  <%= form_tag room_path(room), method: :delete, id: "cancel_booking" do %>
-                    <%= hidden_field_tag 'room_id', room.id %>
-                  <% end %>
-              </span>
-           </i>
+                    <span class="card-detail-text btn btn-sm btn-danger card-button">
+                        <%#= link_to "Cancel booking", booking_path(booking), method: :delete, id: 'ollie-sweet-alert' %>
+                        <button class="btn btn-sm btn-danger ollie-sweet-alert">Delete</button>
+                        <%= form_tag room_path(room), method: :delete, id: "cancel_booking" do %>
+                          <%= hidden_field_tag 'room_id', room.id %>
+                        <% end %>
+                    </span>
+                  </i>
                 </div>
               </div>
             </div>

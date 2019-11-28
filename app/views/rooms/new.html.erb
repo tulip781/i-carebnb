@@ -8,7 +8,7 @@
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <div class="form-inputs mt-4">
-          <%= f.input :address, required: true, autofocus: true, placeholder: "Full address" %>
+          <%= f.input :address, required: true, autofocus: true, html_input: {id: 'location'}, placeholder: "Full address" %>
         </div>
         <div class="form-inputs">
           <div class="form-row">

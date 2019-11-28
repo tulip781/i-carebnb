@@ -2,7 +2,9 @@
   max-width: 300px;
   border-radius: 50%;
 }
-
+.ap-suggestions {
+  color: black;
+}
 .mapboxgl-popup-content {
   text-align: center !important;
   font-family: $body-font;

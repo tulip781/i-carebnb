@@ -35,6 +35,7 @@
             <h1 class="my-2" id="dash_title"> Welcome to your Charity Dashboard, <%= current_user.first_name %>!</h1>
             <%= image_tag current_user.avatar_url_or_default, class: "avatar dash_avatar rounded-circle mt-3 hidden-small" %>
             <%= link_to "Search for a room", rooms_path, class: "nav-link btn btn-secondary mb-2 mt-4 center" %>
+
           </div>
         </div>
       </div>

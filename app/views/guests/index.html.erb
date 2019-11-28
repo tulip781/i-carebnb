@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Your guests</h1>
+    <div class="row mb-4">
+    <% @guests.each do |guest| %>
+      <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">
+        <div class="card mb-3 card-radius grow w-100">
+          <%= link_to charity_guest_path(guest) do %>
+            <%= cl_image_tag guest.photo_url_or_default, alt: guest.first_name, class: "card-img-top card-image-radius" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
+
+
+</div>

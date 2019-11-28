@@ -7,6 +7,7 @@ class Room < ApplicationRecord
   before_validation :calculate_beds
 
   has_many :residents, dependent: :destroy
+  has_many :unavailabilities, dependent: :destroy
 
   validates :adult_space, presence: true, numericality: true
   validates :child_space, presence: true, numericality: true

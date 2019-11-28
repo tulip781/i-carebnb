@@ -2,48 +2,48 @@
 
 <% if current_user.host %>
 
-  <div class="container">
-
-    <div class="row">
-      <div class="col-12">
-        <h1 class="text-center mt-5"> Welcome to your Host Dashboard, <%= current_user.first_name %>!</h1>
-      </div>
-      <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-        <%= link_to "Add a room", new_room_path, class: "nav-link btn btn-secondary my-2" %>
+  <div class="blue p-4 dash_head" style="background-image: url(<%= asset_path "undraw_dash.svg" %>);background-repeat: no-repeat;
+  background-size: 1600px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="text-center">
+            <h1 class="my-2" id="dash_title"> Welcome to your Host Dashboard, <%= current_user.first_name %>!</h1>
+            <%= image_tag current_user.avatar_url_or_default, class: "avatar dash_avatar rounded-circle mt-3 hidden-small" %>
+          </div>
+        </div>
       </div>
     </div>
-    <%= render "host_rooms", rooms: @rooms  %>
-
-    <%= render "host_booking_requests", booking_requests: @booking_requests  %>
-
-    <%= render "host_confirmed_bookings", bookings: @bookings %>
-
-    <%= render "host_declined_bookings", bookings: @bookings %>
-
   </div>
-
+  <div class="container">
+    <%= render "host_rooms", rooms: @rooms  %>
+    <%= render "host_booking_requests", booking_requests: @booking_requests  %>
+    <%= render "host_declined_bookings", bookings: @bookings %>
+    <%= render "host_confirmed_bookings", bookings: @bookings %>
+  </div>
 
 <% else %>
+
   <!-- CHARITY -->
 
-  <div class="container">
-
-    <div class="row">
-      <div class="col-12">
-        <h1 class="text-center mt-5"> Welcome to your Charity Dashboard, <%= current_user.first_name %>!</h1>
-      </div>
-      <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-        <%= link_to "Search for a room", rooms_path, class: "nav-link btn btn-secondary my-2" %>
+  <div class="blue p-4 dash_head" style="background-image: url(<%= asset_path "undraw_dash.svg" %>);background-repeat: no-repeat;
+  background-size: 1600px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="text-center">
+            <h1 class="my-2" id="dash_title"> Welcome to your Charity Dashboard, <%= current_user.first_name %>!</h1>
+            <%= image_tag current_user.avatar_url_or_default, class: "avatar dash_avatar rounded-circle mt-3 hidden-small" %>
+            <%= link_to "Search for a room", rooms_path, class: "nav-link btn btn-secondary my-2" %>
+          </div>
+        </div>
       </div>
     </div>
-
-    <%= render "charity_pending_bookings", charity_pending_bookings: @charity_pending_bookings %>
-
-    <%= render "charity_confirmed_bookings", charity_confirmed_bookings: @charity_confirmed_bookings %>
-
-    <%= render "charity_declined_bookings", charity_declined_bookings: @charity_declined_bookings %>
-
   </div>
-
+  <div class="container">
+    <%= render "charity_confirmed_bookings", charity_confirmed_bookings: @charity_confirmed_bookings %>
+    <%= render "charity_declined_bookings", charity_declined_bookings: @charity_declined_bookings %>
+    <%= render "charity_pending_bookings", charity_pending_bookings: @charity_pending_bookings %>
+  </div>
 
 <% end %>

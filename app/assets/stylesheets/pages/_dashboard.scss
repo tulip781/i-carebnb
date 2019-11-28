@@ -5,6 +5,69 @@
   font-family: $body-font;
 }
 
+.card {
+  border-radius: 20px;
+}
+
+.white-font {
+  color: white;
+}
+
+.card-header {
+  background-color: $second !important;
+}
+
 .card-button {
   border-radius: 6px;
+}
+
+.dash_head {
+  min-height: 150px;
+  margin-bottom: 20px;
+}
+
+.dash_content {
+  display: flex;
+  display: table;
+}
+
+#table_center {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#dash_title {
+  font-size: 2.5em;
+  color: white;
+}
+
+.alata {
+  font-family: "Alata";
+}
+
+.dash_avatar {
+  width: 110px;
+}
+
+.max_image_size {
+  width: 200px;
+  height: 150px;
+  border-radius: 8px;
+}
+
+@media(max-width:576px) {
+  .btn-resize {
+    min-width: 180px;
+  }
+}
+
+@media(max-width:1140px) {
+  .hidden-small {
+    display: none;
+  }
+  #dash_title {
+    padding: 50px 0 50px 0;
+  }
 }

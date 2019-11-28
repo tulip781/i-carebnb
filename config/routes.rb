@@ -14,8 +14,11 @@ Rails.application.routes.draw do
     resources :residents
     resources :unavailabilities
   end
-  resources :chatrooms do
+  resources :chatrooms, except: [:new, :create] do
     resources :chats
+  end
+  resources :users, only: [] do
+    resources :chatrooms, only: [:create]
   end
   resources :bookings, except: [:new, :create] do
     post 'confirmed', on: :member

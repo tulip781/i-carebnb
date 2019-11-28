@@ -5,32 +5,26 @@ class ChatroomsController < ApplicationController
     # @chat = Chat.new
   end
 
-  def new
-    @chatroom = Chatroom.new
-  end
-
   def create
-    @chatroom = Chatroom.new(chatroom_params)
-    if @chatroom.save
-      redirect_to chatroom_path(@chatroom)
-    else
-      render :new
+    @user = User.find(params[:user_id])
+    @chatroom = Chatroom.find_by(recipient: current_user, sender: @user) || Chatroom.find_by(recipient: @user, sender: current_user)
+    unless @chatroom
+      @chatroom = Chatroom.new
+      @chatroom.sender = current_user
+      @chatroom.recipient = @user
+      @chatroom.save
     end
+    redirect_to chatroom_path(@chatroom)
   end
 
   def show
     @chatroom = Chatroom.find(params[:id])
+    @chatrooms = current_user.chatrooms
     @chat = Chat.new
     if current_user != @chatroom.sender && current_user != @chatroom.recipient
       redirect_to root_path, notice: 'You are not allowed to access this chatroom'
     end
     # render json: @chatroom.chats
-  end
-
-  private
-
-  def chatroom_params
-    params.require(:chatroom).permit(:recipient_id, :sender_id)
   end
 end
 

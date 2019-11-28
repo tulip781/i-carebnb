@@ -22,4 +22,8 @@ class User < ApplicationRecord
   end
 
 
+  def chatrooms
+    Chatroom.where(sender: self).or(Chatroom.where(recipient: self))
+  end
+
 end

@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_11_27_153604) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +137,8 @@ ActiveRecord::Schema.define(version: 2019_11_27_153604) do
     t.text "description"
     t.string "postcode"
     t.string "facilities"
+    t.float "latitude"
+    t.float "longitude"
     t.date "unavailability"
     t.boolean "public_visible", default: false
     t.text "pets"
@@ -198,5 +198,4 @@ ActiveRecord::Schema.define(version: 2019_11_27_153604) do
   add_foreign_key "safeguardings", "residents"
   add_foreign_key "safeguardings", "users"
   add_foreign_key "unavailabilities", "rooms"
-
 end

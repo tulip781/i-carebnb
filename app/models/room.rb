@@ -28,4 +28,11 @@ class Room < ApplicationRecord
   def calculate_beds
     self[:beds] = adult_space + child_space + infant_space
   end
+
+  def available_on?(dates)
+    dates.each do |date|
+      return false if unavailabilities.find_by(date: date)
+    end
+    return true
+  end
 end

@@ -26,10 +26,20 @@ initSweetalert('.ollie-sweet-alert', 'cancel_booking', {
   }
 });
 
-let dates = JSON.parse(document.querySelector(".past_unavailability").dataset.past)
+let element = document.querySelector(".past_unavailability");
+if (element) {
+  let dates = JSON.parse(element.dataset.past)
+  flatpickr('#unavailability_date', {
+    mode: "multiple",
+    dateFormat: "Y-m-d",
+    disable: dates
+  })
 
-flatpickr('#unavailability_date', {
-  mode: "multiple",
-  dateFormat: "Y-m-d",
-  disable: dates
+}
+
+
+
+flatpickr('#ollie-date-picker', {
+    mode: "range"
+
 })

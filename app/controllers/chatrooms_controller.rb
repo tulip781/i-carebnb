@@ -24,7 +24,10 @@ class ChatroomsController < ApplicationController
     if current_user != @chatroom.sender && current_user != @chatroom.recipient
       redirect_to root_path, notice: 'You are not allowed to access this chatroom'
     end
-    # render json: @chatroom.chats
+    # raise
+    @chatroom.chats.where.not(user: current_user).each do |chat|
+      chat.update(read: true)
+    end
   end
 end
 

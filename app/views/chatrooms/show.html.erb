@@ -51,7 +51,7 @@
               <% rounded_difference_seconds = (Time.now - chat.created_at).round %>
               <% rounded_difference = difference.round %>
               <% if rounded_difference_seconds == 1 %>
-              <p class="chat-time"><%= difference_seconds %> second ago</p>
+              <p class="chat-time"><%= rounded_difference_seconds %> second ago</p>
               <% elsif rounded_difference_seconds < 60 %>
               <p class="chat-time"><%= rounded_difference_seconds %> seconds ago</p>
               <% elsif rounded_difference == 1 %>
@@ -60,6 +60,12 @@
               <p class="chat-time"><%= rounded_difference %> minutes ago</p>
               <% else %>
               <p class="chat-time"><%= chat.created_at.strftime('%d %b %Y %l:%M %p') %></p>
+              <% end %>
+
+              <% if chat.read && current_user.id == chat.user.id %>
+                <p><%= "Read"  %></p>
+              <% elsif chat.read != true && current_user.id == chat.user.id %>
+                <p><%= "Unread" %></p>
               <% end %>
               </div>
           <% end %>

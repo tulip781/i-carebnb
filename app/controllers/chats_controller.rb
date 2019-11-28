@@ -29,6 +29,9 @@ class ChatsController < ApplicationController
         user_email: @chat.user.email
       })
       # this is the data that is referred to in the view, which is being bound up for the channel
+      # mail = UserMailer.with(user: @interlocutor, chat: @chat).chat_replicator
+      # mail.deliver_now
+      # @chat_creator = current_user
       redirect_to chatroom_path(@chat.chatroom)
     else
       render 'chatrooms/show'

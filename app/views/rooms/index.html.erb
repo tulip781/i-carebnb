@@ -6,7 +6,7 @@
         <h2>Search <i class="fas fa-search" style="font-size: 0.7em;"></i></h2>
         <form>
           <div class="form-row">
-            <div class="col-9 my-2">
+            <div class="col-12 my-2">
               <!-- <input type="text" class="form-control-sm w-100 small-radius" placeholder="Location"> -->
               <%= form_tag rooms_path, method: :get do %>
               <%= text_field_tag :location, params[:location], class: "form-control-sm w-100 small-radius", placeholder: "Location" %>
@@ -15,11 +15,8 @@
               <!-- <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Distance"> -->
               <%= text_field_tag :radius, params[:radius], class: "form-control-sm w-100 small-radius", placeholder: "Distance" %>
             </div>
-            <div class="col-6 my-1">
-              <input type="date" class="form-control-sm w-100 small-radius" placeholder="Start Date" id='ollie-date-picker' name='range-dates'>
-            </div>
-            <div class="col-6 my-2">
-              <input type="text" class="form-control-sm w-100 small-radius" placeholder="End Date">
+            <div class="col-9 my-2">
+              <input type="date" class="form-control-sm w-100 small-radius" placeholder="Date Required" id='ollie-date-picker' name='range-dates'>
             </div>
             <div class="col-4 my-2">
               <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Adults">

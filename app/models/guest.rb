@@ -7,4 +7,12 @@ class Guest < ApplicationRecord
   def name
     first_name
   end
+
+  def photo_url_or_default
+    if photo.attached?
+      photo.key
+    else
+      "icare_logo.svg"
+    end
+  end
 end

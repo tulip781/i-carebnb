@@ -2,6 +2,7 @@ class GuestsController < ApplicationController
 before_action :set_guest, only: [:show, :edit, :update, :destroy]
   def index
     @guests = Guest.all
+    @charity = current_user.charity_supports.first.charity
   end
 
   def show

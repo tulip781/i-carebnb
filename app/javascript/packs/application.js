@@ -1,10 +1,12 @@
 import "bootstrap";
 import flatpickr from 'flatpickr'
 import { initMapbox } from "./map";
+import { initAutocomplete } from "../plugins/init_autocomplete.js";
 import { initSweetalert } from '../plugins/init_sweetalert';
 import 'flatpickr/dist/flatpickr.min.css'
 
 initMapbox();
+initAutocomplete();
 
 
 initSweetalert('#sweet-alert-demo', 'new_booking', {
@@ -26,10 +28,14 @@ initSweetalert('.ollie-sweet-alert', 'cancel_booking', {
   }
 });
 
-let dates = JSON.parse(document.querySelector(".past_unavailability").dataset.past)
 
-flatpickr('#unavailability_date', {
-  mode: "multiple",
-  dateFormat: "Y-m-d",
-  disable: dates
-})
+let element = document.querySelector(".past_unavailability")
+if (element) {
+  let dates = JSON.parse(element.dataset.past)
+
+  flatpickr('#unavailability_date', {
+    mode: "multiple",
+    dateFormat: "Y-m-d",
+    disable: dates
+  })
+}

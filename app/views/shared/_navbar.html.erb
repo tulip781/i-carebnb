@@ -22,6 +22,9 @@
           <!-- <p>THIS IS A HOST OPTION</p> -->
           <%#= link_to "Guest", switch_login_path  %>
         <%# end %>
+
+        <%= link_to "Inbox",chatroom_path(current_user.chatrooms.first)  %>
+
         <% if current_user.host %>
           <li class="nav-item">
           <%= link_to "Add a new room", new_room_path, class: "nav-link" %>
@@ -29,6 +32,16 @@
         <% else %>
           <li class="nav-item">
             <%= link_to "Find a Room", rooms_path, class: "nav-link" %>
+          </li>
+        <% end %>
+
+        <% if current_user.host %>
+          <li class="nav-item">
+          <%= link_to "Add a resident", new_room_resident_path, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Add a guest", new_charity_guest_path(current_user.charity_supports.first.charity), class: "nav-link" %>
           </li>
         <% end %>
         <li class="nav-item dropdown">

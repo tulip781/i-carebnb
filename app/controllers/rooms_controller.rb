@@ -10,46 +10,51 @@ class RoomsController < ApplicationController
       @dates = params['range-dates'].split(' to ')
       dates = ((Date.parse(@dates[0]))..(Date.parse(@dates[1]))).to_a
       @rooms = Room.near(params[:location], params[:radius])
+      @rooms = @rooms.where("adult_space >= ?
+                             AND child_space >= ?
+                             AND infant_space >= ?",
+                             params[:adults].to_i,
+                             params[:children].to_i,
+                             params[:infants].to_i)
       @rooms = @rooms.select { |room| room.available_on?(dates) }
 
-      @rooms = @rooms.select do |room|
-        params[:adults].to_i <= room.adult_space &&
-          params[:children].to_i <= room.child_space &&
-          params[:infants].to_i <= room.infant_space &&
-          params[:beds].to_i <= room.beds
+      # @rooms = @rooms.select do |room|
+      #   params[:adults].to_i <= room.adult_space &&
+      #     params[:children].to_i <= room.child_space &&
+      #     params[:infants].to_i <= room.infant_space &&
+      #     @total_beds <= room.beds
         # params[:minimum_stay].to_i <= room.max_stay_length
-      end
+      # end
 
     elsif params[:location].present? && params[:radius].present?
 
       @rooms = Room.near(params[:location], params[:radius])
-      @rooms = @rooms.select do |room|
-        params[:adults].to_i <= room.adult_space &&
-          params[:children].to_i <= room.child_space &&
-          params[:infants].to_i <= room.infant_space &&
-          params[:beds].to_i <= room.beds
+      @rooms = @rooms.where("adult_space >= ?
+                             AND child_space >= ?
+                             AND infant_space >= ?",
+                             params[:adults].to_i,
+                             params[:children].to_i,
+                             params[:infants].to_i)
         # params[:minimum_stay].to_i <= room.max_stay_length
-      end
 
     elsif params[:location].present?
       @rooms = Room.near(params[:location], default_radius)
 
-      @rooms = @rooms.select do |room|
-        params[:adults].to_i <= room.adult_space &&
-          params[:children].to_i <= room.child_space &&
-          params[:infants].to_i <= room.infant_space &&
-          params[:beds].to_i <= room.beds
-      end
+      @rooms = @rooms.where("adult_space >= ?
+                             AND child_space >= ?
+                             AND infant_space >= ?",
+                             params[:adults].to_i,
+                             params[:children].to_i,
+                             params[:infants].to_i)
     else
       @rooms = Room.geocoded
 
-      @rooms = @rooms.select do |room|
-        params[:adults].to_i <= room.adult_space &&
-          params[:children].to_i <= room.child_space &&
-          params[:infants].to_i <= room.infant_space &&
-          params[:beds].to_i <= room.beds
-        # params[:minimum_stay].to_i <= room.max_stay_length
-      end
+      @rooms = @rooms.where("adult_space >= ?
+                             AND child_space >= ?
+                             AND infant_space >= ?",
+                             params[:adults].to_i,
+                             params[:children].to_i,
+                             params[:infants].to_i)
     end
 
     @markers = @rooms.map do |room|

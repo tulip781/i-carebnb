@@ -5,13 +5,13 @@ import { initAutocomplete } from "../plugins/init_autocomplete.js";
 import { initSweetalert } from '../plugins/init_sweetalert';
 import 'flatpickr/dist/flatpickr.min.css'
 
-initMapbox();
 initAutocomplete();
+initMapbox();
 
 
 initSweetalert('#sweet-alert-demo', 'new_booking', {
-  title: "Thank You For Your Booking",
-  text: "A booking request has been sent to the host",
+  title: "Thank You For Your Booking Request",
+  text: "A booking request has been sent to the host who must confirm your booking.",
   icon: "success",
   confirmButtonColor: '#8CD4F5'
 }, (_value, form) => form.submit());
@@ -46,4 +46,5 @@ flatpickr('#ollie-date-picker', {
     mode: "range"
 
 })
+
 

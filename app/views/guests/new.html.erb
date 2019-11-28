@@ -4,21 +4,21 @@
     <div class="col-12 col-lg-8 offset-lg-2">
       <div class="my-5 p-5 box-design">
         <h1>Add a new guest</h1>
-      <%= simple_form_for(@guest) do |f| %>
+      <%= simple_form_for([@charity, @guest]) do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-        <div class="form-inputs mt-4">
-          <%= f.input :first_name, required: true, autofocus: true, placeholder: "First name" %>
-        </div>
         <div class="form-inputs">
           <div class="form-row">
             <div class="form-group col-6 col-sm-6">
-              <%= f.input :date_of_birth, required: true, autofocus: true, placeholder: "Date of birth" %>
+              <%= f.input :first_name, required: true, autofocus: true, placeholder: "First name" %>
             </div>
             <div class="form-group col-6 col-sm-6">
-              <%= f.input :facilities, collection: ['Shared', 'Private'], prompt: :translate, :label => "Facilities:" %>
+              <%= f.input :date_of_birth, required: true, autofocus: true, :label => "Date of birth" %>
             </div>
           </div>
+        </div>
+        <div class="form-inputs">
+           <%= f.input :permanent_address, autofocus: true, placeholder: "Permanent address" %>
         </div>
         <div class="form-inputs">
           <div class="form-row">
@@ -31,15 +31,11 @@
             <div class="form-group col-6 col-md-3">
               <%= f.input :infant_space, required: true, autofocus: true, :input_html => { :value => '0' } %>
             </div>
-            <div class="form-group col-6 col-md-3">
-              <%= f.input :max_stay_length, required: true, autofocus: true, :input_html => { :value => '1' } %>
-            </div>
           </div>
         </div>
         <div class="form-inputs">
 
-          <%= f.input :photo, as: :file, :label => "Upload Room Picture(s):" %>
-          <%= f.input :description, placeholder: "Tell me about your room", :label => "Room Description:" %>
+          <%= f.input :photo, as: :file, :label => "Upload guest picture:" %>
 
         </div>
         <div class="form-actions">

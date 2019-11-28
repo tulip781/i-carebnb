@@ -29,13 +29,21 @@ initSweetalert('.ollie-sweet-alert', 'cancel_booking', {
 });
 
 
-let element = document.querySelector(".past_unavailability")
+let element = document.querySelector(".past_unavailability");
 if (element) {
   let dates = JSON.parse(element.dataset.past)
-
   flatpickr('#unavailability_date', {
     mode: "multiple",
     dateFormat: "Y-m-d",
     disable: dates
   })
+
 }
+
+
+
+flatpickr('#ollie-date-picker', {
+    mode: "range"
+
+})
+

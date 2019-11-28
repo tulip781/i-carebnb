@@ -6,28 +6,28 @@
         <h2>Search <i class="fas fa-search" style="font-size: 0.7em;"></i></h2>
         <form>
           <div class="form-row">
-            <div class="col-9 my-1">
+            <div class="col-9 my-2">
               <!-- <input type="text" class="form-control-sm w-100 small-radius" placeholder="Location"> -->
               <%= form_tag rooms_path, method: :get do %>
               <%= text_field_tag :location, params[:location], class: "form-control-sm w-100 small-radius", placeholder: "Location" %>
             </div>
-            <div class="col-3 my-1">
+            <div class="col-3 my-2">
               <!-- <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Distance"> -->
               <%= text_field_tag :radius, params[:radius], class: "form-control-sm w-100 small-radius", placeholder: "Distance" %>
             </div>
             <div class="col-6 my-1">
-              <input type="text" class="form-control-sm w-100 small-radius" placeholder="Start Date">
+              <input type="date" class="form-control-sm w-100 small-radius" placeholder="Start Date" id='ollie-date-picker' name='range-dates'>
             </div>
-            <div class="col-6 my-1">
+            <div class="col-6 my-2">
               <input type="text" class="form-control-sm w-100 small-radius" placeholder="End Date">
             </div>
-            <div class="col-4 my-1">
+            <div class="col-4 my-2">
               <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Adults">
             </div>
-            <div class="col-4 my-1">
+            <div class="col-4 my-2">
               <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Children">
             </div>
-            <div class="col-4 my-1">
+            <div class="col-4 my-2">
               <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Infants">
             </div>
             <div class="col-12 mt-2">
@@ -61,7 +61,7 @@
       </form>
     </div> -->
     <div class="col-12 col-lg-6 mt-lg-4 mb-4">
-      <div id="map" class="map-custom" style="width: 100%; height: 261px; marker-color: red" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div id="map" class="map-custom" style="width: 100%; height: 285px; marker-color: red" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
   </div>

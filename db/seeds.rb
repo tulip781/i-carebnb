@@ -209,7 +209,7 @@ i = 0
 20.times do
   adult_space = rand(1..2)
   child_space = rand(2)
-  infant_space = rand(1)
+  infant_space = rand(2)
 
   room = Room.new(
     address: real_location[i],
@@ -233,6 +233,8 @@ i = 0
  i += 1
 end
 
+sleep(0.5)
+
 puts "👩‍🦰 Assiging Room to the Host, Paula 👩‍🦰"
 
 room = Room.all.sample
@@ -241,6 +243,8 @@ room.save!
 room2 = Room.all.sample
 room2.user = test_user1
 room2.save!
+
+sleep(0.5)
 
 puts '🌟Creating a Guest called Harry - assigned to Charity Mencap🌟'
 
@@ -251,6 +255,8 @@ harry = Guest.new(
 harry.charity = charity_two
 harry.save!
 
+sleep(0.5)
+
 puts '🌟Creating a Guest called Tarry - assigned to Charity Mencap🌟'
 
 tarry = Guest.new(
@@ -260,6 +266,8 @@ tarry = Guest.new(
 tarry.charity = charity_two
 tarry.save!
 
+sleep(0.5)
+
 puts '🌟🌟Creating a Guest called Tash - assigned to Charity Shelter🌟🌟'
 
 tash = Guest.new(
@@ -268,6 +276,8 @@ tash = Guest.new(
   adult_space: 1)
 tash.charity = charity_one
 tash.save!
+
+sleep(0.5)
 
 puts "📆 Creating Bookings 📆"
 
@@ -285,6 +295,8 @@ puts "📆 Creating Bookings 📆"
   booking.guest = Guest.all.sample
   booking.save!
 end
+
+sleep(0.5)
 
 puts '🗃 Creating Pending Booking and Confirmed Booking For Paula 🗃'
 
@@ -306,11 +318,19 @@ booking3.confirmed = true
 booking3.guest = tash
 booking3.save!
 
+sleep(0.5)
+
 puts '🌱 Starting Marco Seeds 🌱'
+
+sleep(0.5)
 
 puts '👨‍👩‍👧‍👦 Creating Residents 👨‍👩‍👧‍👦'
 
+sleep(0.5)
+
 puts '👨‍👨‍👧 Creating Resident One 👨‍👨‍👧'
+
+sleep(0.5)
 
 test_resident = Resident.new(
   first_name: "I am a test resident First Name",
@@ -324,6 +344,8 @@ test_resident.save!
 
 puts '👨‍👨‍👧‍👦 Creating Resident Two 👨‍👨‍👧‍👦'
 
+sleep(0.5)
+
 test_resident2 = Resident.new(
   first_name: "I am a 2nd test resident First Name",
   last_name: "This is a 2nd Resident Last Name",
@@ -336,6 +358,8 @@ test_resident2.save!
 
 puts '👨‍👦 Creating Safeguarding 👨‍👦 1'
 
+sleep(0.5)
+
 safe_guard = Safeguarding.new(
   approved: true)
 safe_guard.user = test_user1
@@ -344,6 +368,8 @@ safe_guard.save!
 
 
 puts '👩‍👩‍👦‍👦 Creating Safeguarding 👩‍👩‍👦‍👦 2'
+
+sleep(0.5)
 
 safe_guard2 = Safeguarding.new(
   approved: true)
@@ -354,6 +380,8 @@ safe_guard2.save!
 puts '🌺 Creating Charity Supports (Charity + User Joining Table) - Assiging Host Paula to
 Charity Shelter with newsletter = true 🌺'
 
+sleep(0.5)
+
 charity_support1 = CharitySupport.new(
   newsletter: true)
 charity_support1.user = test_user1
@@ -363,11 +391,15 @@ charity_support1.save!
 puts '🌺 Creating Charity Supports (Charity + User Joining Table) - Assiging Representative Leia to
 Charity Mencap with newsletter = true 🌺'
 
+sleep(0.5)
+
 charity_support2 = CharitySupport.new(
   newsletter: true)
 charity_support2.user = test_user2
 charity_support2.charity = charity_two
 charity_support2.save!
+
+sleep(0.5)
 
 puts 'D👽NE'
 

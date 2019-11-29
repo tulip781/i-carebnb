@@ -33,7 +33,7 @@
         <% end %>
 
         <% if current_user.host %>
-        <% else %>
+        <% elsif current_user.charity_supports.any? %>
           <li class="nav-item">
             <%= link_to "Add a guest", new_charity_guest_path(current_user.charity_supports.first.charity), class: "nav-link" %>
           </li>

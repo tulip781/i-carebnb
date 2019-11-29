@@ -13,8 +13,53 @@
   color: white;
 }
 
-.card-header {
-  background-color: $second !important;
+.green_button {
+  background-color: #587850;
+}
+
+.green_button:hover {
+  background-color: #427436;
+}
+
+.chat_button {
+  background-color: $second;
+}
+
+.chat_button:hover {
+  background-color: #343258;
+}
+
+.edit_button {
+  background-color: $main;
+}
+
+.edit_button:hover {
+  background-color: #EC7474;
+}
+
+.red_button {
+  background-color: #bb5a5a;
+}
+
+.red_button:hover {
+  background-color: #B93C3C;
+  color: white;
+}
+
+.card-header-navy {
+  background-color: $second;
+}
+
+.card-header-green {
+  background-color: #587850;
+}
+
+.card-header-red {
+  background-color: #bb5a5a;
+}
+
+.card-header-grey {
+  background-color: $accent;
 }
 
 .card-button {

@@ -26,7 +26,7 @@
         <div class="chat-text-input chatbox-input" style="display:flex;">
           <%= simple_form_for([@chatroom, @chat]) do |f| %>
             <%= f.input :message, placeholder: "Type your message...", label: false %>
-            <%= f.submit 'Send', class: 'send_btn' %>
+            <%= f.submit 'Send', class: 'send_btn mb-4' %>
           <% end %>
         </div>
         <div class="container">
@@ -36,7 +36,7 @@
               <div class="d-inline-flex pb-1 chatbox">
                 <div class="chat-bubble <%= 'chat-bubble-right' if chat.user == current_user %>">
                   <p class="chat-details"><%= chat.user.email %></p>
-                  <p class="m-0 chat-message <%= 'color-blue' if chat.user == current_user %>"><%= chat.message %></p>
+                  <p style="font-size: 1.1em;" class="m-0 chat-message <%= 'color-blue' if chat.user == current_user %>"><%= chat.message %></p>
                 </div>
               </div>
             </div>
@@ -45,21 +45,22 @@
               <% rounded_difference_seconds = (Time.now - chat.created_at).round %>
               <% rounded_difference = difference.round %>
               <% if rounded_difference_seconds == 1 %>
-              <p class="chat-time"><%= rounded_difference_seconds %> second ago</p>
+              <p class="chat-time mr-2 mt-2"><%= rounded_difference_seconds %> second ago</p>
               <% elsif rounded_difference_seconds < 60 %>
-              <p class="chat-time"><%= rounded_difference_seconds %> seconds ago</p>
+              <p class="chat-time mr-2 mt-2"><%= rounded_difference_seconds %> seconds ago</p>
               <% elsif rounded_difference == 1 %>
-              <p class="chat-time"><%= rounded_difference %> minute ago</p>
+              <p class="chat-time mr-2 mt-2"><%= rounded_difference %> minute ago</p>
               <% elsif rounded_difference < 60 %>
-              <p class="chat-time"><%= rounded_difference %> minutes ago</p>
+              <p class="chat-time mr-2 mt-2"><%= rounded_difference %> minutes ago</p>
               <% else %>
-              <p class="chat-time"><%= chat.created_at.strftime('%d %b %Y %l:%M %p') %></p>
+              <p class="chat-time mr-2 mt-4" style="font-size: 0.8em;"><%= chat.created_at.strftime('%d %b %Y %l:%M %p') %></p>
+
               <% end %>
 
               <% if chat.read && current_user.id == chat.user.id %>
-                <p><%= "Read"  %></p>
+                <p class="read-status alata mt-1"><%= "Read" %></p>
               <% elsif chat.read != true && current_user.id == chat.user.id %>
-                <p><%= "Unread" %></p>
+                <p class="read-status alata mt-1"><%= "Unread" %></p>
               <% end %>
               </div>
 

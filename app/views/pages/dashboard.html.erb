@@ -16,8 +16,8 @@
     </div>
   </div>
   <div class="container">
-    <%= render "host_rooms", rooms: @rooms  %>
     <%= render "host_booking_requests", booking_requests: @booking_requests  %>
+    <%= render "host_rooms", rooms: @rooms  %>
     <%= render "host_confirmed_bookings", bookings: @bookings %>
     <%= render "host_declined_bookings", bookings: @bookings %>
   </div>

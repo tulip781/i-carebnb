@@ -1,27 +1,25 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-lg-8 offset-lg-2">
-      <div class="my-5 p-5 box-design">
-        <h1>Edit this booking</h1>
-      <%= simple_form_for(@booking) do |f| %>
-      <%= f.error_notification %>
-      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-        <div class="form-inputs mt-4">
-          <%= f.input :number_of_adults %>
-          <%= f.input :number_of_children %>
-          <%= f.input :number_of_infants %>
-          <%= f.input :guest_id, collection: current_user.charities.first.guests %>
-          <%= f.input :start_date, as: :string, class: 'form-control datepicker', input_html: {type: :date, value: Time.now.strftime("%Y-%m-%d") } %>
-          <%= f.input :end_date, as: :string, class: 'form-control datepicker', input_html: {type: :date, value: (Time.now+86400).strftime("%Y-%m-%d")} %>
+<div class="background2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-8 offset-lg-2">
+        <div class="my-5 p-5 box-design">
+          <h1>Edit this booking</h1>
+        <%= simple_form_for(@booking) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <div class="form-inputs mt-4">
+            <%= f.input :number_of_adults %>
+            <%= f.input :number_of_children %>
+            <%= f.input :number_of_infants %>
+            <%= f.input :guest_id, collection: current_user.charities.first.guests %>
+            <%= f.input :start_date, as: :string, class: 'form-control datepicker', input_html: {type: :date, value: Time.now.strftime("%Y-%m-%d") } %>
+            <%= f.input :end_date, as: :string, class: 'form-control datepicker', input_html: {type: :date, value: (Time.now+86400).strftime("%Y-%m-%d")} %>
+          </div>
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-secondary nav-link ml-0" %>
         </div>
-
-      <div class="form-actions">
-        <%= f.button :submit, class: "btn btn-secondary nav-link ml-0" %>
+        <% end %>
       </div>
-      <% end %>
-
-
     </div>
   </div>
 </div>

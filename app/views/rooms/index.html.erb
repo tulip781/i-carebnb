@@ -11,11 +11,11 @@
               <%= form_tag rooms_path, method: :get do %>
               <%= text_field_tag :location, params[:location], class: "form-control-sm w-100 small-radius", placeholder: "Location" %>
             </div>
-            <div class="col-3 my-2">
+            <div class="col-6 my-2">
               <!-- <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Distance"> -->
-              <%= text_field_tag :radius, params[:radius], class: "form-control-sm w-100 small-radius", placeholder: "Distance" %>
+              <%= text_field_tag :radius, params[:radius], class: "form-control-sm w-100 small-radius", placeholder: "Distance guest can travel" %>
             </div>
-            <div class="col-9 my-2">
+            <div class="col-6 my-2">
               <input type="date" class="form-control-sm w-100 small-radius" placeholder="Date Required" id='ollie-date-picker' name='range-dates'>
             </div>
             <div class="col-4 my-2">

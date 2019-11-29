@@ -18,8 +18,8 @@
   <div class="container">
     <%= render "host_rooms", rooms: @rooms  %>
     <%= render "host_booking_requests", booking_requests: @booking_requests  %>
-    <%= render "host_declined_bookings", bookings: @bookings %>
     <%= render "host_confirmed_bookings", bookings: @bookings %>
+    <%= render "host_declined_bookings", bookings: @bookings %>
   </div>
 
 <% else %>
@@ -42,9 +42,9 @@
     </div>
   </div>
   <div class="container">
+    <%= render "charity_pending_bookings", charity_pending_bookings: @charity_pending_bookings %>
     <%= render "charity_confirmed_bookings", charity_confirmed_bookings: @charity_confirmed_bookings %>
     <%= render "charity_declined_bookings", charity_declined_bookings: @charity_declined_bookings %>
-    <%= render "charity_pending_bookings", charity_pending_bookings: @charity_pending_bookings %>
   </div>
 
 <% end %>

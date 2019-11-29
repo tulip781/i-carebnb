@@ -1,3 +1,5 @@
+<!-- room booking partial - rendered in in show room -->
+
 <% unless current_user.host %>
 <h1>Book this room</h1>
 
@@ -6,13 +8,12 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-
-    <%= f.input :number_of_adults, input_html: { min: '0' } %>
-    <%= f.input :number_of_children, input_html: { min: '0' } %>
-    <%= f.input :number_of_infants, input_html: { min: '0' } %>
-    <%= f.input :guest_id, collection: current_user.charities.first.guests %>
-    <%= f.input :start_date, as: :string, class: 'form-control datepicker', input_html: {type: :date, value: Time.now.strftime("%Y-%m-%d") } %>
-    <%= f.input :end_date, as: :string, class: 'form-control datepicker', input_html: {type: :date, value: (Time.now+86400).strftime("%Y-%m-%d")} %>
+    <%= f.input :number_of_adults, input_html: { min: '0', value: params[:adults].to_i } %>
+    <%= f.input :number_of_children, input_html: { min: '0', value: params[:children].to_i } %>
+    <%= f.input :number_of_infants, input_html: { min: '0', value: params[:infants].to_i  } %>
+    <%= f.input :guest_id, collection: Guest.where(charity_id: current_user.charities.ids)%>
+    <%= f.input :start_date, as: :string, class: 'form-control datepicker room-show-picker', input_html: {type: :date, value: Time.now.strftime("%Y-%m-%d") } %>
+    <%= f.input :end_date, as: :string, class: 'form-control datepicker room-show-picker', input_html: {type: :date, value: (Time.now+86400).strftime("%Y-%m-%d")} %>
   </div>
 
   <div class="form-actions">
@@ -20,3 +21,7 @@
   </div>
 <% end %>
 <% end %>
+
+
+<!-- .present? ? params[:adults].to_i : 1 -->
+<!-- this was inlcuded in the guest_id default after ":guest_id,"" collection: current_user.charities.first.guests -->

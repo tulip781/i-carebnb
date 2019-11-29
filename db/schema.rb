@@ -135,11 +135,11 @@ ActiveRecord::Schema.define(version: 2019_11_28_150913) do
     t.datetime "updated_at", null: false
     t.string "image_url"
     t.string "title"
+    t.float "latitude"
+    t.float "longitude"
     t.text "description"
     t.string "postcode"
     t.string "facilities"
-    t.float "latitude"
-    t.float "longitude"
     t.date "unavailability"
     t.boolean "public_visible", default: false
     t.text "pets"

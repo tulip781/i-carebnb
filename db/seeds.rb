@@ -246,7 +246,15 @@ room2.save!
 
 sleep(0.5)
 
-puts '🌟Creating a Guest called Harry - assigned to Charity Mencap🌟'
+puts '🌟Creating a Guest called Dummy Guest for Details to be provided later - assigned to Charity Mencap🌟'
+
+dummy_guest = Guest.new(
+  first_name: "Details to be provided later",
+  child_space: 0,
+  adult_space: 1)
+dummy_guest.charity = charity_two
+dummy_guest.save
+
 
 harry = Guest.new(
   first_name: "Harry",
@@ -278,6 +286,7 @@ tash.charity = charity_one
 tash.save!
 
 sleep(0.5)
+
 
 puts "📆 Creating Bookings 📆"
 

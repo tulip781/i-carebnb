@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-icare">
+<div class="navbar navbar-expand-md navbar-light navbar-icare">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "icare_logo.svg" %>
   <% end %>
@@ -7,12 +7,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to chatroom_path(current_user.chatrooms.first), class: "nav-link" do  %>
-            Your messages
-          <% end %>
-        </li>
+      <% if user_signed_in?  %>
         <li class="nav-item">
           <%= link_to dashboard_path, class: "nav-link" do  %>
             <%= current_user.host ? 'Host' : 'Charity' %> Dashboard
@@ -27,9 +22,6 @@
           <!-- <p>THIS IS A HOST OPTION</p> -->
           <%#= link_to "Guest", switch_login_path  %>
         <%# end %>
-
-
-
         <% if current_user.host %>
           <li class="nav-item">
           <%= link_to "Add a new room", new_room_path, class: "nav-link" %>

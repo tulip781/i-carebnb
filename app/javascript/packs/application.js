@@ -47,4 +47,5 @@ flatpickr('#ollie-date-picker', {
 
 })
 
+flatpickr('.room-show-picker')
 

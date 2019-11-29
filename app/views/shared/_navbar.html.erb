@@ -27,6 +27,9 @@
           <!-- <p>THIS IS A HOST OPTION</p> -->
           <%#= link_to "Guest", switch_login_path  %>
         <%# end %>
+
+
+
         <% if current_user.host %>
           <li class="nav-item">
           <%= link_to "Add a new room", new_room_path, class: "nav-link" %>
@@ -36,6 +39,19 @@
             <%= link_to "Find a Room", rooms_path, class: "nav-link" %>
           </li>
         <% end %>
+
+        <% if current_user.host %>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Add a guest", new_charity_guest_path(current_user.charity_supports.first.charity), class: "nav-link" %>
+          </li>
+        <% end %>
+        <% if current_user.present? && current_user.chatrooms.any? %>
+          <li class="nav-item">
+            <%= link_to "Inbox",chatroom_path(current_user.chatrooms.first), class: "nav-link"  %>
+          </li>
+        <% end %>
+
         <li class="nav-item dropdown">
 
           <%= image_tag current_user.avatar_url_or_default, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

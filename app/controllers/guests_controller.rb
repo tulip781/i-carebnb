@@ -2,6 +2,7 @@ class GuestsController < ApplicationController
 before_action :set_guest, only: [:show, :edit, :update, :destroy]
   def index
     @guests = Guest.all
+    @charity = current_user.charity_supports.first.charity
   end
 
   def show
@@ -9,6 +10,7 @@ before_action :set_guest, only: [:show, :edit, :update, :destroy]
 
   def new
     @guest = Guest.new
+    @charity = current_user.charity_supports.first.charity
   end
 
   def create
@@ -44,6 +46,6 @@ before_action :set_guest, only: [:show, :edit, :update, :destroy]
   end
 
   def guest_params
-    params.require(:guest).permit(:first_name, :permanent_address, :date_of_birth, :adult_space, :child_space, :infant_space, :charity_id)
+    params.require(:guest).permit(:first_name, :permanent_address, :date_of_birth, :adult_space, :child_space, :infant_space, :charity_id, :photo)
   end
 end

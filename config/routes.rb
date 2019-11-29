@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
 
 
-  get 'unavailabilities/show'
-  get 'unavailabilities/index'
-  get 'unavailabilities/edit'
-  get 'unavailabilities/create'
-  get 'unavailabilities/update'
-  get 'unavailabilities/destroy'
-  get 'unavailabilities/new'
+  # get 'unavailabilities/show'
+  # get 'unavailabilities/index'
+  # get 'unavailabilities/edit'
+  # get 'unavailabilities/create'
+  # get 'unavailabilities/update'
+  # get 'unavailabilities/destroy'
+  # get 'unavailabilities/new'
   devise_for :users, controllers: { registrations: "registrations" }
   resources :rooms do
     resources :bookings, only: [:new, :create]
     resources :residents
     resources :unavailabilities
   end
-  resources :chatrooms, except: [:new, :create] do
+  resources :chatrooms, only: [:show] do
     resources :chats
   end
   resources :users, only: [] do

@@ -4,9 +4,9 @@
 
     <div class="row">
       <div class="col-12 col-lg-10 offset-lg-1">
-        <div class="card my-3">
-          <div class="card-header" style="border-top-right-radius: 15px; border-top-left-radius: 15px;">
-            <h4 class="float-left white-font">Declined Bookings<i class="fas fa-times-circle ml-3 mt-2 main-colour"></i>
+        <div class="card mt-3 mb-5">
+          <div class="card-header card-header-red" style="border-top-right-radius: 15px; border-top-left-radius: 15px;">
+            <h4 class="float-left white-font">Declined Bookings<i class="fas fa-times-circle ml-3 mt-2"></i>
           </div>
 
           <% counter = 1 %>
@@ -24,7 +24,7 @@
                   <!-- <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.beds %></span></i> -->
                   <i class="fas fa-shower mt-2 mb-4 main-colour"><span class="card-detail-text">&nbsp <%= booking.room.facilities %> facilities</span></i>
                   <br><i class="mr-2"><span class="card-detail-text btn btn-sm btn-secondary card-button"><%= link_to "Details", booking_path(booking) %></span></i>
-                  <i class="mr-2"><span class="card-detail-text btn btn-sm btn-danger card-button"><%= link_to "Undo", declined_booking_path(booking), method: :post %></span></i>
+                  <i class="mr-2"><span class="card-detail-text btn btn-sm card-button red_button"><%= link_to "Undo", declined_booking_path(booking), method: :post %></span></i>
                 </div>
               </div>
             </div>

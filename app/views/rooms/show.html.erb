@@ -20,11 +20,11 @@
         <%#= f.submit %>
       <%# end %> -->
       <p class="lead my-4"> <%= @room.description %></p>
+      <%= cl_image_tag @room.photo_url_or_default, alt: @room.address, style: 'width:100%;max-height:315px;object-fit:cover;margin-bottom:50px;border-radius:15px;' %>
     </div>
 
-    <div class="col-12 col-lg-6">
-      <%= cl_image_tag @room.photo_url_or_default, alt: @room.address, style: 'width:100%;max-height:315px;object-fit:cover;margin-bottom:50px;border-radius:15px;' %>
-      <%#= render "bookings/new", booking: @booking, room: @room %>
+    <div class="col-12 col-lg-5 offset-lg-1">
+      <%= render "bookings/new", booking: @booking, room: @room %>
     </div>
   </div>
 </div>

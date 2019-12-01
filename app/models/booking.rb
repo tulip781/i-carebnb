@@ -2,6 +2,30 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :room
   belongs_to :guest
+  # after_create :send_confirmation_message
+
+  # def send_confirmation_message
+  #   Chat.create(
+  #     @chat = Chat.new(
+  #       message: "Thank you very much! I have booked your room for the guest(s) we work with.  Please contact me if you have any questions.  Thank you for iCaringBnB.",)
+
+  #     @chatrooms = current_user.chatrooms
+  #     @chat.chatroom = @chatroom
+  #     @chat.user = current_user
+
+  #     if @chat.save
+  #       Pusher.trigger('chat-channel', 'message-created', {
+  #         message: @chat.message,
+  #         sender_id: @chatroom.sender.id,
+  #         current_user: @chat.user.id,
+  #         timestamp: @chat.created_at.strftime('%I:%M %p'),
+  #         user_email: @chat.user.email
+  #       })
+  #       redirect_to chatroom_path(@chat.chatroom)
+  #     else
+  #       render 'chatrooms/show'
+  #     end
+  # end
 
 
   # def self.get_bookings(rooms)

@@ -40,8 +40,8 @@
     <%#= f.input :start_date, as: :string, class: 'form-control datepicker', input_html: {type: :date, value: Time.now.strftime("%Y-%m-%d") } %>
 <!--     <div class="col-12 col-lg-3">
       <form action="/rooms" method="GET">
-        <input type="hidden" name="location" value="<%= params[:location] %>">
-        <input type="hidden" name="radius" value="<%= params[:radius] %>">
+        <input type="hidden" name="location" value="<%= params[#:location] %>">
+        <input type="hidden" name="radius" value="<%= params[#:radius] %>">
         <div class="col-12 mb-3 px-0">
           <label for="Beds">Change number of beds:</label>
           <input type="integer" name="beds">
@@ -52,7 +52,7 @@
         </div>
         <div class="col-12 mb-4 px-0">
           <label for="Distance">Change distance:</label>
-          <input type="integer" name="radius" value="<%= params[:radius] %>">
+          <input type="integer" name="radius" value="<%= params[#:radius] %>">
         </div>
         <div class="col-12 px-0">
           <button type="submit" class="mb-4 mx-0 nav-link btn btn-secondary">Submit</button>

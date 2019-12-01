@@ -243,6 +243,9 @@ room.save!
 room2 = Room.all.sample
 room2.user = test_user1
 room2.save!
+room3 = Room.all.sample
+room3.user = test_user1
+room3.save!
 
 sleep(0.5)
 
@@ -326,6 +329,12 @@ booking3.user = test_user2
 booking3.confirmed = true
 booking3.guest = tash
 booking3.save!
+booking4 = Booking.new
+booking4.room = room3
+booking4.user = test_user2
+booking4.guest = tash
+booking4.save!
+
 
 sleep(0.5)
 
@@ -386,8 +395,21 @@ safe_guard2.user = test_user1
 safe_guard2.resident = test_resident2
 safe_guard2.save!
 
-puts '🌺 Creating Charity Supports (Charity + User Joining Table) - Assiging Host Paula to
-Charity Shelter with newsletter = true 🌺'
+puts ' 🌆🌆 Assinging all users to a charity (through a Charity Support) 🌆🌆'
+
+User.all do |u|
+  support = CharitySupport.new(
+  newsletter: true)
+  support.user = u
+  support.charity = Charity.all.sample
+  support.save!
+end
+
+
+sleep(0.5)
+
+puts '🍄 Assiging Host Paula to
+Charity Shelter with newsletter = true 🍄 '
 
 sleep(0.5)
 
@@ -397,8 +419,8 @@ charity_support1.user = test_user1
 charity_support1.charity = charity_one
 charity_support1.save!
 
-puts '🌺 Creating Charity Supports (Charity + User Joining Table) - Assiging Representative Leia to
-Charity Mencap with newsletter = true 🌺'
+puts '💫 Assiging Representative Leia to
+Charity Mencap with newsletter = true 💫 '
 
 sleep(0.5)
 
@@ -410,10 +432,11 @@ charity_support2.save!
 
 sleep(0.5)
 
+
 puts 'D👽NE'
 
 
-
+puts '🥇🥇🥇🥇'
 
 
 

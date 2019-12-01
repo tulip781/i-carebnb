@@ -1,4 +1,11 @@
 <!-- room booking partial - rendered in in show room -->
+<% range_dates_start = params[:range_dates][0,10] %>
+<%= range_dates_end = params[:range_dates][-10,10] %>
+    <%# range_dates_proper_start = range_dates_start.gsub("-", "/") %>
+    <%# start_days = range_dates_proper_start[8,2]%>
+    <%# start_month = range_dates_proper_start[5,2] %>
+    <%# start_year = range_dates_proper_start[0, 4] %>
+    <%# start_date_conversion = start_days + "/" + start_month + "/" + start_year %>
 
 <% unless current_user.host %>
 <h1>Book this room</h1>
@@ -12,9 +19,10 @@
     <%= f.input :number_of_children, input_html: { min: '0', value: params[:children].to_i } %>
     <%= f.input :number_of_infants, input_html: { min: '0', value: params[:infants].to_i  } %>
     <%= f.input :guest_id, collection: Guest.where(charity_id: current_user.charities.ids)%>
-    <%= f.input :start_date, as: :string, class: 'form-control datepicker room-show-picker', input_html: {type: :date, value: Time.now.strftime("%Y-%m-%d") } %>
-    <%= f.input :end_date, as: :string, class: 'form-control datepicker room-show-picker', input_html: {type: :date, value: (Time.now+86400).strftime("%Y-%m-%d")} %>
+    <%= f.input :start_date, as: :string, class: 'form-control datepicker room-show-picker', input_html: {type: :date, value: range_dates_start } %>
+    <%= f.input :end_date, as: :string, class: 'form-control datepicker room-show-picker', input_html: {type: :date, value: range_dates_end } %>
   </div>
+  <%# raise %>
 
   <div class="form-actions">
  <%= f.button :submit, class: "btn btn-secondary mt-4 mb-5", id: "sweet-alert-demo" %>
@@ -25,3 +33,4 @@
 
 <!-- .present? ? params[:adults].to_i : 1 -->
 <!-- this was inlcuded in the guest_id default after ":guest_id,"" collection: current_user.charities.first.guests -->
+<!-- take the first 10 characters, gsub / -, add to amendment of html. -->

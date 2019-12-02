@@ -50,3 +50,20 @@ const initMapbox = () => {
 };
 
 export { initMapbox };
+
+// if (window.location.href.includes('favourites')  || window.location.href.includes('venues')) {
+//       map.addControl(new mapboxgl.GeolocateControl({
+//         positionOptions: {
+//           enableHighAccuracy: true
+//         },
+//         trackUserLocation: true
+//       }))
+//     } else {
+//       const geolocate = new mapboxgl.GeolocateControl();
+//       map.addControl(geolocate);
+//       window.addEventListener("load", (event) => {
+//         geolocate.trigger();
+//       })
+//     };
+
+

@@ -4,7 +4,8 @@ class RoomsController < ApplicationController
 
   def index
     default_radius = 30
-    @search_location = [51.5156177, -0.0919983]
+
+    # @search_location = [51.5156177, -0.0919983]
     if params[:location].present? && params[:radius].present? && params['range-dates'].present?
       @search_location = Geocoder.search(params[:location]).first.coordinates
 
@@ -50,8 +51,18 @@ class RoomsController < ApplicationController
                              params[:adults].to_i,
                              params[:children].to_i,
                              params[:infants].to_i)
+    elsif
+      Geocoder.search(request.location.data["ip"]).first.coordinates.empty? != true
+      @search_location = Geocoder.search(request.location.data["ip"]).first.coordinates
+      @rooms = Room.near(@search_location, 1000)
+    elsif
+      Geocoder.search(current_user[:address]).empty? != true
+      @search_location = Geocoder.search(current_user[:address]).first.coordinates
+      @rooms = Room.near(@search_location, 1000)
     else
-      @rooms = Room.geocoded
+      @search_location = Geocoder.search("London").first.coordinates
+      @rooms = Room.near(@search_location, 1000)
+      # @rooms = Room.geocoded
 
       @rooms = @rooms.where("adult_space >= ?
                              AND child_space >= ?
@@ -73,7 +84,18 @@ class RoomsController < ApplicationController
 
   def show
     @booking = Booking.new
-    @search_location = Geocoder.search(params[:location]).first.coordinates
+    if params[:location]
+      @search_location = Geocoder.search(params[:location]).first.coordinates
+    elsif
+      Geocoder.search(current_user[:address]).empty? != true
+      @search_location = Geocoder.search(current_user[:address]).first.coordinates
+    elsif
+      Geocoder.search(request.location.data["ip"]).first.coordinates.empty? != true
+      @search_location = Geocoder.search(request.location.data["ip"]).first.coordinates
+    else
+      @search_location = Geocoder.search("London").first.coordinates
+
+    end
   end
 
   def new

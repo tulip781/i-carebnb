@@ -12,14 +12,14 @@
   </div>
   <div class="row">
     <div class="col-12 col-lg-6">
-      <!-- <i class="fas fa-map-marker-alt mr-4 my-2 main-colour"><span class="card-detail-text">&nbsp <%#= @room.distance_from(@search_location).round(2) %> miles away </span></i> --><i class="fas fa-shower my-2 main-colour"><span class="card-detail-text">&nbsp <%= @room.facilities %> facilities</span></i>
+      <i class="fas fa-shower my-2 main-colour"><span class="card-detail-text">&nbsp <%= @room.facilities %> facilities</span></i>
       <%= link_to user_chatrooms_path(@room.user), class:'ml-3 main-colour', method: :post, target: "_blank" do %>
       <i class="fas fa-comments my-2 main-colour"><span class="card-detail-text ml-2">Chat with the host</span></i>
       <% end %>
       <!-- <%#= simple_form_for [@room.user, Chatroom.new] do |f| %>
         <%#= f.submit %>
       <%# end %> -->
-      <p class="lead my-4 pr-4" style="font-size: 1.2em;"> <%= @room.description %></p>
+      <p class="lead my-4 pr-4" style="font-size: 1.2em;"><span style="color:#3F3D56; font-weight: 500;"><%= @room.beds %> <%= @room.beds == 1 ? 'Bed' : 'Beds' %> available:</span> <%= @room.description %></p>
       <%= cl_image_tag @room.photo_url_or_default, alt: @room.address, style: 'width:100%;max-height:315px;object-fit:cover;margin-bottom:50px;border-radius:5px;' %>
     </div>
     <div class="col-12 col-lg-6">

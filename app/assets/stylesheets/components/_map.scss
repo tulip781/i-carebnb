@@ -11,7 +11,7 @@
   position: relative;
   display: -webkit-box;
   display: flex;
-  min-width: 300px;
+  min-width: 200px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   flex-direction: column;
@@ -24,10 +24,26 @@
     font-family: 'Open Sans', 'Helvetica', 'sans-serif';
     color: $accent;
     font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     // img {
     // border-radius: 5%;
     // width: 100%;
     // overflow: hidden;
     // }
+  }
+  .marker-image{
+    object-fit: cover;
+    width: 40%;
+
+  }
+  .marker-info{
+    display: flex;
+    text-align: left;
+  }
+  .info-div{
+    text-align: left;
+    padding-left: 10px;
   }
 }

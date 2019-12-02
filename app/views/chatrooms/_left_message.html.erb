@@ -1,0 +1,16 @@
+<div class="d-flex">
+  <div class="d-inline-flex pb-1 chatbox">
+    <div class="chat-bubble">
+      <p class="chat-details"><%= chat.user.email %></p>
+      <p style="font-size: 1.1em;" class="m-0 chat-message"><%= chat.message %></p>
+    </div>
+  </div>
+</div>
+<div class="d-flex">
+  <p class="chat-time mr-2 mt-4"><%= time_ago_in_words(chat.created_at) %></p>
+  <% if chat.read && current_user.id == chat.user.id %>
+    <p class="read-status alata mt-1"><%= "Read" %></p>
+  <% elsif chat.read != true && current_user.id == chat.user.id %>
+    <p class="read-status alata mt-1"><%= "Unread" %></p>
+  <% end %>
+</div>

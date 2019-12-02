@@ -89,12 +89,12 @@ class RoomsController < ApplicationController
     # @search_location = Geocoder.search(params[:location]).first.coordinates
     if params[:location]
       @search_location = Geocoder.search(params[:location]).first.coordinates
-    # elsif
-    #   Geocoder.search(current_user[:address]).empty? != true
-    #   @search_location = Geocoder.search(current_user[:address]).first.coordinates
     elsif
       Geocoder.search(request.location.data["ip"]).first.coordinates.empty? != true
       @search_location = Geocoder.search(request.location.data["ip"]).first.coordinates
+    # elsif
+    #   Geocoder.search(current_user[:address]).empty? != true
+    #   @search_location = Geocoder.search(current_user[:address]).first.coordinates
     else
       @search_location = Geocoder.search("London").first.coordinates
 

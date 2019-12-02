@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>icareBNB</title>
+    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= favicon_link_tag asset_path('favicon.ico') %>
-    <%= stylesheet_pack_tag 'application', media: 'all' %>
-    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
     <script>
       var pusher = new Pusher('<%= ENV['PUSHER_KEY'] %>', {
         cluster: 'eu',
         encrypted: true
       });
     </script>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
     <div id="page-container">

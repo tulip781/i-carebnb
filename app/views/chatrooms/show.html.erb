@@ -3,6 +3,13 @@
  <% else %>
 <% @interlocutor = @chatroom.recipient %>
 <% end %>
+<% @counter = 0  %>
+<% @chatroom.sender.chats.each do |chat| %>
+<% if chat.read == false %>
+<% @counter += 1 %>
+<% end %>
+<% end %>
+  <%#= @all_messages.count %>
 
 <div class="container-fluid">
   <div class="row">
@@ -36,40 +43,15 @@
             <%= f.submit 'Send', class: 'send_btn mb-4' %>
           <% end %>
         </div>
-        <div class="container">
+        <div class="container" id="special-message-container">
           <!-- FIGURE OUT HOW TO SORT CHATS SO MOST RECENT ARE FIRST -->
           <% @chatroom.chats.reverse.each do |chat| %>
-            <div class="<%= 'd-flex justify-content-end' if chat.user == current_user %>">
-              <div class="d-inline-flex pb-1 chatbox">
-                <div class="chat-bubble <%= 'chat-bubble-right' if chat.user == current_user %>">
-                  <p class="chat-details"><%= chat.user.email %></p>
-                  <p style="font-size: 1.1em;" class="m-0 chat-message <%= 'color-blue' if chat.user == current_user %>"><%= chat.message %></p>
-                </div>
-              </div>
-            </div>
-              <div class="<%= 'd-flex justify-content-end' if chat.user == current_user %>">
-              <% difference = (Time.now - chat.created_at)/60 %>
-              <% rounded_difference_seconds = (Time.now - chat.created_at).round %>
-              <% rounded_difference = difference.round %>
-              <% if rounded_difference_seconds == 1 %>
-              <p class="chat-time mr-2 mt-2"><%= rounded_difference_seconds %> second ago</p>
-              <% elsif rounded_difference_seconds < 60 %>
-              <p class="chat-time mr-2 mt-2"><%= rounded_difference_seconds %> seconds ago</p>
-              <% elsif rounded_difference == 1 %>
-              <p class="chat-time mr-2 mt-2"><%= rounded_difference %> minute ago</p>
-              <% elsif rounded_difference < 60 %>
-              <p class="chat-time mr-2 mt-2"><%= rounded_difference %> minutes ago</p>
-              <% else %>
-              <p class="chat-time mr-2 mt-4" style="font-size: 0.8em;"><%= chat.created_at.strftime('%d %b %Y %l:%M %p') %></p>
 
-              <% end %>
-
-              <% if chat.read && current_user.id == chat.user.id %>
-                <p class="read-status alata mt-1"><%= "Read" %></p>
-              <% elsif chat.read != true && current_user.id == chat.user.id %>
-                <p class="read-status alata mt-1"><%= "Unread" %></p>
-              <% end %>
-              </div>
+            <% if chat.user == current_user %>
+              <%= render "chatrooms/right_message", chat: chat %>
+            <% else %>
+              <%= render "chatrooms/left_message", chat: chat %>
+            <% end %>
 
           <% end %>
         </div>
@@ -82,25 +64,43 @@
     var channel = pusher.subscribe('chat-channel');
     channel.bind('message-created', (data) => {
       let message = data.message;
-      let color = '';
-      let flexEnd = '';
-      let bubbleRight = '';
+
       if (data.current_user === data.sender_id ) {
-        color = 'color-blue';
-        flexEnd = 'd-flex justify-content-end';
-        bubbleRight = 'chat-bubble-right';
-      }
-      document.getElementById('message-container').insertAdjacentHTML('beforeend', `
-        <div class="${flexEnd}">
-          <div class="d-inline-flex p-2 chatbox">
-            <div class="chat-bubble ${bubbleRight}">
-              <p class="chat-details">${data.timestamp}</p>
-              <p class="chat-details">${data.user_email}</p>
-              <p class="m-0 chat-message ${color}">${message}</p>
+        document.getElementById('special-message-container').insertAdjacentHTML('beforebegin', `
+          <div class="">
+            <div class="d-inline-flex pb-1 chatbox">
+              <div class="chat-bubble">
+                <p class="chat-details">${ data.user_email }</p>
+                <p style="font-size: 1.1em;" class="m-0 chat-message">${message}</p>
+              </div>
             </div>
           </div>
-        </div>
-      `);
+          <div class="">
+
+            <p class="chat-time mr-2 mt-4">${data.timestamp}</p>
+
+          </div>
+        `);
+
+      } else {
+        document.getElementById('special-message-container').insertAdjacentHTML('afterbegin', `
+          <div class="d-flex justify-content-end">
+            <div class="d-inline-flex pb-1 chatbox">
+              <div class="chat-bubble chat-bubble-right">
+                <p class="chat-details">${ data.user_email }</p>
+                <p style="font-size: 1.1em;" class="m-0 chat-message color-blue">${message}</p>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+
+            <p class="chat-time mr-2 mt-4">${data.timestamp}</p>
+
+          </div>
+
+        `);
+
+      }
       document.getElementById('chat_message').value = "";
       document.getElementById('submit_message').disabled = false;
     });

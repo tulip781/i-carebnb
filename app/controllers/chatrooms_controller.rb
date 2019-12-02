@@ -18,6 +18,7 @@ class ChatroomsController < ApplicationController
   end
 
   def show
+    # raise
     @chatroom = Chatroom.find(params[:id])
     @chatrooms = current_user.chatrooms
     @chat = Chat.new
@@ -27,6 +28,7 @@ class ChatroomsController < ApplicationController
     # raise
     @chatroom.chats.where.not(user: current_user).each do |chat|
       chat.update(read: true)
+
     end
   end
 end

@@ -20,12 +20,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # raise
     @booking = Booking.new(booking_params)
-
     @dates = params['range_dates'].split(' to ')
     @dates.map! { |d| Date.parse(d) }
-    # raise
     @booking.start_date = @dates[0]
     @booking.end_date = @dates[1]
 
@@ -43,7 +40,6 @@ class BookingsController < ApplicationController
     @dates_array.each do |date|
       @unavailability = Unavailability.create(room: @booking.room, date: date)
     end
-
   end
 
   def edit

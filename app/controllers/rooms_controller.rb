@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:edit, :show, :update, :destroy]
 
   def index
+
     default_radius = 30
 
     # @search_location = [51.5156177, -0.0919983]
@@ -55,10 +56,10 @@ class RoomsController < ApplicationController
       Geocoder.search(request.location.data["ip"]).first.coordinates.empty? != true
       @search_location = Geocoder.search(request.location.data["ip"]).first.coordinates
       @rooms = Room.near(@search_location, 1000)
-    elsif
-      Geocoder.search(current_user[:address]).empty? != true
-      @search_location = Geocoder.search(current_user[:address]).first.coordinates
-      @rooms = Room.near(@search_location, 1000)
+    # elsif
+    #   Geocoder.search(current_user[:address]).empty? != true
+    #   @search_location = Geocoder.search(current_user[:address]).first.coordinates
+    #   @rooms = Room.near(@search_location, 1000)
     else
       @search_location = Geocoder.search("London").first.coordinates
       @rooms = Room.near(@search_location, 1000)
@@ -86,9 +87,9 @@ class RoomsController < ApplicationController
     @booking = Booking.new
     if params[:location]
       @search_location = Geocoder.search(params[:location]).first.coordinates
-    elsif
-      Geocoder.search(current_user[:address]).empty? != true
-      @search_location = Geocoder.search(current_user[:address]).first.coordinates
+    # elsif
+    #   Geocoder.search(current_user[:address]).empty? != true
+    #   @search_location = Geocoder.search(current_user[:address]).first.coordinates
     elsif
       Geocoder.search(request.location.data["ip"]).first.coordinates.empty? != true
       @search_location = Geocoder.search(request.location.data["ip"]).first.coordinates

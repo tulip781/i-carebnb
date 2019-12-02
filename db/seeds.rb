@@ -326,7 +326,7 @@ booking2.save!
 booking3 = Booking.new
 booking3.room = room2
 booking3.user = test_user2
-booking3.confirmed = true
+booking3.confirmed = false
 booking3.guest = tash
 booking3.save!
 booking4 = Booking.new

@@ -17,8 +17,10 @@
       <div class="container-fluid">
         <div>
           <h4 class="mb-4 mt-5 text-center">
-            <% if @interlocutor.avatar_url %>
-              <%= image_tag @interlocutor.avatar_url, class: "chat-img mr-2" %>
+            <% if @interlocutor.avatar_url_or_default %>
+
+              <%= cl_image_tag("juno-jo-nwdPxI1h4NQ-unsplash_rwvs9h", crop: :fill, class: "chat-img mr-2" )%>
+              <%= image_tag @interlocutor.avatar_url_or_default, class: "chat-img mr-2" %>
             <% end %>
             <%= "iCareChat with #{@interlocutor.first_name} #{@interlocutor.surname}" %>
           </h4>

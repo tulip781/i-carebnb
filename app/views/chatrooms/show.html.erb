@@ -8,7 +8,12 @@
   <div class="row">
     <div class="col-12 col-sm-3 col-md-2" id="sidebar-background" style="background-image: url(<%= asset_path "messages.png" %>);">
       <% @chatrooms.each do |chatroom| %>
-        <%= link_to chatroom_path(chatroom) do %>
+        <%= link_to chatroom_path(chatroom), class: "chat-button-container" do %>
+          <% if current_user == chatroom.sender %>
+          <%= cl_image_tag(chatroom.recipient.avatar_url_or_default, crop: :fill, class: "chat-img mr-1" )%>
+          <%else %>
+          <%= cl_image_tag(chatroom.sender.avatar_url_or_default, crop: :fill, class: "chat-img mr-1" )%>
+          <% end %>
           <p class="chat-list my-3 alata text-center"><%= "Chat with #{current_user == chatroom.sender ? chatroom.recipient.first_name.capitalize  : chatroom.sender.first_name.capitalize}" %></p>
         <% end %>
       <% end %>
@@ -17,8 +22,10 @@
       <div class="container-fluid">
         <div>
           <h4 class="mb-4 mt-5 text-center">
-            <% if @interlocutor.avatar_url %>
-              <%= image_tag @interlocutor.avatar_url, class: "chat-img mr-2" %>
+            <% if @interlocutor.avatar_url_or_default %>
+
+              <%= cl_image_tag(@interlocutor.avatar_url_or_default, crop: :fill, class: "chat-img mr-2" )%>
+
             <% end %>
             <%= "iCareChat with #{@interlocutor.first_name} #{@interlocutor.surname}" %>
           </h4>

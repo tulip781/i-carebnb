@@ -165,3 +165,18 @@ margin-left: 7px;
   background-position: bottom;
   background-color: $second !important;
 }
+
+.chat-button-container {
+  display: flex;
+  align-items: center;
+ img {
+  width:35px;
+  height:35px;
+  object-fit: cover;
+ }
+ p {
+  margin-left: 5px;
+  width: 100%;
+ }
+
+}

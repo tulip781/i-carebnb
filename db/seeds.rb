@@ -57,13 +57,13 @@ real_location = ["42 Ravenslea Rd, Balham, London, SW12 8RX",
 "10 Downing Street, London, SW1A 2AA",
 "41 Crown St, Reading, RG1 2SN",
 "149 Cardigan Rd, Leeds, LS6 1LJ",
-"Victoria St Bristol BS1 6AH",
-"50 Stoke Rd Plymouth PL1 5JG",
-"55 Kinson Rd Bournemouth BH10 4AH",
-"419 Claremont Rd Manchester M14 5XF",
-"Broad Ln Sheffield S3 7HQ",
-"Milestone Ln Birmingham B21 0LA",
-"7 Madingley Rd Cambridge CB3 0EE"
+"Victoria St, Bristol, BS1 6AH",
+"50 Stoke Rd, Plymouth, PL1 5JG",
+"55 Kinson Rd, Bournemouth, BH10 4AH",
+"419 Claremont Rd, Manchester, M14 5XF",
+"Broad Ln, Sheffield, S3 7HQ",
+"Milestone Ln, Birmingham, B21 0LA",
+"7 Madingley Rd, Cambridge, CB3 0EE"
 ]
 
 descriptions = ["Double room in period flat.
@@ -122,6 +122,7 @@ cloudinary = ['dan-ROJFuWCsfmA-unsplash_hnfv7s',
 
 puts "👫 creating users 👫"
 
+bot_user_array = []
 6.times do
   user = User.create(
     email: Faker::Internet.free_email,
@@ -137,6 +138,8 @@ puts "👫 creating users 👫"
     avatar_url: cloudinary.pop
     )
 end
+
+User.all.each {|user| bot_user_array << user }
 
 puts "👵 Creating host user 'Paula' with email: 'host@icarebnb.com' and password: '123456' 👵"
 
@@ -249,6 +252,9 @@ puts "👩‍🦰 Assiging Room to the Host, Paula 👩‍🦰"
 
 room = Room.all.sample
 room.user = test_user1
+room.adult_space = 1
+room.child_space = 0
+room.infant_space = 0
 room.save!
 room2 = Room.all.sample
 room2.user = test_user1
@@ -279,11 +285,11 @@ puts "📆 Creating Bookings 📆"
     confirmed: [true, false].sample,
     host_control: [true, false].sample,
     number_of_adults: rand(1..3),
-    number_of_children: rand(0..2),
-    number_of_infants: rand(0..2),
+    number_of_children: [0,0,1].sample,
+    number_of_infants: [0,0,1].sample,
     start_date: Faker::Date.forward(days: 2),
     end_date: Faker::Date.forward(days: 6))
-  booking.user = User.all.sample
+  booking.user = bot_user_array.sample
   booking.room = Room.all.sample
   booking.guest = Guest.all.sample
   booking.save!

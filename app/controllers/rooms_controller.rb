@@ -73,6 +73,7 @@ class RoomsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @search_location = Geocoder.search(params[:location]).first.coordinates
   end
 
   def new

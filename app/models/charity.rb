@@ -9,6 +9,7 @@ class Charity < ApplicationRecord
     Guest.create(
       first_name: "Details to be provided later",
       child_space: 0,
-      adult_space: 1, charity: self)
+      adult_space: 1,
+      charity: self)
   end
 end

@@ -1,4 +1,5 @@
 <!-- Room show page -->
+<%# raise %>
 
 <div class="container">
   <div class="row">
@@ -11,7 +12,7 @@
   </div>
   <div class="row">
     <div class="col-12 col-lg-6">
-      <i class="fas fa-map-marker-alt mr-4 my-2 main-colour"><span class="card-detail-text">&nbsp 0.8 miles away</span></i><i class="fas fa-shower my-2 main-colour"><span class="card-detail-text">&nbsp <%= @room.facilities %> facilities</span></i>
+      <i class="fas fa-map-marker-alt mr-4 my-2 main-colour"><span class="card-detail-text">&nbsp <%= @room.distance_from(@search_location).round(2) %> miles away </span></i><i class="fas fa-shower my-2 main-colour"><span class="card-detail-text">&nbsp <%= @room.facilities %> facilities</span></i>
 
       <%= link_to user_chatrooms_path(@room.user), class:'ml-3 main-colour', method: :post, target: "_blank" do %>
       <i class="fas fa-comments my-2 main-colour"><span class="card-detail-text ml-2">Chat with the host</span></i>
@@ -28,3 +29,6 @@
     </div>
   </div>
 </div>
+
+
+<!-- range_dates=2019-12-01+to+2019-12-02 -->

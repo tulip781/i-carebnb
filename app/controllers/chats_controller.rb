@@ -28,10 +28,12 @@ class ChatsController < ApplicationController
         timestamp: @chat.created_at.strftime('%I:%M %p'),
         user_email: @chat.user.email
       })
+    # question for TA – do we need line 29??
       # this is the data that is referred to in the view, which is being bound up for the channel
       # mail = UserMailer.with(user: @interlocutor, chat: @chat).chat_replicator
       # mail.deliver_now
       # @chat_creator = current_user
+
       redirect_to chatroom_path(@chat.chatroom)
     else
       render 'chatrooms/show'

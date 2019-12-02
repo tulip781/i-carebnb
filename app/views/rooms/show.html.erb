@@ -5,30 +5,29 @@
   <div class="row">
     <div class="col-12">
       <div class="mt-5">
-        <h1><%= @room.beds %> <%= @room.beds == 1 ? 'Bed' : 'Beds' %> - <%= @room.address  %></h1>
+        <h1 class="text-center" style="font-size: 2.5em;"><%= @room.beds %> <%= @room.beds == 1 ? 'Bed' : 'Beds' %> - <%= @room.address  %></h1>
         <hr class="my-4">
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-12 col-lg-6">
-      <i class="fas fa-map-marker-alt mr-4 my-2 main-colour"><span class="card-detail-text">&nbsp <%= @room.distance_from(@search_location).round(2) %> miles away </span></i><i class="fas fa-shower my-2 main-colour"><span class="card-detail-text">&nbsp <%= @room.facilities %> facilities</span></i>
-
+      <!-- <i class="fas fa-map-marker-alt mr-4 my-2 main-colour"><span class="card-detail-text">&nbsp <%#= @room.distance_from(@search_location).round(2) %> miles away </span></i> --><i class="fas fa-shower my-2 main-colour"><span class="card-detail-text">&nbsp <%= @room.facilities %> facilities</span></i>
       <%= link_to user_chatrooms_path(@room.user), class:'ml-3 main-colour', method: :post, target: "_blank" do %>
       <i class="fas fa-comments my-2 main-colour"><span class="card-detail-text ml-2">Chat with the host</span></i>
       <% end %>
       <!-- <%#= simple_form_for [@room.user, Chatroom.new] do |f| %>
         <%#= f.submit %>
       <%# end %> -->
-      <p class="lead my-4"> <%= @room.description %></p>
-      <%= cl_image_tag @room.photo_url_or_default, alt: @room.address, style: 'width:100%;max-height:315px;object-fit:cover;margin-bottom:50px;border-radius:15px;' %>
+      <p class="lead my-4 pr-4"> <%= @room.description %></p>
+      <%= cl_image_tag @room.photo_url_or_default, alt: @room.address, style: 'width:100%;max-height:315px;object-fit:cover;margin-bottom:50px;border-radius:5px;' %>
     </div>
-
-    <div class="col-12 col-lg-5 offset-lg-1">
-      <%= render "bookings/new", booking: @booking, room: @room %>
+    <div class="col-12 col-lg-6">
+      <div class="mt-3 mb-5 pt-5 pl-5 pr-5 pb-0 box-design box-design-grey">
+        <%= render "bookings/new", booking: @booking, room: @room %>
+      </div>
     </div>
   </div>
 </div>
-
 
 <!-- range_dates=2019-12-01+to+2019-12-02 -->

@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-12">
       <div class="mt-5">
-        <h1 class="text-center" style="font-size: 2.5em;"><%= @room.beds %> <%= @room.beds == 1 ? 'Bed' : 'Beds' %> - <%= @room.address  %></h1>
+        <h1 class="text-center" style="font-size: 2.6em;"><%#= @room.beds %> <%#= @room.beds == 1 ? 'Bed' : 'Beds' %> <!-- - --><%= @room.address  %></h1>
         <hr class="my-4">
       </div>
     </div>
@@ -19,7 +19,7 @@
       <!-- <%#= simple_form_for [@room.user, Chatroom.new] do |f| %>
         <%#= f.submit %>
       <%# end %> -->
-      <p class="lead my-4 pr-4"> <%= @room.description %></p>
+      <p class="lead my-4 pr-4" style="font-size: 1.2em;"> <%= @room.description %></p>
       <%= cl_image_tag @room.photo_url_or_default, alt: @room.address, style: 'width:100%;max-height:315px;object-fit:cover;margin-bottom:50px;border-radius:5px;' %>
     </div>
     <div class="col-12 col-lg-6">

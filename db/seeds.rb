@@ -8,9 +8,13 @@ CharitySupport.destroy_all
 Guest.destroy_all
 Safeguarding.destroy_all
 puts "💥Destroying Old Database💥"
+sleep(0.5)
 puts "🚀"
+sleep(0.4)
 puts "🚀🚀"
+sleep(0.3)
 puts "🚀🚀🚀"
+sleep(0.2)
 
 flats_images = ["https://a0.muscache.com/im/pictures/24bace61-7ed2-4dec-8574-978f6e581e81.jpg?aki_policy=x_large",
 "https://a0.muscache.com/im/pictures/dac4c061-2de8-48f6-98db-e5d6959828ed.jpg?aki_policy=xx_large",
@@ -51,9 +55,9 @@ real_location = ["42 Ravenslea Rd, Balham, London, SW12 8RX",
 "119 Rushmore Rd, Lower Clapton, London, E5 0HA",
 "46 Rushford Rd, London, SE4 1SG",
 "19 Grove Park Gardens, London, W4 3RY",
-"15 High Street Chalvey, Slough, SL1 2RU",
+"15 High Street, Chalvey, Slough, SL1 2RU",
 "101 Gordon St Northampton, NN2 6BW",
-"20 Cumin Pl Edinburgh EH9 2JX",
+"20 Cumin Pl, Edinburgh EH9 2JX",
 "10 Downing Street, London, SW1A 2AA",
 "41 Crown St, Reading, RG1 2SN",
 "149 Cardigan Rd, Leeds, LS6 1LJ",
@@ -120,19 +124,28 @@ cloudinary = ['dan-ROJFuWCsfmA-unsplash_hnfv7s',
 
 
 
-puts "👫 creating users 👫"
+puts "👫 6 creating users (Hosts and Charity Reps) 👫"
+
+sleep(0.5)
 
 bot_user_array = []
+
 6.times do
+  gender_user = ["Male", "Female"].sample
+  if gender_user == "Male"
+    new_name = Faker::Name.male_first_name
+  else
+    new_name = Faker::Name.female_first_name
+  end
   user = User.create(
-    email: Faker::Internet.free_email,
+    email: "#{new_name}@icarebnb.com",
     title: ["Mr", "Mrs", "Miss"].sample,
-    first_name: Faker::Name.first_name,
+    first_name: new_name,
     surname: Faker::Name.last_name ,
-    address: Faker::Address.street_address ,
+    address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.phone_number,
     date_of_birth: Faker::Date.backward(days: 400),
-    gender: ["Male", "Female"].sample ,
+    gender: gender_user,
     host: [true, false].sample,
     password: "123456",
     avatar_url: cloudinary.pop
@@ -141,7 +154,9 @@ end
 
 User.all.each {|user| bot_user_array << user }
 
-puts "👵 Creating host user 'Paula' with email: 'host@icarebnb.com' and password: '123456' 👵"
+sleep(0.5)
+
+puts "👩‍⚖️ Creating Host 'Paula' with email: 'host@icarebnb.com' and password: '123456' 👩‍⚖️"
 
 test_user1 = User.create(
     email: "host@icarebnb.com",
@@ -157,7 +172,9 @@ test_user1 = User.create(
     avatar_url: "juno-jo-nwdPxI1h4NQ-unsplash_rwvs9h"
 )
 
-puts "🙆‍♀️ Creating Charity Representative 'Leia' with email: 'charity@icarebnb.com' and password: '123456' 🙆‍♀️"
+puts "🙆‍♀️ Creating Charity-Rep 'Leia' with email: 'charity@icarebnb.com' and password: '123456' 🙆‍♀️"
+
+sleep(0.5)
 
 test_user2 = User.create(
     email: "charity@icarebnb.com",
@@ -173,7 +190,9 @@ test_user2 = User.create(
     avatar_url: "kal-visuals-b1Hg7QI-zcc-unsplash_oclzjn"
 )
 
-puts "🕺 Creating Test email: 'test@test.com' and password: '123456' 🕺"
+puts "📐 Creating test account with email: 'test@test.com' and password: '123456' 📐"
+
+sleep(0.5)
 
 test_user3 = User.create(
     email: "test@test.com",
@@ -189,7 +208,9 @@ test_user3 = User.create(
     avatar_url: "joseph-gonzalez-iFgRcqHznqg-unsplash_fbhxhx"
 )
 
-puts '♥️ Creating Charity with name = Shelter ♥️'
+puts '♥️🏘️♥️ Creating Charity "Shelter"  ♥️🏘️♥️'
+
+sleep(0.5)
 
 charity_one = Charity.create(
   charity_number: '202020',
@@ -198,7 +219,9 @@ charity_one = Charity.create(
   phone_number: '0300 330 1234',
   main_contact: 'Charity Main Contact')
 
-puts '♥️♥️ Creating Charity with name = Mencap ♥️♥️'
+puts '♥️🧢♥️ Creating Charity "Mencap" ♥️🧢♥️'
+
+sleep(0.5)
 
 charity_two = Charity.create(
   charity_number: '101010',
@@ -207,7 +230,9 @@ charity_two = Charity.create(
   phone_number: '0312 33231 1234',
   main_contact: 'Charity Main Contact 2')
 
-puts '♥️♥️♥️ Creating Charity with name = Toynbee Hall ♥️♥️♥️'
+puts '♥️⛪♥️ Creating Charity "Toynbee Hall" ♥️⛪♥️'
+
+sleep(0.5)
 
 charity_three = Charity.create(
   charity_number: '303030',
@@ -216,13 +241,13 @@ charity_three = Charity.create(
   phone_number: '0312 33231 1234',
   main_contact: 'Charity Main Contact 3')
 
-puts "🏠 creating rooms 🏠"
+puts "🏠 creating rooms - this can take 45 seconds ⏱"
 
 i = 0
 20.times do
   adult_space = rand(1..2)
-  child_space = rand(2)
-  infant_space = rand(2)
+  child_space = [0,0,1,2].sample
+  infant_space = [0,0,1].sample
 
   room = Room.new(
     address: real_location[i],
@@ -240,15 +265,14 @@ i = 0
   )
   file = URI.open(flats_images[i])
   room.photo.attach(io: file, filename: 'some-image.jpg', content_type: 'image/jpg')
-
- room.user = User.all.sample
- room.save!
- i += 1
+  room.user = User.all.sample
+  room.save!
+  i += 1
 end
 
 sleep(0.5)
 
-puts "👩‍🦰 Assiging Room to the Host, Paula 👩‍🦰"
+puts "🏠➡️👩‍⚖️ Assiging Room to the Host, Paula 🏠➡️👩‍⚖️"
 
 room = Room.all.sample
 room.user = test_user1
@@ -265,7 +289,7 @@ room3.save!
 
 sleep(0.5)
 
-puts '🌟Creating a Guest called Dummy Guest for Details to be provided later - assigned to Charity Mencap🌟'
+puts '👴➡️🌟Creating a Guest called with first_name "Details to be provided later" - assigned to Charity Mencap👴➡️🌟'
 
 dummy_guest = Guest.new(
   first_name: "Details to be provided later",
@@ -274,11 +298,30 @@ dummy_guest = Guest.new(
 dummy_guest.charity = charity_two
 dummy_guest.save
 
+dummy_guest2 = Guest.new(
+  first_name: "Ben Barton",
+  child_space: 0,
+  adult_space: 1)
+dummy_guest2.charity = charity_two
+dummy_guest2.save
 
+dummy_guest3 = Guest.new(
+  first_name: "Adam Jones",
+  child_space: 0,
+  adult_space: 1)
+dummy_guest3.charity = charity_two
+dummy_guest3.save
+
+dummy_guest4 = Guest.new(
+  first_name: "Sarah Williams",
+  child_space: 0,
+  adult_space: 1)
+dummy_guest4.charity = charity_two
+dummy_guest4.save
 sleep(0.5)
 
 
-puts "📆 Creating Bookings 📆"
+puts "📆 Creating 10 Random Bookings 📆"
 
 10.times do
   booking = Booking.new(
@@ -297,13 +340,13 @@ end
 
 sleep(0.5)
 
-puts '🗃 Creating Pending Booking and Confirmed Booking For Paula 🗃'
+puts '📆 Creating Pending Booking 🧡, Confirmed Booking 💚, Declined Booking 💔 For Charity Rep Lei 🙆‍♀️📆'
 
 booking1 = Booking.new
 booking1.room = room
 booking1.user = test_user2
 booking1.guest = dummy_guest
-booking1.start_date = Faker::Date.forward(days: 2)
+booking1.start_date = Faker::Date.forward(days: 3)
 booking1.end_date = Faker::Date.forward(days: 7)
 booking1.number_of_adults = rand(1..2)
 booking1.number_of_children = rand(0..2)
@@ -313,9 +356,9 @@ booking2 = Booking.new
 booking2.room = Room.all.sample
 booking2.user = test_user2
 booking2.confirmed = true
-booking2.guest = dummy_guest
+booking2.guest = dummy_guest2
 booking2.start_date = Faker::Date.forward(days: 2)
-booking2.end_date = Faker::Date.forward(days: 7)
+booking2.end_date = Faker::Date.forward(days: 17)
 booking1.number_of_children = rand(0..2)
 booking2.number_of_adults = rand(1..2)
 booking2.number_of_infants = rand(0..2)
@@ -324,7 +367,7 @@ booking3 = Booking.new
 booking3.room = room2
 booking3.user = test_user2
 booking3.confirmed = false
-booking3.guest = dummy_guest
+booking3.guest = dummy_guest3
 booking3.start_date = Faker::Date.forward(days: 4)
 booking3.end_date = Faker::Date.forward(days: 15)
 booking3.number_of_children = rand(0..2)
@@ -335,36 +378,31 @@ booking3.save!
 booking4 = Booking.new
 booking4.room = room3
 booking4.user = test_user2
-booking4.guest = dummy_guest
+booking4.guest = dummy_guest4
 booking4.start_date = Faker::Date.forward(days: 4)
-booking4.end_date = Faker::Date.forward(days: 15)
+booking4.end_date = Faker::Date.forward(days: 5)
 booking4.number_of_children = rand(0..2)
 booking4.number_of_adults = rand(1..2)
 booking4.number_of_infants = rand(0..2)
 booking4.save!
 
+sleep(0.5)
+
+
+puts '👨‍👩‍👧‍👦 Creating Resident One 👨‍👩‍👧‍👦'
 
 sleep(0.5)
 
-puts '🌱 Starting Marco Seeds 🌱'
-
-sleep(0.5)
-
-puts '👨‍👩‍👧‍👦 Creating Residents 👨‍👩‍👧‍👦'
-
-sleep(0.5)
-
-puts '👨‍👨‍👧 Creating Resident One 👨‍👨‍👧'
-
-sleep(0.5)
+room = test_user1.rooms.first
 
 test_resident = Resident.new(
   first_name: "I am a test resident First Name",
   last_name: "This is a Resident Last Name",
-  address: Faker::Address.street_address,
+  address: test_user1.address,
   date_of_birth: Faker::Date.backward(days: 400),
   gender: "Female",
   safeguarding_check?: true)
+# test_user1.rooms.each do {|r| test_resident.room = r  }
 test_resident.room = room
 test_resident.save!
 
@@ -375,14 +413,15 @@ sleep(0.5)
 test_resident2 = Resident.new(
   first_name: "I am a 2nd test resident First Name",
   last_name: "This is a 2nd Resident Last Name",
-  address: Faker::Address.street_address,
+  address: test_user1.address,
   date_of_birth: Faker::Date.backward(days: 400),
   gender: "Male",
   safeguarding_check?: true)
 test_resident2.room = room
 test_resident2.save!
 
-puts '👨‍👦 Creating Safeguarding 👨‍👦 1'
+
+puts '👨‍👦 Assiging Resident One 👦➡️👩‍⚖️ to Host "Paula" Through Safeguard 👨‍👦 1'
 
 sleep(0.5)
 
@@ -403,7 +442,7 @@ safe_guard2.user = test_user1
 safe_guard2.resident = test_resident2
 safe_guard2.save!
 
-puts ' 🌆🌆 Assinging all users to a charity (through a Charity Support) 🌆🌆'
+puts ' 🌆👨‍👦‍👦🌆 Assinging all users to a charity (through a Charity Support) 🌆👨‍👦‍👦🌆'
 
 User.all do |u|
   support = CharitySupport.new(
@@ -416,8 +455,8 @@ end
 
 sleep(0.5)
 
-puts '🍄 Assiging Host Paula to
-Charity Shelter with newsletter = true 🍄 '
+puts '👩‍⚖️➡️🏘️💌 Assiging Host Paula to
+Charity Shelter with newsletter = true 👩‍⚖️➡️🏘️💌 '
 
 sleep(0.5)
 
@@ -427,8 +466,8 @@ charity_support1.user = test_user1
 charity_support1.charity = charity_one
 charity_support1.save!
 
-puts '💫 Assiging Representative Leia to
-Charity Mencap with newsletter = true 💫 '
+puts '🙆‍♀️➡️🧢💌  Assiging Representative Leia to
+Charity Mencap with newsletter = true 🙆‍♀️➡️🧢💌  '
 
 sleep(0.5)
 
@@ -443,6 +482,7 @@ sleep(0.5)
 
 puts 'D👽NE'
 
+sleep(0.5)
 
 puts '🥇🥇🥇🥇'
 

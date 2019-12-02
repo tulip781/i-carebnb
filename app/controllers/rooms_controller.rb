@@ -5,10 +5,10 @@ class RoomsController < ApplicationController
   def index
 
     default_radius = 30
-    @search_location = [51.5156177, -0.0919983]
+    # @search_location = [51.5156177, -0.0919983]
 
     if params[:location].present? && params[:radius].present? && params['range_dates'].present?
-      # @search_location = Geocoder.search(params[:location]).first.coordinates
+      @search_location = Geocoder.search(params[:location]).first.coordinates
 
       @dates = params['range_dates'].split(' to ')
       dates = ((Date.parse(@dates[0]))..(Date.parse(@dates[1]))).to_a

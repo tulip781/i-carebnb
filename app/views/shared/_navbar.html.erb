@@ -41,6 +41,10 @@
         <% if current_user.present? && current_user.chatrooms.any? %>
           <li class="nav-item">
             <%= link_to "Inbox",chatroom_path(current_user.chatrooms.first), class: "nav-link"  %>
+            <% @chatroom = Chatroom.find_by(recipient: current_user, sender: @user) || Chatroom.find_by(recipient: @user, sender: current_user) %>
+            <%#= "You have #{Chat.all.where(user_id: current_user, read: false).count} new messages!" %>
+            <%= "You have #{@counter} new messages!" %>
+
           </li>
         <% end %>
 

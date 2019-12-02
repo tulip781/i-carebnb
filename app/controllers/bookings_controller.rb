@@ -20,15 +20,30 @@ class BookingsController < ApplicationController
   end
 
   def create
+    # raise
     @booking = Booking.new(booking_params)
+
+    @dates = params['range_dates'].split(' to ')
+    @dates.map! { |d| Date.parse(d) }
+    # raise
+    @booking.start_date = @dates[0]
+    @booking.end_date = @dates[1]
+
     @booking.user = current_user
     @booking.guest = Guest.all.sample
     @booking.room = Room.find(params[:room_id])
-    if @booking.save
+    @dates_array = (@dates[0]..@dates[1]).to_a
+    if @booking.room.available_on?(@dates_array)
+      @booking.save
       redirect_to dashboard_path
     else
-      render :new
+      render(html: "<script>alert('Room is not available on those dates')</script>".html_safe)
+
     end
+    @dates_array.each do |date|
+      @unavailability = Unavailability.create(room: @booking.room, date: date)
+    end
+
   end
 
   def edit
@@ -66,7 +81,7 @@ class BookingsController < ApplicationController
 private
 
   def booking_params
-    params.require(:booking).permit(:number_of_adults, :number_of_children, :number_of_infants, :start_date, :end_date, :guest_id)
+    params.require(:booking).permit(:number_of_adults, :number_of_children, :number_of_infants, :guest_id)
   end
 
   def set_booking

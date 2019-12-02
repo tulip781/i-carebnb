@@ -5,10 +5,11 @@ class RoomsController < ApplicationController
   def index
     default_radius = 30
     @search_location = [51.5156177, -0.0919983]
-    if params[:location].present? && params[:radius].present? && params['range-dates'].present?
-      @search_location = Geocoder.search(params[:location]).first.coordinates
 
-      @dates = params['range-dates'].split(' to ')
+    if params[:location].present? && params[:radius].present? && params['range_dates'].present?
+      # @search_location = Geocoder.search(params[:location]).first.coordinates
+
+      @dates = params['range_dates'].split(' to ')
       dates = ((Date.parse(@dates[0]))..(Date.parse(@dates[1]))).to_a
       @rooms = Room.near(params[:location], params[:radius])
       @rooms = @rooms.where("adult_space >= ?
@@ -28,7 +29,7 @@ class RoomsController < ApplicationController
       # end
 
     elsif params[:location].present? && params[:radius].present?
-      @search_location = Geocoder.search(params[:location]).first.coordinates
+      # @search_location = Geocoder.search(params[:location]).first.coordinates
 
       @rooms = Room.near(params[:location], params[:radius])
       @rooms = @rooms.where("adult_space >= ?
@@ -40,7 +41,7 @@ class RoomsController < ApplicationController
         # params[:minimum_stay].to_i <= room.max_stay_length
 
     elsif params[:location].present?
-      @search_location = Geocoder.search(params[:location]).first.coordinates
+      # @search_location = Geocoder.search(params[:location]).first.coordinates
 
       @rooms = Room.near(params[:location], default_radius)
 
@@ -73,7 +74,9 @@ class RoomsController < ApplicationController
 
   def show
     @booking = Booking.new
-    @search_location = Geocoder.search(params[:location]).first.coordinates
+    # raise
+    @unav = Room.find(params[:id].to_i).unavailabilities.pluck(:date).map{|d|d.strftime("%Y-%m-%d")}
+    # @search_location = Geocoder.search(params[:location]).first.coordinates
   end
 
   def new

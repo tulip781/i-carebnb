@@ -19,8 +19,11 @@
     <%= f.input :number_of_children, input_html: { min: '0', value: params[:children].to_i } %>
     <%= f.input :number_of_infants, input_html: { min: '0', value: params[:infants].to_i  } %>
     <%= f.input :guest_id, collection: Guest.where(charity_id: current_user.charities.ids)%>
-    <%= f.input :start_date, as: :string, class: 'form-control datepicker room-show-picker', input_html: {type: :date, value: range_dates_start } %>
-    <%= f.input :end_date, as: :string, class: 'form-control datepicker room-show-picker', input_html: {type: :date, value: range_dates_end } %>
+    <%#= f.input :start_date, as: :string, class: 'form-control datepicker room-show-picker', input_html: {type: :date, value: range_dates_start } %>
+    <input type="date" class="form-control-sm w-100 small-radius" placeholder="From and to" id='test-picker' name='range_dates'>
+    <%#= f.input :end_date, as: :string, class: 'form-control datepicker room-show-picker', input_html: {type: :date, value: range_dates_end } %>
+    <%= content_tag :div, class: "past_unavailability", data: {past: @unav} do %>
+    <% end %>
   </div>
   <%# raise %>
 
@@ -29,6 +32,10 @@
   </div>
 <% end %>
 <% end %>
+
+
+
+
 
 
 <!-- .present? ? params[:adults].to_i : 1 -->

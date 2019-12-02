@@ -1,6 +1,10 @@
 <%= link_to room_path(room) do %>
-  <%#= image_tag room.image_url, :class => "lil-image" %>
-  <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= room.beds%> <%= room.beds == 1 ? 'Bed' : 'Beds' %></span></i>
-  <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= room.address%></span></i>
+  <div class="marker-info">
+    <%= cl_image_tag room.photo_url_or_default, :class => "marker-image" %>
+    <div class="info-div">
+      <i class="fas fa-bed mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= room.beds%> <%= room.beds == 1 ? 'Bed' : 'Beds' %></span></i>
+      <i class="fas fa-map-marker-alt mr-2 my-2 main-colour"><span class="card-detail-text">&nbsp <%= room.address%></span></i>
+    </div>
+  </div>
 <% end %>
 

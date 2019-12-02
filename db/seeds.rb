@@ -57,13 +57,13 @@ real_location = ["42 Ravenslea Rd, Balham, London, SW12 8RX",
 "10 Downing Street, London, SW1A 2AA",
 "41 Crown St, Reading, RG1 2SN",
 "149 Cardigan Rd, Leeds, LS6 1LJ",
-"Victoria St Bristol BS1 6AH",
-"50 Stoke Rd Plymouth PL1 5JG",
-"55 Kinson Rd Bournemouth BH10 4AH",
-"419 Claremont Rd Manchester M14 5XF",
-"Broad Ln Sheffield S3 7HQ",
-"Milestone Ln Birmingham B21 0LA",
-"7 Madingley Rd Cambridge CB3 0EE"
+"Victoria St, Bristol, BS1 6AH",
+"50 Stoke Rd, Plymouth, PL1 5JG",
+"55 Kinson Rd, Bournemouth, BH10 4AH",
+"419 Claremont Rd, Manchester, M14 5XF",
+"Broad Ln, Sheffield, S3 7HQ",
+"Milestone Ln, Birmingham, B21 0LA",
+"7 Madingley Rd, Cambridge, CB3 0EE"
 ]
 
 descriptions = ["Double room in period flat.
@@ -111,9 +111,19 @@ woods and charming sea-themed decor. With an open-plan living space, sea views, 
 rooms, it provides a comfortable and peaceful ambiance."
 ]
 
+cloudinary = ['dan-ROJFuWCsfmA-unsplash_hnfv7s',
+'cesar-abner-martinez-aguilar-MXnBNbOe64A-unsplash_xgry9z',
+'hunter-johnson-OK7VpKfbb_c-unsplash_xptynt',
+'sergio-de-paula-c_GmwfHBDzk-unsplash_hfjjrz',
+'luis-quintero-zAv3h6EF5HE-unsplash_ro8ukw',
+'norman-toth-lCVP-lu0kxk-unsplash_zcefrz']
+
+
+
 puts "👫 creating users 👫"
 
-10.times do
+bot_user_array = []
+6.times do
   user = User.create(
     email: Faker::Internet.free_email,
     title: ["Mr", "Mrs", "Miss"].sample,
@@ -124,24 +134,27 @@ puts "👫 creating users 👫"
     date_of_birth: Faker::Date.backward(days: 400),
     gender: ["Male", "Female"].sample ,
     host: [true, false].sample,
-    password: "123456"
+    password: "123456",
+    avatar_url: cloudinary.pop
     )
 end
+
+User.all.each {|user| bot_user_array << user }
 
 puts "👵 Creating host user 'Paula' with email: 'host@icarebnb.com' and password: '123456' 👵"
 
 test_user1 = User.create(
     email: "host@icarebnb.com",
     title: ["Mr", "Mrs", "Miss"].sample,
-    first_name: "Paula",
-    surname: "Smith" ,
+    first_name: "Olivia",
+    surname: "Davis" ,
     address: "159 St. John Street, London, EC1V 4QJ",
-    phone_number: Faker::PhoneNumber.phone_number,
+    phone_number: '02077938301',
     date_of_birth: Faker::Date.backward(days: 400),
     gender: "Female",
     host: true,
     password: "123456",
-    avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhiz0_0XhnXFWXEp_8OpHjoO4HfEh4B8B-hkodfu7Z2G_7u1Sr&s"
+    avatar_url: "juno-jo-nwdPxI1h4NQ-unsplash_rwvs9h"
 )
 
 puts "🙆‍♀️ Creating Charity Representative 'Leia' with email: 'charity@icarebnb.com' and password: '123456' 🙆‍♀️"
@@ -150,30 +163,30 @@ test_user2 = User.create(
     email: "charity@icarebnb.com",
     title: "Miss",
     first_name: "Leia",
-    surname: "Mantell" ,
+    surname: "Williams" ,
     address: Faker::Address.street_address ,
     phone_number: Faker::PhoneNumber.phone_number,
     date_of_birth: Faker::Date.backward(days: 400),
     gender: "Female" ,
     host: false,
     password: "123456",
-    avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkovcVYkJI4zr3FkFjbROa8S7gkZ42FWLEaDxfIHPKBj8Xg_kg&s"
+    avatar_url: "kal-visuals-b1Hg7QI-zcc-unsplash_oclzjn"
 )
 
 puts "🕺 Creating Test email: 'test@test.com' and password: '123456' 🕺"
 
 test_user3 = User.create(
     email: "test@test.com",
-    title: "Miss",
-    first_name: "Leia",
-    surname: "Allen" ,
+    title: "Mr",
+    first_name: "Joseph",
+    surname: "Wilson" ,
     address: Faker::Address.street_address ,
     phone_number: Faker::PhoneNumber.phone_number,
     date_of_birth: Faker::Date.backward(days: 400),
-    gender: "Female" ,
+    gender: "Male" ,
     host: false,
     password: "123456",
-    avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkovcVYkJI4zr3FkFjbROa8S7gkZ42FWLEaDxfIHPKBj8Xg_kg&s"
+    avatar_url: "joseph-gonzalez-iFgRcqHznqg-unsplash_fbhxhx"
 )
 
 puts '♥️ Creating Charity with name = Shelter ♥️'
@@ -239,6 +252,9 @@ puts "👩‍🦰 Assiging Room to the Host, Paula 👩‍🦰"
 
 room = Room.all.sample
 room.user = test_user1
+room.adult_space = 1
+room.child_space = 0
+room.infant_space = 0
 room.save!
 room2 = Room.all.sample
 room2.user = test_user1
@@ -259,35 +275,6 @@ dummy_guest.charity = charity_two
 dummy_guest.save
 
 
-harry = Guest.new(
-  first_name: "Harry",
-  child_space: 2,
-  adult_space: 1)
-harry.charity = charity_two
-harry.save!
-
-sleep(0.5)
-
-puts '🌟Creating a Guest called Tarry - assigned to Charity Mencap🌟'
-
-tarry = Guest.new(
-  first_name: "Tarry",
-  child_space: 2,
-  adult_space: 1)
-tarry.charity = charity_two
-tarry.save!
-
-sleep(0.5)
-
-puts '🌟🌟Creating a Guest called Tash - assigned to Charity Shelter🌟🌟'
-
-tash = Guest.new(
-  first_name: "Tash",
-  child_space: 2,
-  adult_space: 1)
-tash.charity = charity_one
-tash.save!
-
 sleep(0.5)
 
 
@@ -298,11 +285,11 @@ puts "📆 Creating Bookings 📆"
     confirmed: [true, false].sample,
     host_control: [true, false].sample,
     number_of_adults: rand(1..3),
-    number_of_children: rand(0..2),
-    number_of_infants: rand(0..2),
+    number_of_children: [0,0,1].sample,
+    number_of_infants: [0,0,1].sample,
     start_date: Faker::Date.forward(days: 2),
     end_date: Faker::Date.forward(days: 6))
-  booking.user = User.all.sample
+  booking.user = bot_user_array.sample
   booking.room = Room.all.sample
   booking.guest = Guest.all.sample
   booking.save!
@@ -315,24 +302,45 @@ puts '🗃 Creating Pending Booking and Confirmed Booking For Paula 🗃'
 booking1 = Booking.new
 booking1.room = room
 booking1.user = test_user2
-booking1.guest = harry
+booking1.guest = dummy_guest
+booking1.start_date = Faker::Date.forward(days: 2)
+booking1.end_date = Faker::Date.forward(days: 7)
+booking1.number_of_adults = rand(1..2)
+booking1.number_of_children = rand(0..2)
+booking1.declined = true
 booking1.save!
 booking2 = Booking.new
 booking2.room = Room.all.sample
 booking2.user = test_user2
 booking2.confirmed = true
-booking2.guest = tarry
+booking2.guest = dummy_guest
+booking2.start_date = Faker::Date.forward(days: 2)
+booking2.end_date = Faker::Date.forward(days: 7)
+booking1.number_of_children = rand(0..2)
+booking2.number_of_adults = rand(1..2)
+booking2.number_of_infants = rand(0..2)
 booking2.save!
 booking3 = Booking.new
 booking3.room = room2
 booking3.user = test_user2
-booking3.confirmed = true
-booking3.guest = tash
+booking3.confirmed = false
+booking3.guest = dummy_guest
+booking3.start_date = Faker::Date.forward(days: 4)
+booking3.end_date = Faker::Date.forward(days: 15)
+booking3.number_of_children = rand(0..2)
+booking3.number_of_adults = rand(1..2)
+booking3.number_of_infants = rand(0..2)
+booking1.declined = true
 booking3.save!
 booking4 = Booking.new
 booking4.room = room3
 booking4.user = test_user2
-booking4.guest = tash
+booking4.guest = dummy_guest
+booking4.start_date = Faker::Date.forward(days: 4)
+booking4.end_date = Faker::Date.forward(days: 15)
+booking4.number_of_children = rand(0..2)
+booking4.number_of_adults = rand(1..2)
+booking4.number_of_infants = rand(0..2)
 booking4.save!
 
 

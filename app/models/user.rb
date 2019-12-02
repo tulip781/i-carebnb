@@ -14,8 +14,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def avatar_url_or_default
-    if photo.attached?
-      photo.key
+    # if photo.attached?
+    # photo.key
+    if avatar_url
+      avatar_url
     else
       "unsplash.jpg"
     end

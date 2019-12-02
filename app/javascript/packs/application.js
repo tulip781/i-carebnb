@@ -40,6 +40,15 @@ if (element) {
 
 }
 
+if (element) {
+  let dates = JSON.parse(element.dataset.past)
+  flatpickr('#test-picker', {
+    mode: "range",
+    dateFormat: "Y-m-d",
+    disable: dates
+  })
+
+}
 
 
 flatpickr('#ollie-date-picker', {

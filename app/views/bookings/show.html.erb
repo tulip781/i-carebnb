@@ -2,7 +2,7 @@
   <div class="jumbotron mt-5 p-5 box-design" style="background-color: white; ">
     <div class="row">
       <div class="col-12">
-        <h3 style="color:#3F3D56;">Booking Details for <%= @booking.room.beds %> <%= @booking.room.beds == 1 ? 'Bed' : 'Beds' %> at <%= @booking.room.address %></h3>
+        <h3 style="color:#3F3D56;">Booking details for <%= @booking.room.beds %> <%= @booking.room.beds == 1 ? 'bed' : 'beds' %> at <%= @booking.room.address %></h3>
         <hr class="my-4">
       </div>
     </div>
@@ -26,7 +26,7 @@
           <p class="my-1"><strong style="color:#3F3D56;">Booking made by:</strong> <%= @booking.user.first_name %> from <%= @booking.user.charity_supports.first.charity.name %></p>
           <p class="my-1"><strong style="color:#3F3D56;">Guest name:</strong> <%= @booking.guest.first_name %></p>
         <!-- </div> -->
-        <p class="lead my-4" style="font-size: 1.2em;"> <%= @booking.room.description %></p>
+        <p class="lead my-4" style="font-size: 1.1em;"> <%= @booking.room.description %></p>
         <div class="form-actions btn btn-secondary mb-4">
           <%= link_to "Back to dashboard", dashboard_path, class: "nav-link" %>
         </div>

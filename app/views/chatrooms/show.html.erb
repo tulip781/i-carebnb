@@ -10,9 +10,11 @@
 <% @counter += 1 %>
 <% end %>
 <% end %>
+
   <%#= @all_messages.count %>
 
 <div class="container-fluid">
+  <span id="cuid" style="display: none"><%= current_user.id %></span>
   <div class="row">
     <div class="col-12 col-sm-3 col-md-2" id="sidebar-background" style="background-image: url(<%= asset_path "messages.png" %>);">
       <% @chatrooms.each do |chatroom| %>
@@ -43,7 +45,10 @@
           <% end %>
         </div>
         <div class="container" id="special-message-container">
-          <% @chatroom.chats.reverse.each do |chat| %>
+          <%# raise %>
+          <%# chat_array = @chatroom.chats %>
+          <%# ordered_chat_array = chat_array.sort_by { |message| } %>
+          <% @chatroom.chats.sort.reverse.each do |chat| %>
             <% if chat.user == current_user %>
               <%= render "chatrooms/right_message", chat: chat %>
             <% else %>
@@ -57,12 +62,15 @@
 </div>
 
 <script>
+    const user_id = document.getElementById("cuid").innerHTML;
+    // console.log(user_id);
     var channel = pusher.subscribe('chat-channel');
     channel.bind('message-created', (data) => {
       let message = data.message;
-      console.log('TEST', data, data.recipient_id);
+      // console.log('TEST', user_id === data.current_user.toString() );
 
-      if (data.current_user === data.recipient_id ) {
+      if (user_id !== data.current_user.toString() ) {
+        console.log('display left', 'userId:', user_id, 'current_user:', data.current_user.toString())
         document.getElementById('special-message-container').insertAdjacentHTML('beforebegin', `
           <div class="d-flex">
             <div class="d-inline-flex pb-1 chatbox">
@@ -81,6 +89,7 @@
 
 
       } else {
+        console.log('display right', 'userId:', user_id, 'current_user:', data.current_user.toString());
         document.getElementById('special-message-container').insertAdjacentHTML('beforebegin', `
           <div class="d-flex justify-content-end">
             <div class="d-inline-flex pb-1 chatbox">

@@ -6,10 +6,10 @@ class RoomsController < ApplicationController
     default_radius = 30
 
     # @search_location = [51.5156177, -0.0919983]
-    if params[:location].present? && params[:radius].present? && params['range-dates'].present?
+    if params[:location].present? && params[:radius].present? && params['range_dates'].present?
       @search_location = Geocoder.search(params[:location]).first.coordinates
 
-      @dates = params['range-dates'].split(' to ')
+      @dates = params['range_dates'].split(' to ')
       dates = ((Date.parse(@dates[0]))..(Date.parse(@dates[1]))).to_a
       @rooms = Room.near(params[:location], params[:radius])
       @rooms = @rooms.where("adult_space >= ?
@@ -94,8 +94,9 @@ class RoomsController < ApplicationController
     #   @search_location = Geocoder.search(current_user[:address]).first.coordinates
     else
       @search_location = Geocoder.search("London").first.coordinates
-
     end
+    @unav = Room.find(params[:id].to_i).unavailabilities.pluck(:date).map{|d|d.strftime("%d-%m-%Y")}
+  # raise
   end
 
   def new
@@ -113,7 +114,7 @@ class RoomsController < ApplicationController
   end
 
   def edit
-    @unav = @room.unavailabilities.pluck(:date).map { |d| d.strftime("%Y-%m-%d") }
+    @unav = @room.unavailabilities.pluck(:date).map { |d| d.strftime("%d-%m-%Y") }
   end
 
   def update

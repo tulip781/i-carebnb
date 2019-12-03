@@ -16,7 +16,7 @@ class UnavailabilitiesController < ApplicationController
       Unavailability.create!(date: date, room: @room)
     end
     # redirect_to dashboard_path
-    @unav = @room.unavailabilities.pluck(:date).map{|d|d.strftime("%Y-%m-%d")}
+    @unav = @room.unavailabilities.pluck(:date).map{|d|d.strftime("%d-%m-%Y")}
     render 'rooms/edit'
   end
 
@@ -28,7 +28,7 @@ class UnavailabilitiesController < ApplicationController
 
   def new
     @room = Room.find(params[:room_id])
-    @unav = @room.unavailabilities.pluck(:date).map{|d|d.strftime("%Y-%m-%d")}
+    @unav = @room.unavailabilities.pluck(:date).map{|d|d.strftime("%d-%m-%Y")}
   end
 
   private

@@ -34,25 +34,30 @@ if (element) {
   let dates = JSON.parse(element.dataset.past)
   flatpickr('#unavailability_date', {
     mode: "multiple",
-    dateFormat: "Y-m-d",
+    dateFormat: "d-m-Y",
     disable: dates
   })
 
 }
 
 if (element) {
+  let startDate = document.querySelector('.form-inputs').dataset.startdate;
+  let endDate = document.querySelector('.form-inputs').dataset.enddate;
   let dates = JSON.parse(element.dataset.past)
   flatpickr('#test-picker', {
     mode: "range",
-    dateFormat: "Y-m-d",
-    disable: dates
+    dateFormat: "d-m-Y",
+    disable: dates,
+    defaultDate: [startDate, endDate]
+
   })
 
 }
 
 
 flatpickr('#ollie-date-picker', {
-    mode: "range"
+    mode: "range",
+    dateFormat: "d-m-Y"
 
 })
 

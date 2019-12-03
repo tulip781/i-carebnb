@@ -8,7 +8,7 @@
     </div>
     <div class="row">
       <div class="col-12 col-lg-5">
-        <i class="fas fa-map-marker-alt mr-4 mt-2 mb-4 main-colour" style="font-size:1.2em;"><span class="card-detail-text">&nbsp 0.8 miles away</span></i><i class="fas fa-shower my-2 main-colour" style="font-size:1.2em;"><span class="card-detail-text">&nbsp <%= @booking.room.facilities %> facilities</span></i>
+        <i class="fas mr-4 mt-2 mb-4 main-colour" style="font-size:1.2em;"><span class="card-detail-text"></span></i><i class="fas fa-shower my-2 main-colour" style="font-size:1.2em;"><span class="card-detail-text">&nbsp <%= @booking.room.facilities %> facilities</span></i>
         <!-- <div style="background-color: #F2F2F2; padding: 10px 30px; border-radius: 15px;"> -->
           <p class="my-1"><strong style="color:#3F3D56;">Host Name:</strong> <%= @booking.room.user.first_name %> <%= @booking.room.user.surname %></p>
           <p class="my-1"><strong style="color:#3F3D56;">Booking Status:</strong> <% if @booking.confirmed %>

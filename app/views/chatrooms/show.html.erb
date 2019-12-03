@@ -1,3 +1,4 @@
+<!-- chatroom show page -->
 <% if @chatroom.sender != current_user %>
 <% @interlocutor = @chatroom.sender %>
  <% else %>
@@ -25,7 +26,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-12 col-sm-9 col-md-10 bg-light" style="height:100vh;">
+    <div class="col-12 col-sm-9 col-md-10 bg-light" style="min-height:100vh;">
       <div class="container-fluid">
         <div>
           <h4 class="mb-4 mt-5 text-center">
@@ -59,10 +60,11 @@
     var channel = pusher.subscribe('chat-channel');
     channel.bind('message-created', (data) => {
       let message = data.message;
+      console.log('TEST', data, data.recipient_id);
 
-      if (data.current_user !== data.interlocutor ) {
+      if (data.current_user === data.recipient_id ) {
         document.getElementById('special-message-container').insertAdjacentHTML('beforebegin', `
-          <div class="">
+          <div class="d-flex">
             <div class="d-inline-flex pb-1 chatbox">
               <div class="chat-bubble">
                 <p class="chat-details">${ data.user_email }</p>
@@ -76,6 +78,7 @@
 
           </div>
         `);
+
 
       } else {
         document.getElementById('special-message-container').insertAdjacentHTML('beforebegin', `
@@ -97,6 +100,13 @@
 
       }
       document.getElementById('chat_message').value = "";
+      if (document.getElementById('submit_message')) {
       document.getElementById('submit_message').disabled = false;
+      }
+      else {
+        window && window.setTimeout(() => {
+          document.getElementById('submit_message').disabled = false;
+        } , 2000)
+      }
     });
 </script>

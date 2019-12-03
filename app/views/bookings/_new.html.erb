@@ -25,7 +25,7 @@
       <%= f.input :guest_id, collection: Guest.where(charity_id: current_user.charities.ids), label: 'Lead Guest' %>
       <%#= f.input :start_date, as: :string, class: 'form-control datepicker room-show-picker', input_html: {type: :date, value: range_dates_start } %>
       <label for="date">Dates</label>
-      <input type="date" class="w-100 height: calc(1.5em + 0.75rem + 2px)" style="height:calc(1.5em + 0.75rem + 2px);border: 1px solid #ced4da;padding: 0.375rem 0.75rem;border-radius:2px;" placeholder="When is the room required?" id='test-picker' name='range_dates'>
+      <input type="date" class="w-100 height: calc(1.5em + 0.75rem + 2px)" style="height:calc(1.5em + 0.75rem + 2px);border: 1px solid #ced4da;padding: 0.375rem 0.75rem;border-radius:2px;" placeholder='<%= params[:range_dates] %>' id='test-picker' name='range_dates' value='<%= params[:range_dates[0]] %>'>
       <%#= f.input :end_date, as: :string, class: 'form-control datepicker room-show-picker', input_html: {type: :date, value: range_dates_end } %>
       <%= content_tag :div, class: "past_unavailability", data: {past: @unav} do %>
       <% end %>

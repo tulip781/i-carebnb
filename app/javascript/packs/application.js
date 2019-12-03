@@ -34,7 +34,7 @@ if (element) {
   let dates = JSON.parse(element.dataset.past)
   flatpickr('#unavailability_date', {
     mode: "multiple",
-    dateFormat: "Y-m-d",
+    dateFormat: "d-m-Y",
     disable: dates
   })
 
@@ -44,15 +44,18 @@ if (element) {
   let dates = JSON.parse(element.dataset.past)
   flatpickr('#test-picker', {
     mode: "range",
-    dateFormat: "Y-m-d",
-    disable: dates
+    dateFormat: "d-m-Y",
+    disable: dates,
+    defaultDate: ['<%= params[:range_dates[0].to_i %>', '<%= params[:range_dates[2].to_i %>']
+
   })
 
 }
 
 
 flatpickr('#ollie-date-picker', {
-    mode: "range"
+    mode: "range",
+    dateFormat: "d-m-Y"
 
 })
 

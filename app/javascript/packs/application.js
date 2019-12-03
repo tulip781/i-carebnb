@@ -54,10 +54,12 @@ if (element) {
 
 }
 
-
+let startDate = document.querySelector('.form-row').dataset.startdate;
+let endDate = document.querySelector('.form-row').dataset.enddate;
 flatpickr('#ollie-date-picker', {
     mode: "range",
-    dateFormat: "d-m-Y"
+    dateFormat: "d-m-Y",
+    defaultDate: [startDate, endDate]
 
 })
 

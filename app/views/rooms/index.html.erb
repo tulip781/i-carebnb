@@ -5,7 +5,7 @@
   background-size: 1100px;">
         <h2>Search <i class="fas fa-search" style="font-size: 0.7em;"></i></h2>
         <form>
-          <div class="form-row">
+          <div class="form-row" data-startdate="<%= params[:range_dates].split(' ')[0] if params[:range_dates] %>" data-enddate="<%= params[:range_dates].split(' ')[2] if params[:range_dates] %>">
             <div class="col-12 my-2">
               <!-- <input type="text" class="form-control-sm w-100 small-radius" placeholder="Location"> -->
               <%= form_tag rooms_path, method: :get do %>
@@ -19,13 +19,16 @@
               <input type="date" class="form-control-sm w-100 small-radius" placeholder="Dates required" id='ollie-date-picker' name='range_dates'>
             </div>
             <div class="col-4 my-2">
-              <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Number of adults" name="adults">
+              <%= text_field_tag :adults, params[:adults], class: "form-control-sm w-100 small-radius", placeholder: "Number of adults" %>
+<!--          <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Number of adults" name="adults"> -->
             </div>
             <div class="col-4 my-2">
-              <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Number of children" name="children">
+              <%= text_field_tag :children, params[:children], class: "form-control-sm w-100 small-radius", placeholder: "Number of children" %>
+<!--               <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Number of children" name="children"> -->
             </div>
             <div class="col-4 my-2">
-              <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Number of infants" name="infants">
+              <%= text_field_tag :infants, params[:infants], class: "form-control-sm w-100 small-radius", placeholder: "Number of infants" %>
+<!--               <input type="integer" class="form-control-sm w-100 small-radius" placeholder="Number of infants" name="infants"> -->
             </div>
             <div class="col-12 mt-2">
               <%= submit_tag "Search", class: "mx-0 nav-link btn btn-secondary" %>

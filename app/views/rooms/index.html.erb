@@ -37,28 +37,6 @@
       </div>
     </div>
 
-    <%#= f.input :start_date, as: :string, class: 'form-control datepicker', input_html: {type: :date, value: Time.now.strftime("%Y-%m-%d") } %>
-<!--     <div class="col-12 col-lg-3">
-      <form action="/rooms" method="GET">
-        <input type="hidden" name="location" value="<%= params[:location] %>">
-        <input type="hidden" name="radius" value="<%= params[:radius] %>">
-        <div class="col-12 mb-3 px-0">
-          <label for="Beds">Change number of beds:</label>
-          <input type="integer" name="beds">
-        </div>
-        <div class="col-12 mb-3 px-0">
-          <label for="Minimum stay">Change minimum stay:</label>
-          <input type="integer" name="minimum_stay">
-        </div>
-        <div class="col-12 mb-4 px-0">
-          <label for="Distance">Change distance:</label>
-          <input type="integer" name="radius" value="<%= params[:radius] %>">
-        </div>
-        <div class="col-12 px-0">
-          <button type="submit" class="mb-4 mx-0 nav-link btn btn-secondary">Submit</button>
-        </div>
-      </form>
-    </div> -->
     <div class="col-12 col-lg-6 mt-lg-4 mb-4">
       <div id="map" class="map-custom" style="width: 100%; height: 285px; marker-color: red" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
@@ -86,12 +64,3 @@
   </div>
 </div>
 
-<!-- Jquery JS-->
- <!-- <script src="assets/vendor/jquery/jquery.min.js"></script> -->
-<!-- Vendor JS
-<script src="assets/vendor/select2/select2.min.js"></script>
-<script src="assets/vendor/datepicker/moment.min.js"></script>
-<script src="assets/vendor/datepicker/daterangepicker.js"></script> -->
-
-<!-- Main JS-->
-<!-- <script src="js/global.js"></script> -->

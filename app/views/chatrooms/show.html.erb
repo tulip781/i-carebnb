@@ -30,11 +30,9 @@
         <div>
           <h4 class="mb-4 mt-5 text-center">
             <% if @interlocutor.avatar_url_or_default %>
-
               <%= cl_image_tag(@interlocutor.avatar_url_or_default, crop: :fill, class: "chat-img mr-2" )%>
-
-            <% end %>
-            <%= "iCareChat with #{@interlocutor.first_name} #{@interlocutor.surname}" %>
+              <% end %>
+            <%= "#{current_user[:first_name]} - this is your iCareChat with #{@interlocutor.first_name} #{@interlocutor.surname}" %>
           </h4>
         </div>
         <div class="chat-text-input chatbox-input" style="display:flex;">
@@ -44,15 +42,12 @@
           <% end %>
         </div>
         <div class="container" id="special-message-container">
-          <!-- FIGURE OUT HOW TO SORT CHATS SO MOST RECENT ARE FIRST -->
           <% @chatroom.chats.reverse.each do |chat| %>
-
             <% if chat.user == current_user %>
               <%= render "chatrooms/right_message", chat: chat %>
             <% else %>
               <%= render "chatrooms/left_message", chat: chat %>
             <% end %>
-
           <% end %>
         </div>
       </div>
@@ -65,7 +60,7 @@
     channel.bind('message-created', (data) => {
       let message = data.message;
 
-      if (data.current_user === data.sender_id ) {
+      if (data.current_user !== data.interlocutor ) {
         document.getElementById('special-message-container').insertAdjacentHTML('beforebegin', `
           <div class="">
             <div class="d-inline-flex pb-1 chatbox">
@@ -83,7 +78,7 @@
         `);
 
       } else {
-        document.getElementById('special-message-container').insertAdjacentHTML('afterbegin', `
+        document.getElementById('special-message-container').insertAdjacentHTML('beforebegin', `
           <div class="d-flex justify-content-end">
             <div class="d-inline-flex pb-1 chatbox">
               <div class="chat-bubble chat-bubble-right">
@@ -94,7 +89,7 @@
           </div>
           <div class="d-flex justify-content-end">
 
-            <p class="chat-time mr-2 mt-4">${data.timestamp}</p>
+            <p class="chat-time mr-2 mt-4">${data.timestamp} ago</p>
 
           </div>
 

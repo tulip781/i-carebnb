@@ -16,6 +16,8 @@
         <div class="col-12">
           <div class="text-center">
             <h1 class="my-2" id="dash_title"> Welcome to your Host Dashboard, <%= current_user.first_name %>!</h1>
+                        <p><%= @unread_messages_received %></p>
+
             <%= cl_image_tag(current_user.avatar_url_or_default, class: "avatar dash_avatar rounded-circle mt-3 hidden-small" )%>
 
           </div>

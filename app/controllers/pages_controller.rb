@@ -12,8 +12,10 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-
-    # @unread_messages_received = current_user.chatrooms.map { |chatroom| chatroom.chats.where(user: current_user).count
+    # @unread_messages_received = current_user.chatrooms.chats.where.not(user: current_user).where(read: false).count
+    chats = []
+    current_user.chatrooms.each { |chatroom| chats << chatroom.chats.where.not(user: current_user).where(read: false) }
+    @unread_messages_received = chats.first.count
 
     @rooms = current_user.rooms
     @bookings = current_user.rooms.map { |room| room.bookings }.flatten

@@ -98,6 +98,7 @@ class RoomsController < ApplicationController
     @unav = Room.find(params[:id].to_i).unavailabilities.pluck(:date).map{|d|d.strftime("%d-%m-%Y")}
   # raise
   end
+
   def new
     @room = Room.new
   end

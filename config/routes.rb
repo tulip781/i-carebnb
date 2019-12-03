@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   # get 'unavailabilities/destroy'
   # get 'unavailabilities/new'
   devise_for :users, controllers: { registrations: "registrations" }
+
+  authenticated :user do
+    root to: "pages#dashboard"
+  end
+
   resources :rooms do
     resources :bookings, only: [:new, :create]
     resources :residents
@@ -36,11 +41,9 @@ Rails.application.routes.draw do
   get 'dashboard', to: "pages#dashboard"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  authenticated :user do
-    root :to => "pages#dashboard"
-  end
-  # get 'switch_login', to: "pages#switch_login", as: :switch_login
   root to: 'pages#landing'
+
+  # get 'switch_login', to: "pages#switch_login", as: :switch_login
 end
 
 # index, create and destroy for chatrooms

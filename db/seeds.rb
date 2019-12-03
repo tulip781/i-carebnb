@@ -446,7 +446,7 @@ safe_guard2.save!
 
 puts ' 🌆👨‍👦‍👦🌆 Assinging all users to a charity (through a Charity Support) 🌆👨‍👦‍👦🌆'
 
-User.all do |u|
+User.all.each do |u|
   support = CharitySupport.new(
   newsletter: true)
   support.user = u

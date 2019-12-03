@@ -1,3 +1,4 @@
+<!-- chatroom show page -->
 <% if @chatroom.sender != current_user %>
 <% @interlocutor = @chatroom.sender %>
  <% else %>
@@ -9,9 +10,11 @@
 <% @counter += 1 %>
 <% end %>
 <% end %>
+
   <%#= @all_messages.count %>
 
 <div class="container-fluid">
+  <span id="cuid" style="display: none"><%= current_user.id %></span>
   <div class="row">
     <div class="col-12 col-sm-3 col-md-2" id="sidebar-background" style="background-image: url(<%= asset_path "messages.png" %>);">
       <% @chatrooms.each do |chatroom| %>
@@ -25,7 +28,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-12 col-sm-9 col-md-10 bg-light" style="height:100vh;">
+    <div class="col-12 col-sm-9 col-md-10 bg-light" style="min-height:100vh;">
       <div class="container-fluid">
         <div>
           <h4 class="mb-4 mt-5 text-center">
@@ -42,7 +45,10 @@
           <% end %>
         </div>
         <div class="container" id="special-message-container">
-          <% @chatroom.chats.reverse.each do |chat| %>
+          <%# raise %>
+          <%# chat_array = @chatroom.chats %>
+          <%# ordered_chat_array = chat_array.sort_by { |message| } %>
+          <% @chatroom.chats.sort.reverse.each do |chat| %>
             <% if chat.user == current_user %>
               <%= render "chatrooms/right_message", chat: chat %>
             <% else %>
@@ -56,13 +62,17 @@
 </div>
 
 <script>
+    const user_id = document.getElementById("cuid").innerHTML;
+    // console.log(user_id);
     var channel = pusher.subscribe('chat-channel');
     channel.bind('message-created', (data) => {
       let message = data.message;
+      // console.log('TEST', user_id === data.current_user.toString() );
 
-      if (data.current_user !== data.interlocutor ) {
+      if (user_id !== data.current_user.toString() ) {
+        console.log('display left', 'userId:', user_id, 'current_user:', data.current_user.toString())
         document.getElementById('special-message-container').insertAdjacentHTML('beforebegin', `
-          <div class="">
+          <div class="d-flex">
             <div class="d-inline-flex pb-1 chatbox">
               <div class="chat-bubble">
                 <p class="chat-details">${ data.user_email }</p>
@@ -77,7 +87,9 @@
           </div>
         `);
 
+
       } else {
+        console.log('display right', 'userId:', user_id, 'current_user:', data.current_user.toString());
         document.getElementById('special-message-container').insertAdjacentHTML('beforebegin', `
           <div class="d-flex justify-content-end">
             <div class="d-inline-flex pb-1 chatbox">
@@ -97,6 +109,13 @@
 
       }
       document.getElementById('chat_message').value = "";
+      if (document.getElementById('submit_message')) {
       document.getElementById('submit_message').disabled = false;
+      }
+      else {
+        window && window.setTimeout(() => {
+          document.getElementById('submit_message').disabled = false;
+        } , 2000)
+      }
     });
 </script>

@@ -12,12 +12,9 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    # @counter = 0
-    # @chatroom.sender.chats.each do |chat|
-    # if chat.read == false
-    # @counter += 1
-    # end
-    # end
+
+    # @unread_messages_received = current_user.chatrooms.map { |chatroom| chatroom.chats.where(user: current_user).count
+
     @rooms = current_user.rooms
     @bookings = current_user.rooms.map { |room| room.bookings }.flatten
     @booking_requests = @bookings.select { |booking| booking.confirmed == false && booking.declined == false }

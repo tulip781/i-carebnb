@@ -1,13 +1,27 @@
 <div class="d-flex justify-content-end">
   <div class="d-inline-flex pb-1 chatbox">
-    <div class="chat-bubble chat-bubble-right">
+    <div class="chat-bubble-right">
       <p class="chat-details"><%= chat.user.email %></p>
       <p style="font-size: 1.1em;" class="m-0 chat-message color-blue"><%= chat.message %></p>
     </div>
   </div>
 </div>
 <div class="d-flex justify-content-end">
-  <p class="chat-time mr-2 mt-4"><%= time_ago_in_words(chat.created_at) %></p>
+<% difference = (Time.now - chat.created_at)/60 %>
+              <% rounded_difference_seconds = (Time.now - chat.created_at).round %>
+              <% rounded_difference = difference.round %>
+               <% if rounded_difference_seconds <= 1 %>
+              <p class="chat-time mr-2 mt-2"> moments ago </p>
+              <% elsif rounded_difference_seconds < 60 %>
+              <p class="chat-time mr-2 mt-2"><%= rounded_difference_seconds %> seconds ago</p>
+              <% elsif rounded_difference == 1 %>
+              <p class="chat-time mr-2 mt-2"><%= rounded_difference %> minute ago</p>
+              <% elsif rounded_difference < 60 %>
+              <p class="chat-time mr-2 mt-2"><%= rounded_difference %> minutes ago</p>
+              <% else %>
+              <p class="chat-time mr-2 mt-4" style="font-size: 0.8em;"><%= chat.created_at.strftime('%d %b %Y %l:%M %p') %></p>
+
+              <% end %>
   <% if chat.read && current_user.id == chat.user.id %>
     <p class="read-status alata mt-1"><%= "Read" %></p>
   <% elsif chat.read != true && current_user.id == chat.user.id %>

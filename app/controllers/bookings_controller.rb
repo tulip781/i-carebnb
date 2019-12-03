@@ -61,6 +61,7 @@ class BookingsController < ApplicationController
   def confirmed
     @booking.confirmed = true
     @booking.save
+    send_confirmation_message
     redirect_to dashboard_path
   end
 
@@ -83,6 +84,38 @@ private
   def set_booking
     @booking = Booking.find(params[:id])
   end
+
+  def send_confirmation_message
+
+    @chatroom = Chatroom.find_by(recipient: @booking.user, sender: @booking.room.user) || Chatroom.find_by(recipient: @booking.room.user, sender: @booking.user)
+    unless @chatroom
+      @chatroom = Chatroom.new
+      @chatroom.sender = @booking.room.user
+      @chatroom.recipient = @booking.user
+      @chatroom.save
+    end
+    if @chatroom.sender != current_user
+      @interlocutor = @chatroom.sender
+    else
+      @interlocutor = @chatroom.recipient
+    end
+      @chat = Chat.new(message: "Thank you very much! I am happy to confirm the booking request you have made.  Please contact me if you have any questions.  Thank you for iCaringBnB.")
+      @chat.chatroom = @chatroom
+      @chat.user = current_user
+      if @chat.save
+        Pusher.trigger('chat-channel', 'message-created', {
+          message: @chat.message,
+          sender_id: @chatroom.sender.id,
+          recipient_id: @chatroom.recipient_id,
+          interlocutor: @interlocutor,
+          current_user: @chat.user.id,
+          timestamp: @chat.created_at.strftime('%I:%M %p'),
+          user_email: @chat.user.email
+        })
+      end
+  end
+
+
 end
 
 # booking should only happen when the host confirms the booking sent to it by the charity.

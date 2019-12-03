@@ -459,6 +459,9 @@ safe_guard.user = olivia_host_user
 safe_guard.resident = test_resident
 test_resident.save!
 safe_guard.save!
+end
+
+rooms_except_olivia.each do |room|
 
 test_resident2 = Resident.new(
   first_name: Faker::Name.female_first_name,
@@ -471,13 +474,11 @@ test_resident2.room = room
 
 safe_guard2 = Safeguarding.new(
   approved: true)
-safe_guard2.user = olivia_host_user
+safe_guard2.user = bot_user_array.sample
 safe_guard2.resident = test_resident2
 test_resident2.save!
 safe_guard2.save!
-
 end
-
 
 
 puts ' 🌆👨‍👦‍👦🌆 Assinging all users to a charity (through a Charity Support) 🌆👨‍👦‍👦🌆'

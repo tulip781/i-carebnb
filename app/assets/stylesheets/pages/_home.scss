@@ -22,6 +22,16 @@ h1 {
   font-size: 1.3em;
 }
 
+/* No greater than 900px, no less than 400px */
+@media (max-width:1330px) and (min-width:1200px) {
+  #cloud1 {
+    right: 50vh !important;
+  }
+  #plane {
+    right: 10vh !important;
+  }
+}
+
 @media (max-width: 769px) {
   .title {
     font-size: 4em;
@@ -29,4 +39,60 @@ h1 {
   .lead {
     font-size: 1.15em;
   }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+#cloud1 {
+  width: 60px;
+  position: absolute;
+  top: 45vh;
+  right: 64vh;
+  overflow: hidden;
+  transform: translatey(0px);
+  animation: float 7s ease-in-out infinite;
+  img { width: 100%; height: auto; }
+}
+
+#cloud2 {
+  width: 80px;
+  position: absolute;
+  top: 45vh;
+  right: 15vh;
+  overflow: hidden;
+  transform: translatey(0px);
+  animation: float 8s ease-in-out infinite;
+  img { width: 100%; height: auto; }
+}
+
+#cloud3 {
+  width: 40px;
+  position: absolute;
+  top: 40vh;
+  right: 10vh;
+  overflow: hidden;
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
+  img { width: 100%; height: auto; }
+}
+
+#plane {
+  width: 30px;
+  position: absolute;
+  top: 35vh;
+  right: 17vh;
+  overflow: hidden;
+  transform: translatey(0px);
+  animation: float 15s ease-in-out infinite;
+  img { width: 100%; height: auto; }
 }

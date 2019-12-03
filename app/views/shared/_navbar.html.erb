@@ -43,7 +43,13 @@
             <%= link_to "Inbox",chatroom_path(current_user.chatrooms.first), class: "nav-link"  %>
             <% @chatroom = Chatroom.find_by(recipient: current_user, sender: @user) || Chatroom.find_by(recipient: @user, sender: current_user) %>
             <%#= "You have #{Chat.all.where(user_id: current_user, read: false).count} new messages!" %>
-            <%= "You have #{@counter} new messages!" %>
+            <% if unread_messages_count == 0 %>
+              <p class = "nav-message-info">You have no new messages</p>
+            <% elsif unread_messages_count == 1%>
+              <p class = "nav-message-info">You have one new message</p>
+            <% else  %>
+              <p class = "nav-message-info">You have <%= unread_messages_count %> messages </p>
+            <% end %>
 
           </li>
         <% end %>

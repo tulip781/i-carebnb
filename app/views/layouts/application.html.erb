@@ -7,7 +7,7 @@
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <%= favicon_link_tag asset_path('favicon.ico') %>
+    <%= favicon_link_tag asset_path('favicon-32x32.png') %>
     <script>
       var pusher = new Pusher('<%= ENV['PUSHER_KEY'] %>', {
         cluster: 'eu',

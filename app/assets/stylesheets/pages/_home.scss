@@ -23,12 +23,9 @@ h1 {
 }
 
 /* No greater than 900px, no less than 400px */
-@media (max-width:1330px) and (min-width:1200px) {
+@media (max-width:1400px) and (min-width:1000px) {
   #cloud1 {
     right: 50vh !important;
-  }
-  #plane {
-    right: 10vh !important;
   }
 }
 
@@ -46,7 +43,7 @@ h1 {
     transform: translatey(0px);
   }
   50% {
-    transform: translatey(-20px);
+    transform: translatey(-30px);
   }
   100% {
     transform: translatey(0px);
@@ -60,7 +57,7 @@ h1 {
   right: 64vh;
   overflow: hidden;
   transform: translatey(0px);
-  animation: float 7s ease-in-out infinite;
+  animation: float 10s ease-in-out infinite;
   img { width: 100%; height: auto; }
 }
 
@@ -71,7 +68,7 @@ h1 {
   right: 15vh;
   overflow: hidden;
   transform: translatey(0px);
-  animation: float 8s ease-in-out infinite;
+  animation: float 12s ease-in-out infinite;
   img { width: 100%; height: auto; }
 }
 
@@ -82,17 +79,6 @@ h1 {
   right: 10vh;
   overflow: hidden;
   transform: translatey(0px);
-  animation: float 6s ease-in-out infinite;
-  img { width: 100%; height: auto; }
-}
-
-#plane {
-  width: 30px;
-  position: absolute;
-  top: 35vh;
-  right: 17vh;
-  overflow: hidden;
-  transform: translatey(0px);
-  animation: float 15s ease-in-out infinite;
+  animation: float 8s ease-in-out infinite;
   img { width: 100%; height: auto; }
 }

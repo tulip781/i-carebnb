@@ -99,7 +99,7 @@ private
     else
       @interlocutor = @chatroom.recipient
     end
-      @chat = Chat.new(message: "Thank you very much! I have booked your room for the guest(s) we work with.  Please contact me if you have any questions.  Thank you for iCaringBnB.")
+      @chat = Chat.new(message: "Thank you very much! I am happy to confirm the booking request you have made.  Please contact me if you have any questions.  Thank you for iCaringBnB.")
       @chat.chatroom = @chatroom
       @chat.user = current_user
       if @chat.save

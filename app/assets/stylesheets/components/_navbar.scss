@@ -17,8 +17,10 @@
   font-family: "Alata", "Helvetica", "sans-serif";
   letter-spacing: 0.03em;
   font-size: 0.95em;
+  transition: all .2s ease-in-out;
 }
 
 .nav-link:hover {
   color: #e5e5e5 !important;
+  transform: scale(1.04);
 }

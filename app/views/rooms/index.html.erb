@@ -45,9 +45,11 @@
       </div>
     </div>
   </div>
-  <div class="row mb-4">
+  <div class="row mb-3">
     <% if @rooms.empty? %>
-      <p>No results matching your search criteria</p>
+    <div class="col-12">
+      <h3 class="my-2">No results matching your search criteria</h3>
+    </div>
     <% else %>
       <% @rooms.each do |room| %>
         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex align-items-stretch">

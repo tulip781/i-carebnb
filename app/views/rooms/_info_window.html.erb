@@ -1,4 +1,4 @@
-<%= link_to room_path(room) do %>
+  <%= link_to room_path(room, adults: params[:adults], children: params[:children], infants: params[:infants], location: params[:location], range_dates: params[:range_dates]) do %>
   <div class="marker-info">
     <%= cl_image_tag room.photo_url_or_default, :class => "marker-image" %>
     <div class="info-div">

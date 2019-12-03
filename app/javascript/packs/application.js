@@ -41,12 +41,14 @@ if (element) {
 }
 
 if (element) {
+  let startDate = document.querySelector('.form-inputs').dataset.startdate;
+  let endDate = document.querySelector('.form-inputs').dataset.enddate;
   let dates = JSON.parse(element.dataset.past)
   flatpickr('#test-picker', {
     mode: "range",
     dateFormat: "d-m-Y",
     disable: dates,
-    defaultDate: ['<%= params[:range_dates[0].to_i %>', '<%= params[:range_dates[2].to_i %>']
+    defaultDate: [startDate, endDate]
 
   })
 

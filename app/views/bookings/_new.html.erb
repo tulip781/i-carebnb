@@ -3,8 +3,8 @@
   <%  range_dates_start = params[:range_dates][0,10] %>
   <%  range_dates_end = params[:range_dates][-10,10] %>
 <% else  %>
-  <%  range_dates_start = Time.now.strftime("%Y-%m-%d") %>
-  <%  range_dates_end = (Time.now+86400).strftime("%Y-%m-%d") %>
+  <%  range_dates_start = Time.now.strftime("%d-%m-%Y") %>
+  <%  range_dates_end = (Time.now+86400).strftime("%d-%m-%Y") %>
 <% end %>
 
     <%# range_dates_proper_start = range_dates_start.gsub("-", "/") %>
@@ -18,7 +18,7 @@
   <%= simple_form_for [room, booking] do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <div class="form-inputs">
+    <div class="form-inputs" data-startdate="<%= params[:range_dates].split(' ')[0] %>" data-enddate="<%= params[:range_dates].split(' ')[2] %>">
       <%= f.input :number_of_adults, input_html: { min: '0', value: params[:adults].to_i } %>
       <%= f.input :number_of_children, input_html: { min: '0', value: params[:children].to_i } %>
       <%= f.input :number_of_infants, input_html: { min: '0', value: params[:infants].to_i  } %>

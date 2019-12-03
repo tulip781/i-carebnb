@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <div class="card my-5">
+      <div class="card my-5 box-design">
         <% if @booking.confirmed %>
           <div class="card-header card-header-green" style="border-top-right-radius: 15px; border-top-left-radius: 15px;">
             <h4 class="white-font text-center my-2">Booking details for <%= @booking.room.beds %> <%= @booking.room.beds == 1 ? 'bed' : 'beds' %> at <%= @booking.room.address %><i class="fas fa-check-circle ml-3 mt-2"></i>

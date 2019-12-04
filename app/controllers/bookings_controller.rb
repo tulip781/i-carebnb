@@ -21,24 +21,30 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @dates = params['range_dates'].split(' to ')
-    @dates.map! { |d| Date.parse(d) }
-    @booking.start_date = @dates[0]
-    @booking.end_date = @dates[1]
-
+    # @dates = params[:booking]['range_dates'].split(' to ')
+    @start_date = params[:booking][:start_date]
+    @end_date = params[:booking][:end_date]
+    # @dates.map! { |d| Date.parse(d) }
+    @booking.start_date = @start_date
+    @booking.end_date = @end_date
     @booking.user = current_user
     @booking.guest = Guest.all.sample
-    @booking.room = Room.find(params[:room_id])
-    @dates_array = (@dates[0]..@dates[1]).to_a
-    if @booking.room.available_on?(@dates_array)
-      @booking.save
+    @room = Room.find(params[:room_id])
+    @unav = @room.unavailabilities.pluck(:date).map{|d|d.strftime("%d-%m-%Y")}
+    @booking.room = @room
+    if @start_date.present? && @end_date.present?
+      @dates_array = (@start_date..@end_date).to_a
+      unless @booking.room.available_on?(@dates_array)
+        render(html: "<script>alert('Room is not available on those dates')</script>".html_safe)
+      end
+    end
+    if @booking.save
+      @dates_array.each do |date|
+        @unavailability = Unavailability.create(room: @booking.room, date: date)
+      end
       redirect_to dashboard_path
     else
-      render(html: "<script>alert('Room is not available on those dates')</script>".html_safe)
-
-    end
-    @dates_array.each do |date|
-      @unavailability = Unavailability.create(room: @booking.room, date: date)
+      render 'rooms/show'
     end
   end
 

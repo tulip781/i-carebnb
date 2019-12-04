@@ -10,6 +10,11 @@
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
+    background-image: url('images/clouds.jpg');
+    background-size: cover;
+    background-size: no-repeat;
+    height: 100vh;
+    background-position: center;
   }
 
   .rails-default-error-page div.dialog {
@@ -23,16 +28,17 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #ea8a8a solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+    padding: 15px 12px;
+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.27);
+    border-radius: 5px;
   }
 
   .rails-default-error-page h1 {
-    font-size: 100%;
+    font-size: 1.7em;
     color: #730E15;
     line-height: 1.5em;
   }
@@ -51,17 +57,28 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .error-info h1 {
+    font-family: "Alata", "Helvetica", "sans-serif";
+    color: #3F3D56;
+  }
+
+  .error-info p {
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    color: #808080;
+  }
+
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
   <div class="dialog">
-    <div>
-      <h1>Oops... That is embarrasing...</h1>
+    <div class="error-info">
+      <h1>Oops!! This is embarrasing...</h1>
+      <p>We are sorry that you are experiencing problems at the moment. Exit this page by clicking on 'Back to Dashboard'</p>
+      <p><a href="dashboard">Back to Dashboard</a></p>
     </div>
-    <p>We are sorry you are experiencing trouble at the moment. Exit this page by clicking on 'Back to Dashboard'</p>
-    <a href="dashboard">Back to Dashboard</a>
   </div>
 </body>
 </html>

@@ -14,9 +14,9 @@
 z-index: 100;
 }
 
-.margin-avatar {
-  margin-left: 40px;
-}
+// .margin-avatar {
+//   margin-left: 40px;
+// }
 
 @media only screen and (max-width: 767px) {
   .margin-avatar {
@@ -26,4 +26,9 @@ z-index: 100;
     right: 465px;
 
   }
+}
+
+
+.inbox-fix {
+  margin-right: 40px !important;
 }

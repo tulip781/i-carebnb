@@ -4,12 +4,19 @@
   <title>Not found (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+  @import url("https://fonts.googleapis.com/css?family=Alata|Open+Sans:400,300,700");
+
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    /*background-color: #EFEFEF;*/
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
+    background-image: url('images/home.svg');
+    background-size: cover;
+    background-size: no-repeat;
+    height: 100vh;
+    background-position: center;
   }
 
   .rails-default-error-page div.dialog {
@@ -23,16 +30,17 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #ea8a8a solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
     padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.27);
+    border-radius: 5px;
   }
 
   .rails-default-error-page h1 {
-    font-size: 100%;
+    font-size: 1.7em;
     color: #730E15;
     line-height: 1.5em;
   }
@@ -47,18 +55,29 @@
     border-bottom-color: #999;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
+    border-top-color: #ea8a8a;
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .error-info h1 {
+    font-family: "Alata", "Helvetica", "sans-serif";
+    color: #3F3D56;
+  }
+
+  .error-info p {
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    color: #808080;
+  }
+
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
   <div class="dialog">
-    <div>
-      <h1>Looks like what you are looking for does not exist - anymore!</h1>
+    <div class="error-info">
+      <h1>Looks like what you are looking for does not exist... Anymore!</h1>
       <p>Please, check the address you are trying to visit is correct. </p>
       <p>If you want to go back to your dashboard, click <a href="dashboard">here</a>.</p>
     </div>

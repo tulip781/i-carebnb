@@ -42,7 +42,8 @@
           <% @chatroom = Chatroom.find_by(recipient: current_user, sender: @user) || Chatroom.find_by(recipient: @user, sender: current_user) %>
           <li class="nav-item">
             <%= link_to chatroom_path(current_user.chatrooms.first), class: "nav-link", style: "position: relative" do %>
-              Inbox <span class="notification-badge"><%= unread_messages_count %></span>
+              Inbox
+              <span class="notification-badge"><%= unread_messages_count %></span>
             <% end %>
           </li>
         <% end %>

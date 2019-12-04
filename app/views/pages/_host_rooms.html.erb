@@ -30,7 +30,7 @@
                 <%= cl_image_tag room.photo_url_or_default, alt: room.address, class: "max_image_size hidden-small mr-5" %>
                 <div id="table_center">
                   <h5 class="card-title">
-                  <%= link_to room_path(room), class: "card-title" do %>
+                  <%= link_to edit_room_path(room), class: "card-title" do %>
                     <%#= room.beds %> <%#= room.beds == 1 ? 'Bed' : 'Beds' %> <!-- - --><%= room.address  %>
                   <% end %>
                   </h5>

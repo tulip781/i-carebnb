@@ -6,3 +6,19 @@ mark {
   background-color: #FBEAEA;
   font-weight: 500;
 }
+
+.text-break-container {
+  background-color: #FDF4F4;
+  // background-color: $main;
+  // color: white;
+}
+
+.blue-font {
+  color: $second;
+}
+
+#our-mission {
+  font-family: $headers-font;
+  font-size: 1.5em;
+  color: white;
+}

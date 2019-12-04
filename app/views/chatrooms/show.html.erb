@@ -38,10 +38,10 @@
               <% end %>
           </h4>
         </div>
-        <div class="chat-text-input chatbox-input" style="display:flex;">
+        <div class="chat-text-input chatbox-input" style="display:flex;" data-sound="<%= asset_path('icarebnb_message_SFX.wav') %>">
           <%= simple_form_for([@chatroom, @chat]) do |f| %>
             <%= f.input :message, placeholder: "Type your message...", label: false %>
-            <%= f.submit 'Send', class: 'send_btn mb-4' %>
+            <%= f.submit 'Send', class: 'send_btn mb-4 chat-send-sound' %>
           <% end %>
         </div>
         <div class="container" id="special-message-container">

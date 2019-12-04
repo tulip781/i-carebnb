@@ -1,4 +1,5 @@
 require 'faker'
+
 Room.destroy_all
 User.destroy_all
 Booking.destroy_all
@@ -6,6 +7,7 @@ Resident.destroy_all
 Charity.destroy_all
 CharitySupport.destroy_all
 Guest.destroy_all
+
 Safeguarding.destroy_all
 puts '
   ___ ___   _   ___ ___ ___ _  _ ___
@@ -337,19 +339,13 @@ sleep(0.5)
 puts '👴➡️🌟Creating a Guest called with first_name "Details to be provided later" - assigned to Charity Mencap👴➡️🌟'
 
 
-dummy_guest = Guest.new(
-  first_name: "Details to be provided later",
-  child_space: 0,
-  adult_space: 1)
-dummy_guest.charity = charity_two
-dummy_guest.save
-
 dummy_guest2 = Guest.new(
   first_name: "Ben Barton",
   child_space: 0,
   adult_space: 1)
 dummy_guest2.charity = charity_two
 dummy_guest2.save
+
 
 dummy_guest3 = Guest.new(
   first_name: "Rob Pickard",
@@ -391,13 +387,14 @@ puts '📆 Creating Pending Booking 🧡, Confirmed Booking 💚, Declined Booki
 booking1 = Booking.new
 booking1.room = olivia_room_1
 booking1.user = leia_charityrep_user
-booking1.guest = dummy_guest
+booking1.guest = charity_two.guests.first
 booking1.start_date = Faker::Date.forward(days: 3)
 booking1.end_date = Faker::Date.forward(days: 7)
 booking1.number_of_adults = rand(1..2)
 booking1.number_of_children = rand(0..2)
 booking1.declined = true
 booking1.save!
+
 booking2 = Booking.new
 booking2.room = olivia_room_5
 booking2.user = leia_charityrep_user
@@ -405,7 +402,7 @@ booking2.confirmed = true
 booking2.guest = dummy_guest2
 booking2.start_date = Faker::Date.forward(days: 2)
 booking2.end_date = Faker::Date.forward(days: 17)
-booking1.number_of_children = rand(0..2)
+booking2.number_of_children = rand(0..2)
 booking2.number_of_adults = rand(1..2)
 booking2.number_of_infants = rand(0..2)
 booking2.save!
@@ -419,7 +416,6 @@ booking3.end_date = Faker::Date.forward(days: 15)
 booking3.number_of_children = rand(0..2)
 booking3.number_of_adults = rand(1..2)
 booking3.number_of_infants = rand(0..2)
-booking1.declined = true
 booking3.save!
 booking4 = Booking.new
 booking4.room = olivia_room_3
@@ -483,7 +479,10 @@ end
 
 puts ' 🌆👨‍👦‍👦🌆 Assinging all users to a charity (through a Charity Support) 🌆👨‍👦‍👦🌆'
 
-User.all.each do |u|
+users_array = User.all
+new_users = users_array.reject { |user| user.first_name == "Leia" }
+
+new_users.each do |u|
   support = CharitySupport.new(
   newsletter: true)
   support.user = u

@@ -78,3 +78,17 @@ flatpickr('#ollie-date-picker', {
 
 flatpickr('.room-show-picker')
 
+if (document.querySelector('.chatbox-input')) {
+  const button = document.querySelector('.chat-send-sound');
+  const sound = document.querySelector('.chatbox-input').dataset.sound;
+  button.addEventListener('click', () => {
+    const audio = new Audio(sound);
+    audio.play();
+  });
+}
+
+
+
+
+
+

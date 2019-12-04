@@ -5,8 +5,7 @@
 <%# @counter += 1 %>
 <%# end %>
 <%# end %>
-
-
+<% content_for :meta_title, "#{DEFAULT_META["meta_product_name"]} - because you care" %>
 <% if current_user.host %>
 
   <div class="blue p-4 dash_head" style="background-image: url(<%= asset_path "undraw_dash.svg" %>);background-repeat: no-repeat;

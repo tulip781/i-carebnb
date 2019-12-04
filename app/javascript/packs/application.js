@@ -4,6 +4,7 @@ import { initMapbox } from "./map";
 import { initAutocomplete } from "../plugins/init_autocomplete.js";
 import { initSweetalert } from '../plugins/init_sweetalert';
 import 'flatpickr/dist/flatpickr.min.css'
+import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
 initAutocomplete();
 initMapbox();
@@ -41,21 +42,33 @@ if (element) {
 }
 
 if (element) {
-  let startDate = document.querySelector('.form-inputs').dataset.startdate;
-  let endDate = document.querySelector('.form-inputs').dataset.enddate;
-  let dates = JSON.parse(element.dataset.past)
-  flatpickr('#test-picker', {
-    mode: "range",
+  let startDate = document.querySelector('.form-inputs');
+  if (startDate) {
+    startDate = startDate.dataset.startdate;
+  }
+  let endDate = document.querySelector('.form-inputs');
+  if (endDate) {
+    endDate = endDate.dataset.enddate;
+  }
+  let dates = JSON.parse(element.dataset.past);
+  flatpickr('#range_start', {
+    altInput: true,
     dateFormat: "d-m-Y",
     disable: dates,
-    defaultDate: [startDate, endDate]
-
+    defaultDate: [startDate, endDate],
+    plugins: [new rangePlugin({ input: "#range_end"})]
   })
 
 }
 
-let startDate = document.querySelector('.form-row').dataset.startdate;
-let endDate = document.querySelector('.form-row').dataset.enddate;
+let startDate = document.querySelector('.form-row');
+  if (startDate) {
+    startDate = startDate.dataset.startdate;
+  }
+  let endDate = document.querySelector('.form-row');
+  if (endDate) {
+    endDate = endDate.dataset.enddate;
+  }
 flatpickr('#ollie-date-picker', {
     mode: "range",
     dateFormat: "d-m-Y",

@@ -2,6 +2,8 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :room
   belongs_to :guest
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 #   after_create :send_confirmation_message
 
 #   def send_confirmation_message

@@ -20,21 +20,21 @@
             <div class="row">
               <div class="col-12 col-lg-5">
                 <i class="fas fa-shower my-2 main-colour" style="font-size:1.2em;"><span class="card-detail-text">&nbsp <%= @booking.room.facilities %> facilities</span></i>
-                <p class="my-1"><strong style="color:#3F3D56;">Host Name:</strong> <%= @booking.room.user.first_name %> <%= @booking.room.user.surname %></p>
-                <p class="my-1"><strong style="color:#3F3D56;">Booking Status:</strong> <% if @booking.confirmed %>
+                <p class="my-2"><strong style="color:#3F3D56;">Host Name:</strong> <%= @booking.room.user.first_name %> <%= @booking.room.user.surname %></p>
+                <p class="my-2"><strong style="color:#3F3D56;">Booking Status:</strong> <% if @booking.confirmed %>
                   Confirmed
                   <% elsif @booking.declined %>
                   Booking declined by the host
                   <% else %>
                   Not confirmed - Awaiting response from <%= @booking.room.user.first_name%></p>
                   <% end %>
-                <p class="my-1"><strong style="color:#3F3D56;">Start Date:</strong> <%= @booking.start_date %></p>
-                <p class="my-1"><strong style="color:#3F3D56;">End Date:</strong> <%= @booking.end_date %></p>
-                <p class="my-1"><strong style="color:#3F3D56;">Number Of Adults:</strong> <%= @booking.number_of_adults %></p>
-                <p class="my-1"><strong style="color:#3F3D56;">Number Of Children:</strong> <%= @booking.number_of_children %></p>
-                <p class="my-1"><strong style="color:#3F3D56;">Number Of Infants:</strong> <%= @booking.number_of_infants %></p>
-                <p class="my-1"><strong style="color:#3F3D56;">Booking made by:</strong> <%= @booking.user.first_name %> from <%= @booking.user.charity_supports.first.charity.name %></p>
-                <p class="my-1"><strong style="color:#3F3D56;">Guest name:</strong> <%= @booking.guest.first_name %></p>
+                <p class="my-2"><strong style="color:#3F3D56;">Start Date:</strong> <%= @booking.start_date %></p>
+                <p class="my-2"><strong style="color:#3F3D56;">End Date:</strong> <%= @booking.end_date %></p>
+                <p class="my-2"><strong style="color:#3F3D56;">Number Of Adults:</strong> <%= @booking.number_of_adults %></p>
+                <p class="my-2"><strong style="color:#3F3D56;">Number Of Children:</strong> <%= @booking.number_of_children %></p>
+                <p class="my-2"><strong style="color:#3F3D56;">Number Of Infants:</strong> <%= @booking.number_of_infants %></p>
+                <p class="my-2"><strong style="color:#3F3D56;">Booking made by:</strong> <%= @booking.user.first_name %> from <%= @booking.user.charity_supports.first.charity.name %></p>
+                <p class="my-2"><strong style="color:#3F3D56;">Guest name:</strong> <%= @booking.guest.first_name %></p>
                 <p class="lead my-4" style="font-size: 1.1em;"> <%= @booking.room.description %></p>
                 <div class="form-actions btn btn-secondary mb-2">
                   <%= link_to "Back to dashboard", dashboard_path, class: "nav-link" %>

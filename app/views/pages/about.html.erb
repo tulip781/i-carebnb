@@ -1,9 +1,9 @@
-<div class="container-fluid" style="background-image: url(<%= asset_path "door.jpg" %>);">
+<div class="container-fluid" style="background-image: url(<%= asset_path "hands.jpg" %>);">
   <div style="padding: 50px;">
     <div class="row">
-      <div class="col-12 col-lg-7">
+      <div class="col-12 col-lg-8 offset-lg-2 text-center">
         <h1 class="display-4">Our Mission</h1>
-        <p class="lead mt-4">We aim to connect people who want to make a difference by volunteering a room in their house for a select period of time to charities who are in contact with those most in need. <br><br>Whether those in need of help are already homeless or at risk of being on the streets, people seeking refuge from plight in their home country, carers who need a break from the daily routine of their long term caring duties or who need to be closer to the people they are caring for.  We don't want to limit the scope of the people you could reach.  Our mission is to connect you to those people through the great work charities already do.</p>
+        <p class="mt-4" id="our-mission">We aim to connect people who want to make a difference by volunteering a room in their house for a select period of time to charities who are in contact with those most in need</p>
           <% unless current_user %>
         <div class="form-actions btn btn-secondary mt-4">
           <%= link_to "Join as a Host", new_user_registration_path, class: "nav-link" %>
@@ -15,24 +15,37 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-12 col-md-4">
-      <%= image_tag "icare_logo_main.svg", class: "rounded mt-5", style: "max-height: 250px;" %>
+    <div class="col-12 col-lg-9">
+      <p class="lead lead-sub pt-4 mt-4 mb-md-5">Whether those in need of help are already homeless or at risk of being on the streets, people seeking refuge from plight in their home country, carers who need a break from the daily routine of their long term caring duties or who need to be closer to the people they are caring for.
+      We don't want to limit the scope of the people you could reach.<br><br> Our mission is to connect you to those people through the great work charities already do.</p>
     </div>
-    <div class="col-12 col-md-8">
-      <h3 class="ml-4 mt-5">How can you help change a life and see it happen with your own eyes?</h3>
-      <p class="ml-4 lead lead-sub pt-4">icarebnb gives you direct control over the help you give someone in need. You help them to ultimately help themselves.<br><br> So how does it work?
-        <br><br>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-md-8">
-      <h3 class="ml-4 mt-md-2">If you have a spare room, you can register to become a host</h3>
-      <p class="ml-4 lead lead-sub pt-4 mb-md-5">When a charity contacts you through icarebnb to see if you can host a specific guest, you should <strong>ask as many questions as you need</strong> to to get comfortable with hosting that guest. <br><br>That is a great opportunity to see how that guest has
-      been vetted by the charity. Ideally, hosts provide somewhere for guests to wash, eat and sleep. You can ultimately do as much or as little as you can or would like to.
-    </div>
-    <div class="col-12 col-md-4">
-      <%= image_tag "sleep.svg", class: "rounded mb-5 pt-md-3" %>
+    <div class="col-12 col-lg-3">
+      <%= image_tag "icare_logo_main.svg", class: "rounded my-3 my-lg-5", style: "max-height: 180px;" %>
     </div>
   </div>
 </div>
-
+<div class="container-fluid py-5 mb-5 text-break-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <%= image_tag "kindness.jpg", class: "mb-5 mb-lg-0", style: "max-width: 100%; border-radius: 20px;" %>
+      </div>
+      <div class="col-12 col-lg-8">
+        <h3 class="ml-4 blue-font">How can you help change a life and see it happen with your own eyes?</h3>
+        <p class="ml-4 lead lead-sub pt-4">icarebnb gives you direct control over the help you give someone in need. You help them to ultimately help themselves.<br><br> So how does it work?</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <h3 class="mt-md-2 blue-font">If you have a spare room, you can register to become a host</h3>
+      <p class="lead lead-sub pt-4 mb-md-5">When a charity contacts you through icarebnb to see if you can host a specific guest, you should <strong>ask as many questions as you need</strong> to to get comfortable with hosting that guest. <br><br>That is a great opportunity to see how that guest has
+      been vetted by the charity. Ideally, hosts provide somewhere for guests to wash, eat and sleep. You can ultimately do as much or as little as you can or would like to.</p>
+    </div>
+    <div class="col-12 col-lg-4">
+      <%= image_tag "sleep.svg", class: "rounded mb-5 pt-md-2" %>
+    </div>
+  </div>
+</div>

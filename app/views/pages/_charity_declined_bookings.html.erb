@@ -23,7 +23,7 @@
                   <i class="fas fa-user-friends mt-2 main-colour"><span class="card-detail-text">&nbsp Host: <%= booking.room.user.first_name %> &nbsp | &nbsp Lead Guest: <%= booking.guest.first_name %></span></i>
                   <br><i class="far fa-calendar-alt mt-2 mb-4 main-colour"><span class="card-detail-text bold">&nbsp From <%= booking.start_date.strftime("%d/%m/%Y") %> to <%= booking.end_date.strftime("%d/%m/%Y") %></span></i>
                   <br><i class="mr-2"><span class="card-detail-text btn btn-sm details-button card-button"><%= link_to "Details", booking_path(booking) %></span></i>
-                  <p class="mt-3 mb-0">This booking has been declined by the host</p>
+                  <p class="mt-3 mb-0 card-detail-text">This booking has been declined by the host</p>
                 </div>
               </div>
             </div>

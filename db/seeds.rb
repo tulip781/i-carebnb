@@ -56,46 +56,40 @@ address_london = ["Croydon", "Camden", "Balham", "Hackney", "Dulwich", "Old Stre
 "Chiswick", "Greenwich", "Catford", "Whitechapel", "Aldgate", "Liverpool Street", "Northampton",
 "Reading"]
 
-real_location = ["42 Ravenslea Rd, Balham, London, SW12 8RX",
-"210 Shaftesbury Ave, London, WC2H 8DP",
-"12 Peckham Rye, London, SE15 3JD",
-"51 Walnut Tree Rd, London, SE10 9EU",
+real_location = [
+"10 Downing Street, London, SW1A 2AA",
+
 "1 Robert St, London, NW1 3JU",
+"12 Peckham Rye, London, SE15 3JD",
+"42 Ravenslea Rd, Balham, London, SW12 8RX",
 "119 Rushmore Rd, Lower Clapton, London, E5 0HA",
 "46 Rushford Rd, London, SE4 1SG",
+"51 Walnut Tree Rd, London, SE10 9EU",
 "19 Grove Park Gardens, London, W4 3RY",
-"15 High Street, Chalvey, Slough, SL1 2RU",
-"101 Gordon St, Northampton, NN2 6BW",
-"20 Cumin Pl, Edinburgh EH9 2JX",
-"10 Downing Street, London, SW1A 2AA",
 "41 Crown St, Reading, RG1 2SN",
-"149 Cardigan Rd, Leeds, LS6 1LJ",
-"Victoria St, Bristol, BS1 6AH",
-"50 Stoke Rd, Plymouth, PL1 5JG",
+"7 Madingley Rd, Cambridge, CB3 0EE",
+"101 Gordon St, Northampton, NN2 6BW",
 "55 Kinson Rd, Bournemouth, BH10 4AH",
-"419 Claremont Rd, Manchester, M14 5XF",
-"Broad Ln, Sheffield, S3 7HQ",
 "Milestone Ln, Birmingham, B21 0LA",
-"7 Madingley Rd, Cambridge, CB3 0EE"
+"Victoria St, Bristol, BS1 6AH",
+"Broad Ln, Sheffield, S3 7HQ",
+"419 Claremont Rd, Manchester, M14 5XF",
+"149 Cardigan Rd, Leeds, LS6 1LJ",
+"50 Stoke Rd, Plymouth, PL1 5JG",
+"20 Cumin Pl, Edinburgh EH9 2JX",
+"15 High Street, Chalvey, Slough, SL1 2RU"
 ]
 
-descriptions = ["D10 Downing Street, the locale of British prime ministers since 1735, vies with the White House as being
- the most important political building anywhere in the world in the modern era.
-  Behind its black door have been taken the most important decisions affecting
-  Britain for the last 275 years.  The latest decision may be the biggest one.
-  It has opened its doors to those most in need, whether that be the homeless,
-  long term carers, those fleeing wars and persecution.  The main host may soon be different,
-  but their commitment to icarebnb.org remains.", "Downstairs some of the most famous actors in the world may
-   be treading the boards of this famous theatre but a little known fact is that it has a small
-   flat hidden away in the back. Located in the middle of a district blighted by homelessness,
-   it has decided to make a difference.  It has made a generous and life changing decision to
-   welcome people in need from time to time to stay in its spare room.  The facilities are basic,
-   but everything a guest needs for a restful night is available.  The room has two beds, and has
-   access to clean bathroom facilities.  It has a power shower and clean towels.  A hot breakfast can
-   be arranged.", "In the middle of one of the wealthiest areas in London, this kind host has four
-   beds available in a cozy and safe environment.  Ideal for a family who doesn’t mind sharing a room.
-    The family was at one point in desperate need, and through the help of strangers, managed to get itself
-  back on its feet before setting up a local business which has flourished.  It now wants to provide the
+descriptions = ["10 Downing Street, the locale of British prime ministers since 1735, vies with the White House as being
+the most important political building anywhere in the world in the modern era.
+Behind its black door have been taken the most important decisions affecting
+Britain for the last 275 years.  The latest decision may be the biggest one.
+It has opened its doors to those most in need, whether that be the homeless,
+long term carers, those fleeing wars and persecution.  The main host may soon be different,
+but their commitment to icarebnb.org remains.", "In the middle of one of the wealthiest areas in London, this kind host has four
+beds available in a cozy and safe environment.  Ideal for a family who doesn’t mind sharing a room.
+The family was at one point in desperate need, and through the help of strangers, managed to get itself
+back on its feet before setting up a local business which has flourished.  It now wants to provide the
 sort of help they themselves received.  The host is happy to provide a hot evening meal and breakfast.
 While the bathroom facilities are shared, they are large and two big hot water tanks mean that hot running
 water shouldn’t be a problem.", "Round the corner from one of the most famous addresses on British television, this has nothing to
@@ -107,45 +101,45 @@ but you have been warned!  The hosts will make every effort to make the guests f
 pretty calm and quiet environment.  A retired police officer would like to help someone get back
 on their feet.  The accommodation is near Wandsworth Common so access to a large green space could
 also be helpful to the guest.  Overground rail is nearby too if needed.  The guest room has recently
- been decorated, so it wouldn’t be suitable for anyone sensitive to the smell of fresh paint.",
+been decorated, so it wouldn’t be suitable for anyone sensitive to the smell of fresh paint.",
 "Modern comfortable room with desk and high speed internet.  Location isn’t too far from Homerton Hospital which would help family
 visit someone at that hospital if needed.  Close to the Hackney Marshes too.  Host is a retired actor with strong interest in helping
 families seeking refuge from plight in own country.  Recent guest was someone being persecuted for their homosexuality and refused medical
- help for a serious but treatable condition and particularly appreciated living with a host who has himself suffered homophobia.  Host also has
- an interest in alleviating homelessness.  Private bathroom facilities, albeit small.", "Nice sized room with desk and wifi.
-   Close to a number of green spaces and also the local river.  Host has welcomed many guests seeking a
-   break from a lifetime of caring duties.  Host has had particular experience with people with learning
-   disabilities so is empathetic of the challenges around their care.  Host has also helped many people
-   with learning disabilities into work.  Guest is welcome to eat with the family when it eats.  Room at
-   the inn, and room at the table!", "Two rooms with two beds each available for one family.  Small terraced house.  Close to the River Thames.  Hosts (a spouse couple) used
-   to be City professionals before retirement.
-     Kids at university frees up two rooms to help people who need them.  Hosts have spent their lives trying to alleviate the homeless problem in London with volunteer work
-      and also corporate fundraising efforts for a number of homeless charities.  This has given them a keen understanding of the value of
-      helping people at the earliest stage of homeless risk and the challenges the local authorities face in finding suitable accommodation.",
-      "Located near the River Thames and not far from Chiswick House Grounds.  High street is a 15 minute walk but local shops nearby.  Very close to Chiswick overground station with route into Waterloo.  Hosts have done a lot of work helping refugees, including fundraising
-      and mentoring refugees bettering their futures through entrepreneurship.  Hosts speak Arabic.  Their safeguarding checks have been done to a detailed level because of their recent work with local schools.",
-       "Located near the River Kennet.  Near local shops.  About 15 minutes away from the town centre.  One of the hosts is a retired teacher and the other host is a retired lawyer.
-        Safeguarding checks have been kept up to date.  They have done a lot of work with children’s charities.
-          Room has come available with daughter having left home.  One host speaks fluent Spanish and the other host speaks fluent Hindi.
-           Hot meals will be available when the hosts eat.  Hosts live a very active lifestyle.",
-           "Two rooms available near St John’s College playing fields.  Host is a serving professor at the university.
-            Host has a particular interest in helping people with learning disabilities but would be happy to host refugees and people at risk of long term homelessness.
-            Kitchen facilities available for guests.  Host is a very bad cook and mainly lives on takeaway food.
-            If the guests can help with cooking, all the better!  A team effort to keeping the house tidy would be much appreciated.",
+help for a serious but treatable condition and particularly appreciated living with a host who has himself suffered homophobia.  Host also has
+an interest in alleviating homelessness.  Private bathroom facilities, albeit small.", "Nice sized room with desk and wifi.
+Close to a number of green spaces and also the local river.  Host has welcomed many guests seeking a
+break from a lifetime of caring duties.  Host has had particular experience with people with learning
+disabilities so is empathetic of the challenges around their care.  Host has also helped many people
+with learning disabilities into work.  Guest is welcome to eat with the family when it eats.  Room at
+the inn, and room at the table!", "Two rooms with two beds each available for one family.  Small terraced house.  Close to the River Thames.  Hosts (a spouse couple) used
+to be City professionals before retirement.
+Kids at university frees up two rooms to help people who need them.  Hosts have spent their lives trying to alleviate the homeless problem in London with volunteer work
+and also corporate fundraising efforts for a number of homeless charities.  This has given them a keen understanding of the value of
+helping people at the earliest stage of homeless risk and the challenges the local authorities face in finding suitable accommodation.",
+"Located near the River Thames and not far from Chiswick House Grounds.  High street is a 15 minute walk but local shops nearby.  Very close to Chiswick overground station with route into Waterloo.  Hosts have done a lot of work helping refugees, including fundraising
+and mentoring refugees bettering their futures through entrepreneurship.  Hosts speak Arabic.  Their safeguarding checks have been done to a detailed level because of their recent work with local schools.",
+"Located near the River Kennet.  Near local shops.  About 15 minutes away from the town centre.  One of the hosts is a retired teacher and the other host is a retired lawyer.
+Safeguarding checks have been kept up to date.  They have done a lot of work with children’s charities.
+Room has come available with daughter having left home.  One host speaks fluent Spanish and the other host speaks fluent Hindi.
+Hot meals will be available when the hosts eat.  Hosts live a very active lifestyle.",
+"Two rooms available near St John’s College playing fields.  Host is a serving professor at the university.
+Host has a particular interest in helping people with learning disabilities but would be happy to host refugees and people at risk of long term homelessness.
+Kitchen facilities available for guests.  Host is a very bad cook and mainly lives on takeaway food.
+If the guests can help with cooking, all the better!  A team effort to keeping the house tidy would be much appreciated.",
 "Double bed.  Room overlooks green space.  Hosts are devout Christians and welcoming of people of all faiths and backgrounds.
- Hosts have done considerable work with homeless shelters in the past.
-  One is a retired fire engineer and the other is an artist who continues to produce work.
-   If any of the guests want to pose for portraits, that would be an added bonus for the hosts,
-   but there is no pressure to do this.  Hosts are keen to help people get back on their feet.
-    After having suffered loss in their own lives, they have become very sensitive to the mental health
-    impacts of trauma on well being.",
-    "Two rooms.  About 10 minutes walk away from the seaside.  Hosts also have a labrador (gentle but big).  Dog lovers therefore particularly welcome.  Hosts care deeply about the worsening homeless problem in Bournemouth and so would like to provide emergency help to get those at risk back into a position where they can move forward.  Hosts work at the local council and so have been seeing first hand the difficulties the housing market is creating for vulnerable people.  Kitchen is available for guest to cook own meals.  Hosts culinary skills not a strong point.",
-    "Quite close to Birmingham City Hospital so particularly helpful location for carers visiting patients at the hospital.  Hosts have also accommodated refugees in the past and are also happy to help people at risk of homelessness.  Hosts speak Somali and English fluently and can also get by in Spanish and French.  Their children and the cats still live at home so anyone allergic to teenagers and cat hair are unlikely to be happy in this home.",
-    "Very large room available.  House is close to the River Avon.  Both hosts work at the local university.  Expertise in war studies has made them particularly sensitive to the ravages of war and the impact on families.  Support for guests escaping war torn countries is very welcome.  Hosts are also willing to support people at risk of homelessness and people involved in long-term care.  Kitchen available to guests who can cook, but we will have to work together so that it can work smoothly as hosts also cook.",
-    "Very close to the local university.  Hosts are concerned about the deteriorating homeless problem in Sheffield and volunteer at the local soup kitchen when they can.  Significant fundraising efforts have been undertaking in aid of local homeless charities.  Hosts are open to hearing about the help potential guests need to see what the hosts can do to help.  Accommodation is available.  As the hosts have a young child, the hosts will be very keen to understand the depth of the relationship between the guest and the relevant charity.",
-  "One room in the Rusholme area of Manchester.  Close to the Manchester University.  Green spaces close by.  Muslim host family particularly interested in helping Syrian refugees but Islam encourages charitable help to everyone in need and so the host family is open to helping people with all sorts of challenges.  Hosts would like to know more about the prospective guests in a detailed chat with the charity.  The hosts run a local Indian restaurant so if the guests like Indian food, the guests are in luck!",
-  "One room near Burley Park and not too far from the River Aire.  Mexican hosts speak fluent Spanish.  Hosts are both doctors at the local hospital with kids who have flown the nest.  The room has limited availability but the hosts are happy to help when they can.  Given the hosts’ background, carers are very welcome but so are homeless risk and refugees.  Safeguarding checks are limited but both are in a heavily regulated industry.  Hot meals can be arranged.",
-  "Very central location and also close to the coast.  Hosts have been close to the maritime industry all their lives and have also been involved in helping to alleviate human trafficking.  The hosts are open to anyone in need, subject to a detailed discussion with the relevant charity. The room is very large with a desk and also a sofa.  Very comfortable.  Hot meals can be arranged.  Please note that one of the hosts has a severe nut allergy so guests will need to avoid bringing nut products into the house.",
+Hosts have done considerable work with homeless shelters in the past.
+One is a retired fire engineer and the other is an artist who continues to produce work.
+If any of the guests want to pose for portraits, that would be an added bonus for the hosts,
+but there is no pressure to do this.  Hosts are keen to help people get back on their feet.
+After having suffered loss in their own lives, they have become very sensitive to the mental health
+impacts of trauma on well being.",
+"Two rooms.  About 10 minutes walk away from the seaside.  Hosts also have a labrador (gentle but big).  Dog lovers therefore particularly welcome.  Hosts care deeply about the worsening homeless problem in Bournemouth and so would like to provide emergency help to get those at risk back into a position where they can move forward.  Hosts work at the local council and so have been seeing first hand the difficulties the housing market is creating for vulnerable people.  Kitchen is available for guest to cook own meals.  Hosts culinary skills not a strong point.",
+"Quite close to Birmingham City Hospital so particularly helpful location for carers visiting patients at the hospital.  Hosts have also accommodated refugees in the past and are also happy to help people at risk of homelessness.  Hosts speak Somali and English fluently and can also get by in Spanish and French.  Their children and the cats still live at home so anyone allergic to teenagers and cat hair are unlikely to be happy in this home.",
+"Very large room available.  House is close to the River Avon.  Both hosts work at the local university.  Expertise in war studies has made them particularly sensitive to the ravages of war and the impact on families.  Support for guests escaping war torn countries is very welcome.  Hosts are also willing to support people at risk of homelessness and people involved in long-term care.  Kitchen available to guests who can cook, but we will have to work together so that it can work smoothly as hosts also cook.",
+"Very close to the local university.  Hosts are concerned about the deteriorating homeless problem in Sheffield and volunteer at the local soup kitchen when they can.  Significant fundraising efforts have been undertaking in aid of local homeless charities.  Hosts are open to hearing about the help potential guests need to see what the hosts can do to help.  Accommodation is available.  As the hosts have a young child, the hosts will be very keen to understand the depth of the relationship between the guest and the relevant charity.",
+"One room in the Rusholme area of Manchester.  Close to the Manchester University.  Green spaces close by.  Muslim host family particularly interested in helping Syrian refugees but Islam encourages charitable help to everyone in need and so the host family is open to helping people with all sorts of challenges.  Hosts would like to know more about the prospective guests in a detailed chat with the charity.  The hosts run a local Indian restaurant so if the guests like Indian food, the guests are in luck!",
+"One room near Burley Park and not too far from the River Aire.  Mexican hosts speak fluent Spanish.  Hosts are both doctors at the local hospital with kids who have flown the nest.  The room has limited availability but the hosts are happy to help when they can.  Given the hosts’ background, carers are very welcome but so are homeless risk and refugees.  Safeguarding checks are limited but both are in a heavily regulated industry.  Hot meals can be arranged.",
+"Very central location and also close to the coast.  Hosts have been close to the maritime industry all their lives and have also been involved in helping to alleviate human trafficking.  The hosts are open to anyone in need, subject to a detailed discussion with the relevant charity. The room is very large with a desk and also a sofa.  Very comfortable.  Hot meals can be arranged.  Please note that one of the hosts has a severe nut allergy so guests will need to avoid bringing nut products into the house.",
 "Lovely room.  The host is a pastor at the local church.  Welcome to those from all backgrounds and all types of need.  The area is the Grange area of Edinburgh not too far from a number of green spaces.  Hot meals can be arranged.  If the guests are willing and available to help out at the pastor’s church, that would be fantastic but it is not necessary as part of the hosting arrangement.  The pastor is also a pretty handy cook, so if there are meal needs, prior notice would be appreciated so meals can be shared."
 ]
 
@@ -303,10 +297,10 @@ charity_three = Charity.create(
 puts "🏠⏱ creating rooms - this can take 45 seconds ⏱🏠"
 
 i = 0
-21.times do
+20.times do
   adult_space = rand(1..2)
   child_space = [0,0,1,2].sample
-  infant_space = [0,0,1].sample
+  infant_space = 1
 
   room = Room.new(
     address: real_location[i],
@@ -316,7 +310,7 @@ i = 0
     beds: (adult_space + child_space + infant_space),
     max_stay_length: rand(30),
     # image_url: flats_images[i],
-    description: descriptions.sample,
+    description: descriptions[i],
     user: bot_user_array.sample,
     title: flats_titles.sample,
     postcode: address_london[i],
@@ -329,8 +323,37 @@ i = 0
   i += 1
 end
 
+downing_street = Room.where(address: "10 Downing Street, London, SW1A 2AA").first
+downing_street.adult_space = 1
+downing_street.child_space = 1
+downing_street.infant_space = 1
+
 rooms_except_olivia = []
 Room.all.each {|r| rooms_except_olivia << r }
+
+shaftesbury = Room.new(
+  address: "210 Shaftesbury Ave, London, WC2H 8DP",
+  adult_space: 1,
+  child_space: 1,
+  infant_space: 1,
+  beds: 3,
+  max_stay_length: rand(30),
+  # image_url: flats_images[i],
+  description: "Downstairs some of the most famous actors in the world may be treading the boards of this famous theatre but a little known fact is that it has a small
+flat hidden away in the back. Located in the middle of a district blighted by homelessness,
+it has decided to make a difference.  It has made a generous and life changing decision to
+welcome people in need from time to time to stay in its spare room.  The facilities are basic,
+but everything a guest needs for a restful night is available.  The room has two beds, and has
+access to clean bathroom facilities.  It has a power shower and clean towels.  A hot breakfast can
+be arranged.",
+  user: olivia_host_user,
+  title: flats_titles.sample,
+  postcode: address_london.sample,
+  facilities: ["Shared","Private"].sample
+)
+file = URI.open(flats_images[i])
+shaftesbury.photo.attach(io: file, filename: 'some-image.jpg', content_type: 'image/jpg')
+shaftesbury.save!
 
 sleep(0.5)
 
@@ -345,7 +368,7 @@ olivia_room_1.save!
 olivia_room_2 = Room.all[5]
 olivia_room_2.user = olivia_host_user
 olivia_room_2.save!
-olivia_room_3 = Room.all[1]
+olivia_room_3 = Room.all[0]
 olivia_room_3.user = olivia_host_user
 olivia_room_3.save!
 olivia_room_5 = Room.all[6]
@@ -355,7 +378,7 @@ olivia_room_4 = Room.where(address: "210 Shaftesbury Ave, London, WC2H 8DP").fir
 olivia_room_4.user = olivia_host_user
 olivia_room_4.adult_space = 1
 olivia_room_4.child_space = 1
-olivia_room_4.infant_space = 0
+olivia_room_4.infant_space = 1
 olivia_room_4.save!
 
 sleep(0.5)
@@ -380,7 +403,7 @@ dummy_guest3.charity = charity_two
 dummy_guest3.save
 
 dummy_guest4 = Guest.new(
-  first_name: "Sarah Williams",
+  first_name: "Ross Bickmore",
   child_space: 0,
   adult_space: 1)
 dummy_guest4.charity = charity_two
@@ -447,7 +470,7 @@ booking4.room = olivia_room_3
 booking4.user = leia_charityrep_user
 booking4.guest = dummy_guest4
 booking4.start_date = Faker::Date.forward(days: 4)
-booking4.end_date = Faker::Date.forward(days: 5)
+booking4.end_date = Faker::Date.forward(days: 7)
 booking4.number_of_children = rand(0..2)
 booking4.number_of_adults = rand(1..2)
 booking4.number_of_infants = rand(0..2)

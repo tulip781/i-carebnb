@@ -76,8 +76,7 @@ real_location = [
 "419 Claremont Rd, Manchester, M14 5XF",
 "149 Cardigan Rd, Leeds, LS6 1LJ",
 "50 Stoke Rd, Plymouth, PL1 5JG",
-"20 Cumin Pl, Edinburgh EH9 2JX",
-"15 High Street, Chalvey, Slough, SL1 2RU"
+"20 Cumin Pl, Edinburgh EH9 2JX"
 ]
 
 descriptions = ["10 Downing Street, the locale of British prime ministers since 1735, vies with the White House as being
@@ -297,7 +296,7 @@ charity_three = Charity.create(
 puts "🏠⏱ creating rooms - this can take 45 seconds ⏱🏠"
 
 i = 0
-20.times do
+19.times do
   adult_space = rand(1..2)
   child_space = [0,0,1,2].sample
   infant_space = 1

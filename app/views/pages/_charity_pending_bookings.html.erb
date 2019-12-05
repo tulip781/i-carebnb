@@ -22,7 +22,7 @@
             <h4 class="float-left white-font">Pending Bookings<i class="fas fa-hourglass-half ml-3 mt-2"></i>
           </div>
           <% counter = 1 %>
-          <% charity_pending_bookings.reverse.each do |booking| %>
+          <% charity_pending_bookings.each do |booking| %>
             <% if booking.confirmed == false && booking.declined == false %>
               <div class="card-body">
                 <div class="dash_content w-100">

@@ -22,9 +22,9 @@
               <p class="chat-time mr-2 mt-4" style="font-size: 0.8em;"><%= chat.created_at.strftime('%d %b %Y %l:%M %p') %></p>
 
               <% end %>
-  <% if chat.read && current_user.id == chat.user.id %>
-    <p class="read-status alata mt-1"><%= "Read" %></p>
-  <% elsif chat.read != true && current_user.id == chat.user.id %>
-    <p class="read-status alata mt-1"><%= "Unread" %></p>
-  <% end %>
+  <%# if chat.read && current_user.id == chat.user.id %>
+    <!-- <p class="read-status alata mt-1"><%= "Read" %></p> -->
+  <%# elsif chat.read != true && current_user.id == chat.user.id %>
+    <!-- <p class="read-status alata mt-1"><%= "Unread" %></p> -->
+  <%# end %>
 </div>

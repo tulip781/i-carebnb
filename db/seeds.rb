@@ -151,7 +151,6 @@ women_cloudinary = ['dan-ROJFuWCsfmA-unsplash_hnfv7s',
 
 men_cloudinary = ['jurica-koletic-7YVZYZeITc8-unsplash_s2zluj',
 'marie-michele-bouchard-iel2tNw4WLM-unsplash_j4gnik',
-'elizeu-dias-rlk6VkHZkns-unsplash_lremks',
 'ashwini-chaudhary-eq6EJSdpHUQ-unsplash_wlepli',
 'mason-hassoun-1Mhnd67sWqw-unsplash_gpl0un',
 'hunter-johnson-OK7VpKfbb_c-unsplash_xptynt',
@@ -186,7 +185,7 @@ bot_user_array = []
     )
 end
 
-10.times do
+9.times do
   gender_user = "Male"
   new_name = Faker::Name.male_first_name
   user = User.create(
@@ -230,16 +229,16 @@ sleep(0.5)
 
 leia_charityrep_user = User.create(
     email: "charity@icarebnb.com",
-    title: "Miss",
-    first_name: "Leia",
+    title: "Mr",
+    first_name: "Lee",
     surname: "Williams" ,
     address: Faker::Address.street_address ,
     phone_number: Faker::PhoneNumber.phone_number,
     date_of_birth: Faker::Date.backward(days: 400),
-    gender: "Female" ,
+    gender: "Male" ,
     host: false,
     password: "123456",
-    avatar_url: "kal-visuals-b1Hg7QI-zcc-unsplash_oclzjn"
+    avatar_url: "elizeu-dias-rlk6VkHZkns-unsplash_lremks"
 )
 
 puts "📐 Creating test account with email: 'test@test.com' and password: '123456' 📐"

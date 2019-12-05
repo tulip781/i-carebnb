@@ -52,6 +52,7 @@ if (element) {
   }
   let dates = JSON.parse(element.dataset.past);
   flatpickr('#range_start', {
+    mode: "range",
     altInput: true,
     dateFormat: "d-m-Y",
     disable: dates,

@@ -1,5 +1,5 @@
 .map-custom {
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 15px 15px 0;
 }
 
 .card-img-top {
@@ -13,12 +13,12 @@
 }
 
 .card-radius {
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .card-image-radius {
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
 }
 
 .main-colour {
@@ -33,7 +33,7 @@
 
 #search-bar {
   background-color: $second;
-  border-radius: 10px 0 0 10px;
+  border-radius: 15px 0 0 15px;
   padding: 25px;
   color: white;
 }

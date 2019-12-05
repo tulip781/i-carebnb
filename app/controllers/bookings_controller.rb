@@ -28,7 +28,6 @@ class BookingsController < ApplicationController
     @booking.start_date = @start_date
     @booking.end_date = @end_date
     @booking.user = current_user
-    @booking.guest = Guest.all.sample
     @room = Room.find(params[:room_id])
     @unav = @room.unavailabilities.pluck(:date).map{|d|d.strftime("%d-%m-%Y")}
     @booking.room = @room

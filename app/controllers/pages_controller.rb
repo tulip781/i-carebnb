@@ -21,9 +21,9 @@ class PagesController < ApplicationController
     @bookings = current_user.rooms.map { |room| room.bookings }.flatten
     @booking_requests = @bookings.select { |booking| booking.confirmed == false && booking.declined == false }
     # @requests = Booking.get_bookings(@rooms)
-    @charity_confirmed_bookings = current_user.bookings.where(confirmed: true)
-    @charity_declined_bookings = current_user.bookings.where(declined: true)
-    @charity_pending_bookings = current_user.bookings.select { |booking| booking.confirmed == false && booking.declined == false }
+    @charity_confirmed_bookings = current_user.bookings.where(confirmed: true).order(created_at: :desc)
+    @charity_declined_bookings = current_user.bookings.where(declined: true).order(created_at: :desc)
+    @charity_pending_bookings = current_user.bookings.order(created_at: :desc).select { |booking| booking.confirmed == false && booking.declined == false }
     # raise
   end
 
